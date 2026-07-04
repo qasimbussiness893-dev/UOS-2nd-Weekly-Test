@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sindh UNI. 2nd Weekly Test by SSS Org.</title>
+<style>
+  :root{
+    --red:#a3121f;--red-deep:#6e0c15;--red-bright:#e63946;
+    --gold:#f2c14e;--gold-light:#f7d878;
+    --green:#1f8a4c;--green-light:#27ae60;
+    --wrong:#c62828;--wrong-light:#e74c3c;
+    --paper:#fffaf8;--ink:#2a1416;--ink-soft:#6b4a4d;
+    --line:#f0d9d4;--shadow:0 10px 30px rgba(110,12,21,0.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Segoe UI','Trebuchet MS',Tahoma,sans-serif;
+    background:radial-gradient(circle at 20% 0%,#fdf0ee 0%,#fce6e3 35%,#f9dbd6 100%);
+    background-attachment:fixed;color:var(--ink);min-height:100vh;overflow-x:hidden;
+  }
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
+    background-image:radial-gradient(circle,rgba(163,18,31,0.04) 1px,transparent 1px);
+    background-size:22px 22px;}
+  .banner{
+    background:linear-gradient(135deg,var(--red) 0%,var(--red-deep) 100%);
+    color:#fff;text-align:center;padding:30px 20px 36px;
+    position:relative;overflow:hidden;
+    border-bottom:4px solid var(--gold);box-shadow:0 2px 0 var(--gold-light) inset;
+  }
+  .banner::before{content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 10% 20%,rgba(242,193,78,0.14) 0,transparent 40%),
+    radial-gradient(circle at 90% 80%,rgba(242,193,78,0.12) 0,transparent 40%);pointer-events:none;}
+  .logo-row{display:flex;align-items:center;justify-content:center;gap:24px;margin-bottom:12px;flex-wrap:wrap;}
+  .logo-slot{position:relative;display:inline-flex;height:72px;width:72px;}
+  .logo-row img{height:72px;width:72px;object-fit:contain;background:#fff;border-radius:50%;padding:6px;
+    box-shadow:0 4px 14px rgba(0,0,0,0.25);animation:dropIn 0.7s ease both;}
+  .logo-slot:nth-child(2) img,.logo-slot:nth-child(2) .logo-placeholder{animation-delay:0.15s;}
+  .logo-placeholder{height:72px;width:72px;border-radius:50%;background:rgba(255,255,255,0.15);
+    border:2px dashed rgba(255,255,255,0.5);align-items:center;justify-content:center;
+    font-size:0.62rem;font-weight:700;color:rgba(255,255,255,0.85);text-align:center;
+    line-height:1.2;padding:4px;animation:dropIn 0.7s ease both;}
+  @keyframes dropIn{from{opacity:0;transform:translateY(-22px) scale(0.85)}to{opacity:1;transform:translateY(0) scale(1)}}
+  .test-name{font-size:clamp(1.15rem,3.6vw,1.7rem);font-weight:800;letter-spacing:0.3px;
+    text-shadow:0 2px 10px rgba(0,0,0,0.3);animation:fadeUp 0.7s ease 0.2s both;line-height:1.35;padding:0 6px;}
+  .org-title{font-size:clamp(0.95rem,2.6vw,1.15rem);font-weight:700;color:var(--gold-light);
+    margin-top:8px;animation:fadeUp 0.7s ease 0.3s both;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+  .wrap{max-width:680px;margin:0 auto;padding:24px 18px 60px;}
+  .card{background:var(--paper);border-radius:16px;box-shadow:var(--shadow);border:1px solid var(--line);}
+  #screen-landing{margin-top:-22px;padding:26px 22px 30px;text-align:center;animation:fadeUp 0.6s ease both;}
+  .meta-row{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:18px 0 20px;}
+  .pill{background:linear-gradient(135deg,#fdeeea,#fbdcd4);color:var(--red);border:1px solid #f3c4b8;
+    font-weight:700;font-size:0.8rem;padding:7px 14px;border-radius:999px;}
+  .timer-chip{display:inline-flex;align-items:center;gap:8px;
+    background:linear-gradient(135deg,var(--wrong-light),var(--wrong));color:#fff;font-weight:800;
+    padding:10px 22px;border-radius:999px;font-size:1rem;box-shadow:0 6px 16px rgba(198,40,40,0.35);margin-bottom:6px;}
+  .qcount-badge{display:inline-block;background:var(--red);color:#fff;font-weight:800;font-size:0.78rem;
+    padding:5px 14px;border-radius:999px;margin-top:10px;letter-spacing:0.3px;}
+  .landing-note{color:var(--ink-soft);font-size:0.9rem;margin-top:12px;line-height:1.55;}
+  .form-group{text-align:left;margin:14px 0;}
+  .form-group label{display:block;font-weight:700;font-size:0.85rem;color:var(--red);margin-bottom:6px;}
+  .form-group input{width:100%;padding:13px 14px;border:2px solid var(--line);border-radius:10px;
+    font-size:1rem;transition:border-color 0.2s,box-shadow 0.2s;font-family:inherit;background:#fff;}
+  .form-group input:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(163,18,31,0.12);}
+  .err-msg{color:var(--wrong);font-size:0.78rem;margin-top:5px;min-height:1em;font-weight:600;}
+  .btn-primary{background:linear-gradient(135deg,var(--red),var(--red-deep));color:#fff;border:none;
+    padding:15px 36px;font-size:1.02rem;font-weight:800;border-radius:12px;cursor:pointer;
+    box-shadow:0 8px 20px rgba(163,18,31,0.3);transition:transform 0.15s,box-shadow 0.15s,filter 0.15s;
+    width:100%;margin-top:6px;}
+  .btn-primary:hover{transform:translateY(-2px);filter:brightness(1.08);box-shadow:0 12px 26px rgba(163,18,31,0.38);}
+  .btn-primary:active{transform:translateY(0);}
+  #screen-test{display:none;}
+  .test-topbar{position:sticky;top:0;z-index:50;background:linear-gradient(135deg,#fff,#fdf4f2);
+    border:1px solid var(--line);border-radius:14px;padding:12px 18px;display:flex;
+    align-items:center;justify-content:space-between;margin-bottom:20px;box-shadow:var(--shadow);
+    flex-wrap:wrap;gap:10px;}
+  .candidate-chip{font-size:0.82rem;color:var(--ink-soft);font-weight:600;}
+  .candidate-chip b{color:var(--red);}
+  #timer-display{font-weight:800;font-size:1.1rem;color:#fff;
+    background:linear-gradient(135deg,var(--wrong-light),var(--wrong));padding:8px 18px;
+    border-radius:999px;box-shadow:0 4px 12px rgba(198,40,40,0.3);min-width:92px;text-align:center;}
+  #timer-display.low{animation:pulseRed 1s infinite;}
+  @keyframes pulseRed{0%,100%{box-shadow:0 4px 12px rgba(198,40,40,0.3)}50%{box-shadow:0 4px 26px rgba(198,40,40,0.75)}}
+  .subject-section{margin-bottom:28px;}
+  .subject-header{display:flex;align-items:center;gap:10px;
+    background:linear-gradient(135deg,var(--red),var(--red-deep));color:#fff;padding:13px 18px;
+    border-radius:14px 14px 0 0;font-weight:800;font-size:1.02rem;box-shadow:var(--shadow);
+    position:relative;overflow:hidden;}
+  .subject-header::after{content:"";position:absolute;right:0;top:0;bottom:0;width:6px;background:var(--gold);}
+  .subject-count{margin-left:auto;font-size:0.74rem;background:rgba(255,255,255,0.18);
+    padding:4px 10px;border-radius:999px;font-weight:700;flex-shrink:0;}
+  .questions-box{background:var(--paper);border:1px solid var(--line);border-top:none;
+    border-radius:0 0 14px 14px;padding:6px 18px 8px;box-shadow:var(--shadow);}
+  .q-card{padding:18px 0 20px;border-bottom:1px dashed var(--line);
+    opacity:0;transform:translateY(14px);animation:qReveal 0.5s ease forwards;}
+  .q-card:last-child{border-bottom:none;}
+  @keyframes qReveal{to{opacity:1;transform:translateY(0)}}
+  .q-label{display:flex;align-items:baseline;gap:8px;margin-bottom:10px;}
+  .q-num{color:#fff;background:var(--red);font-weight:800;font-size:0.74rem;padding:3px 9px;border-radius:7px;flex-shrink:0;}
+  .q-text{font-weight:700;font-size:0.98rem;color:var(--ink);line-height:1.4;}
+  .options{display:flex;flex-direction:column;gap:9px;}
+  .option{border:2px solid var(--line);background:#fff;border-radius:10px;padding:11px 15px;
+    font-size:0.92rem;color:var(--ink);cursor:pointer;
+    transition:border-color 0.15s,background 0.15s,transform 0.12s,box-shadow 0.15s;
+    user-select:none;position:relative;display:flex;align-items:center;justify-content:space-between;}
+  .option:hover{border-color:var(--red);background:#fdf3f1;transform:translateX(3px);}
+  .option::after{content:"";font-size:0.92rem;opacity:0;}
+  .option.selected-correct::after{content:"✓";opacity:1;font-weight:800;}
+  .option.selected-wrong::after{content:"✗";opacity:1;font-weight:800;}
+  .option.reveal-correct::after{content:"✓";opacity:1;font-weight:800;}
+  .option.selected-correct,.option.selected-wrong,.option.reveal-correct{transform:translateX(0);}
+  .option.selected-correct{background:linear-gradient(135deg,var(--green-light),var(--green));color:#fff;
+    border-color:var(--green);font-weight:700;animation:popCorrect 0.35s ease;}
+  .option.selected-wrong{background:linear-gradient(135deg,var(--wrong-light),var(--wrong));color:#fff;
+    border-color:var(--wrong);font-weight:700;animation:shake 0.4s ease;}
+  .option.reveal-correct{border-color:var(--green);background:#eafaf0;color:var(--green);font-weight:700;}
+  .option.locked{cursor:not-allowed;transform:none !important;}
+  .option.locked:hover{transform:none;background:inherit;}
+  .option.dimmed{opacity:0.5;}
+  @keyframes popCorrect{0%{transform:scale(0.96)}60%{transform:scale(1.02)}100%{transform:scale(1)}}
+  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+  .submit-area{text-align:center;margin-top:16px;}
+  .progress-track{height:10px;background:#f3d9d4;border-radius:999px;overflow:hidden;margin-bottom:18px;}
+  .progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--red));width:0%;
+    transition:width 0.4s ease;border-radius:999px;}
+  .progress-label{font-size:0.8rem;color:var(--ink-soft);margin-bottom:14px;font-weight:600;}
+  #screen-result{display:none;text-align:center;animation:fadeUp 0.6s ease both;}
+  .result-hero{padding:32px 22px 24px;}
+  .score-ring{width:140px;height:140px;margin:0 auto 16px;border-radius:50%;display:flex;
+    align-items:center;justify-content:center;
+    background:conic-gradient(var(--green) calc(var(--pct) * 1%),#f3d9d4 0);
+    animation:ringGrow 1s ease both;}
+  @keyframes ringGrow{from{transform:scale(0.7) rotate(-90deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
+  .score-ring-inner{width:110px;height:110px;background:var(--paper);border-radius:50%;display:flex;
+    flex-direction:column;align-items:center;justify-content:center;}
+  .score-ring-inner .big{font-size:1.65rem;font-weight:800;color:var(--red);}
+  .score-ring-inner .small{font-size:0.72rem;color:var(--ink-soft);font-weight:600;}
+  .result-name{font-size:1.15rem;font-weight:800;color:var(--red);margin-bottom:2px;}
+  .result-district{color:var(--ink-soft);font-size:0.88rem;margin-bottom:18px;}
+  .breakdown{text-align:left;margin-top:18px;padding:0 22px 26px;}
+  .breakdown-title{font-weight:800;color:var(--red);margin-bottom:14px;font-size:0.98rem;
+    border-bottom:2px solid var(--gold);padding-bottom:8px;}
+  .breakdown-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);}
+  .breakdown-row:last-child{border-bottom:none;}
+  .breakdown-subject{flex:1;font-weight:700;font-size:0.9rem;}
+  .breakdown-bar-track{flex:2;height:9px;background:#f3d9d4;border-radius:999px;overflow:hidden;}
+  .breakdown-bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--gold),var(--green));
+    width:0%;transition:width 1s ease 0.2s;}
+  .breakdown-score{font-size:0.82rem;font-weight:700;color:var(--ink-soft);min-width:42px;text-align:right;}
+  .recorded-banner{display:flex;align-items:center;gap:12px;
+    background:linear-gradient(135deg,#eafaf0,#d8f3e3);border:1.5px solid var(--green);
+    border-radius:0 0 16px 16px;padding:16px 22px;margin-top:4px;text-align:left;}
+  .recorded-icon{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--green);
+    color:#fff;font-weight:800;font-size:1rem;display:flex;align-items:center;justify-content:center;}
+  .recorded-banner span:last-child{font-size:0.85rem;font-weight:700;color:var(--green);line-height:1.5;}
+  footer{text-align:center;color:var(--ink-soft);font-size:0.76rem;padding:18px;opacity:0.75;}
+  @media(max-width:480px){
+    .logo-row{gap:16px;margin-bottom:10px;}
+    .logo-slot{height:54px;width:54px;}
+    .logo-row img{height:54px;width:54px;}
+    .logo-placeholder{height:54px;width:54px;font-size:0.52rem;}
+    .test-name{font-size:1.05rem;}
+    .org-title{font-size:0.88rem;}
+    .banner{padding:22px 12px 26px;}
+    .wrap{padding:16px 10px 50px;}
+    #screen-landing{padding:20px 14px 24px;}
+    .timer-chip{font-size:0.85rem;padding:9px 16px;}
+    .pill{font-size:0.72rem;padding:6px 11px;}
+    .btn-primary{padding:14px 22px;font-size:0.96rem;}
+    .test-topbar{padding:10px 12px;flex-direction:column;align-items:stretch;}
+    .candidate-chip{text-align:center;font-size:0.76rem;}
+    #timer-display{width:100%;font-size:1rem;}
+    .subject-header{padding:11px 13px;font-size:0.92rem;}
+    .questions-box{padding:4px 11px 6px;}
+    .q-card{padding:14px 0 16px;}
+    .q-text{font-size:0.9rem;}
+    .option{padding:12px 13px;font-size:0.87rem;-webkit-tap-highlight-color:transparent;}
+    .score-ring{width:122px;height:122px;}
+    .score-ring-inner{width:96px;height:96px;}
+    .score-ring-inner .big{font-size:1.4rem;}
+    .breakdown{padding:0 14px 20px;}
+    .breakdown-row{flex-wrap:wrap;gap:6px;}
+    .breakdown-bar-track{flex-basis:100%;order:3;}
+  }
+  @media(max-width:360px){
+    .test-name{font-size:0.95rem;}
+    .logo-slot{height:46px;width:46px;}
+    .logo-row img{height:46px;width:46px;}
+    .logo-placeholder{height:46px;width:46px;font-size:0.46rem;}
+  }
+  @media(hover:none) and (pointer:coarse){
+    .option{padding:13px 15px;}
+    .btn-primary{padding:16px 28px;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;}
+  }
+</style>
+</head>
+<body>
+<div class="banner">
+  <div class="logo-row">
+    <span class="logo-slot">
+      <img src="sindh-university-logo.jpeg" alt="University of Sindh Logo"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <span class="logo-placeholder" style="display:none;">UOS<br>LOGO</span>
+    </span>
+    <span class="logo-slot">
+      <img src="sss-org-logo.jpeg" alt="SSS Organisation Logo"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <span class="logo-placeholder" style="display:none;">SSS ORG<br>LOGO</span>
+    </span>
+  </div>
+  <div class="test-name">Sindh UNI. 2nd Weekly Test by SSS Org.</div>
+  <div class="org-title">Sindh Superior Services Organisation</div>
+</div>
+
+<div class="wrap">
+  <!-- LANDING FORM -->
+  <section id="screen-landing" class="card">
+    <div class="timer-chip">⏱ Duration: 100 Minutes</div>
+    <div class="qcount-badge">100 Questions</div>
+    <div class="meta-row">
+      <span class="pill">English</span>
+      <span class="pill">General Knowledge</span>
+      <span class="pill">General Science</span>
+      <span class="pill">Mathematics</span>
+    </div>
+    <p class="landing-note">Enter your details to begin. Once started, the 100-minute timer cannot be paused. Each question allows only one selection — choose carefully.</p>
+    <div class="form-group">
+      <label for="cand-name">Full Name</label>
+      <input type="text" id="cand-name" placeholder="e.g. Ali Ahmed" autocomplete="off">
+      <div class="err-msg" id="err-name"></div>
+    </div>
+    <div class="form-group">
+      <label for="cand-district">District</label>
+      <input type="text" id="cand-district" placeholder="e.g. Jamshoro" autocomplete="off">
+      <div class="err-msg" id="err-district"></div>
+    </div>
+    <button class="btn-primary" onclick="startTest()">Start Test →</button>
+  </section>
+
+  <!-- TEST SCREEN -->
+  <section id="screen-test">
+    <div class="test-topbar">
+      <div class="candidate-chip">👤 <b id="topbar-name"></b> &nbsp;|&nbsp; 📍 <span id="topbar-district"></span></div>
+      <div id="timer-display">100:00</div>
+    </div>
+    <div id="sections-container"></div>
+    <div class="submit-area card" style="padding:22px;">
+      <div class="progress-label" id="progress-label">0 / 0 answered</div>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <button class="btn-primary" onclick="submitTest()">Submit Test</button>
+    </div>
+  </section>
+
+  <!-- RESULT SCREEN -->
+  <section id="screen-result" class="card">
+    <div class="result-hero">
+      <div class="score-ring" id="score-ring" style="--pct:0;">
+        <div class="score-ring-inner">
+          <div class="big" id="result-score-text">0/0</div>
+          <div class="small">SCORE</div>
+        </div>
+      </div>
+      <div class="result-name" id="result-name"></div>
+      <div class="result-district" id="result-district"></div>
+    </div>
+    <div class="breakdown">
+      <div class="breakdown-title">Subject-wise Breakdown</div>
+      <div id="breakdown-list"></div>
+    </div>
+    <div class="recorded-banner">
+      <span class="recorded-icon">✓</span>
+      <span>Your response has been recorded successfully.<br>This test cannot be retaken on this device.</span>
+    </div>
+  </section>
+</div>
+
+<footer>Reserved by Craftlync Digital Agency &copy; 2026</footer>
+
+<script>
+const TEST_DATA = {
+  "English": [
+    {q:"She is responsible _____ preparing the final report.",options:["with","for","at","of"],correctIndex:1},
+    {q:"The train arrived _____ the station ten minutes late.",options:["in","on","at","by"],correctIndex:2},
+    {q:"We have been waiting here _____ two hours.",options:["since","from","for","during"],correctIndex:2},
+    {q:"He is good _____ Mathematics.",options:["with","at","on","in"],correctIndex:1},
+    {q:"She insisted _____ paying the bill herself.",options:["at","in","on","over"],correctIndex:2},
+    {q:"The committee has decided _____ the new proposal.",options:["on","about","with","from"],correctIndex:0},
+    {q:"They congratulated him _____ winning the scholarship.",options:["for","on","with","by"],correctIndex:1},
+    {q:"He suffers _____ asthma during winter.",options:["by","from","of","in"],correctIndex:1},
+    {q:"The teacher divided the class _____ four groups.",options:["among","between","into","over"],correctIndex:2},
+    {q:"The manager turned _____ my application without explanation.",options:["in","over","down","through"],correctIndex:2},
+    {q:"She apologized _____ being late.",options:["to","with","for","about"],correctIndex:2},
+    {q:"We are looking forward _____ your reply.",options:["for","with","to","at"],correctIndex:2},
+    {q:"Pakistan won the match _____ India.",options:["from","over","on","against"],correctIndex:1},
+    {q:"He succeeded _____ solving the difficult puzzle.",options:["on","in","with","about"],correctIndex:1},
+    {q:"They accused him _____ cheating in the examination.",options:["from","of","by","with"],correctIndex:1},
+    {q:"The meeting has been postponed _____ next Monday.",options:["until","by","in","from"],correctIndex:0},
+    {q:"She is famous _____ her beautiful voice.",options:["for","with","by","at"],correctIndex:0},
+    {q:"He arrived _____ Karachi early in the morning.",options:["on","to","in","at"],correctIndex:2},
+    {q:"We walked _____ the bridge before sunset.",options:["across","among","into","over to"],correctIndex:0},
+    {q:"My grandfather died _____ cancer.",options:["from","of","with","by"],correctIndex:1},
+    {q:"At this time next week, we _____ for the final examination.",options:["study","studied","will be studying","have studied"],correctIndex:2},
+    {q:"The files were handed _____ to the new officer.",options:["over","off","on","by"],correctIndex:0},
+    {q:"He has lived in Hyderabad _____ 2019.",options:["from","for","since","during"],correctIndex:2},
+    {q:"Don't interfere _____ other people's affairs.",options:["on","in","with","about"],correctIndex:2},
+    {q:"The principal congratulated the students _____ their outstanding performance.",options:["with","on","to","by"],correctIndex:1},
+    {q:"The police are looking _____ the missing child.",options:["after","at","for","on"],correctIndex:2},
+    {q:"This road leads _____ the university campus.",options:["into","to","on","over"],correctIndex:1},
+    {q:"The proposal was approved _____ the board of directors.",options:["from","with","by","over"],correctIndex:2},
+    {q:"We should abstain _____ telling lies.",options:["from","by","with","about"],correctIndex:0},
+    {q:"Neither of the answers _____ correct.",options:["are","were","is","have"],correctIndex:2}
+  ],
+  "General Knowledge": [
+    {q:"Which district of Sindh is popular for mango cultivation?",options:["Hyderabad","Sukkur","Mirpurkhas","Thatta"],correctIndex:2},
+    {q:"The Lahore Resolution was presented by A.K. Fazal Haq in which year?",options:["1930","1940","1947","1956"],correctIndex:1},
+    {q:"What is the capital of the USA?",options:["New York","Washington, D.C.","California","Chicago"],correctIndex:1},
+    {q:"The famous Leaning Tower of Pisa is located in which country?",options:["France","Germany","Italy","Spain"],correctIndex:2},
+    {q:"How many Emirates comprise the UAE?",options:["Five","Six","Seven","Eight"],correctIndex:2},
+    {q:"What was the full name of Tipu Sultan?",options:["Sultan Mahmood Tipu","Sultan Fateh Ali Tipu","Fateh Muhammad Tipu","Ali Sultan Tipu"],correctIndex:1},
+    {q:"Which is the oldest university in Pakistan?",options:["University of Karachi","University of the Punjab","University of Sindh","Quaid-i-Azam University"],correctIndex:1},
+    {q:"Which city is known as the 'Land of Authenticity'?",options:["Doha","Salalah","Sakaka","Yathrib"],correctIndex:1},
+    {q:"The ICC Men's T20 Cricket World Cup 2021 was held in:",options:["India","England","UAE & Oman","Australia"],correctIndex:2},
+    {q:"Who was the first Muslim woman ruler of India?",options:["Noor Jahan","Razia Sultana","Mumtaz Mahal","Jahan Ara"],correctIndex:1},
+    {q:"'Daughter of the East' is the autobiography of:",options:["Fatima Jinnah","Benazir Bhutto","Hina Rabbani Khar","Indira Gandhi"],correctIndex:1},
+    {q:"What was the real name of Lal Shahbaz Qalandar?",options:["Ali Hajveri","Usman Marwandi","Shah Inayat","Bulleh Shah"],correctIndex:1},
+    {q:"Who was the Federal Minister for Human Rights of Pakistan in 2021?",options:["Sherry Rehman","Dr. Shireen Mazari","Bilawal Bhutto Zardari","Fawad Chaudhry"],correctIndex:1},
+    {q:"What does OPEC stand for?",options:["Organization of Petroleum Export Countries","Organization of the Petroleum Exporting Countries","Oil Producing Export Council","Organization Petroleum Energy Council"],correctIndex:1},
+    {q:"Pakistan is not a member of:",options:["G8","SAARC","OIC","UNO"],correctIndex:0},
+    {q:"Baqar Lake Resort is located in which district of Sindh?",options:["Sanghar","Hyderabad","Sukkur","Karachi"],correctIndex:0},
+    {q:"Ankara is the capital city of:",options:["Türkiye","Philippines","Bangladesh","Bhutan"],correctIndex:0},
+    {q:"What is the currency of South Korea?",options:["Baht","Yen","Yuan","Won"],correctIndex:3},
+    {q:"Niaz Cricket Stadium is located in:",options:["Lahore, Punjab","Multan, Punjab","Karachi, Sindh","Hyderabad, Sindh"],correctIndex:3},
+    {q:"Which Angel is responsible for bringing Allah's messages and commands to the Prophets?",options:["Hazrat Mikail (A.S.)","Hazrat Israfeel (A.S.)","Hazrat Jibrael (A.S.)","Hazrat Izraeel (A.S.)"],correctIndex:2}
+  ],
+  "General Science": [
+    {q:"White light disperses into how many colors?",options:["5","6","7","8"],correctIndex:2},
+    {q:"During the daytime, plants mainly absorb:",options:["Oxygen","Nitrogen","Carbon dioxide","Hydrogen"],correctIndex:2},
+    {q:"A hydrophyte is a plant that lives in:",options:["Desert","Water","Air","Mountains"],correctIndex:1},
+    {q:"Which organ cannot be transplanted?",options:["Kidney","Liver","Brain","Heart"],correctIndex:2},
+    {q:"Which blood group is known as the universal donor?",options:["A","B","AB","O⁻"],correctIndex:3},
+    {q:"Which cells are called the 'soldiers of the body'?",options:["Red blood cells","White blood cells","Platelets","Plasma"],correctIndex:1},
+    {q:"AIDS stands for:",options:["Acquired Immune Deficiency Syndrome","Acquired Infectious Disease Syndrome","Artificial Immune Deficiency System","Acute Internal Disease Syndrome"],correctIndex:0},
+    {q:"Which of the following has its own light?",options:["Moon","Earth","Sun","Planet Mars"],correctIndex:2},
+    {q:"A transformer is mainly used to:",options:["Measure current","Increase or decrease voltage","Store electricity","Produce electricity"],correctIndex:1},
+    {q:"The study of the universe is called:",options:["Biology","Geology","Astronomy","Ecology"],correctIndex:2},
+    {q:"The chemical symbol of potassium is:",options:["P","Po","K","Pt"],correctIndex:2},
+    {q:"The chemical symbol of calcium is:",options:["C","Cl","Ca","Cu"],correctIndex:2},
+    {q:"Diamonds are mainly made of:",options:["Platinum","Silver","Carbon","Iron"],correctIndex:2},
+    {q:"A specialist of heart diseases is called:",options:["Cardiologist","Neurologist","Ophthalmologist","Pediatrician"],correctIndex:0},
+    {q:"Which mineral is essential for the formation of red blood cells?",options:["Calcium","Iron","Sodium","Potassium"],correctIndex:1},
+    {q:"Which planet is called the 'Sister Planet of Earth'?",options:["Mars","Venus","Mercury","Jupiter"],correctIndex:1},
+    {q:"The ozone layer protects the Earth from:",options:["Infrared rays","Ultraviolet rays","X-rays","Radio waves"],correctIndex:1},
+    {q:"Which of the following is an output device?",options:["Keyboard","Mouse","Monitor","Scanner"],correctIndex:2},
+    {q:"A barcode reader is an example of:",options:["Output device","Input device","Storage device","Processing device"],correctIndex:1},
+    {q:"The SI unit of voltage is:",options:["Ampere","Ohm","Volt","Watt"],correctIndex:2}
+  ],
+  "Mathematics": [
+    {q:"75 is 30% of what number?",options:["200","250","220","240"],correctIndex:1},
+    {q:"Increase 180 by 25%.",options:["215","220","225","230"],correctIndex:2},
+    {q:"If an item originally priced at $160 is discounted by 15%, what is the discounted price?",options:["$136","$140","$144","$132"],correctIndex:0},
+    {q:"60 is what percentage of 400?",options:["12%","18%","15%","20%"],correctIndex:2},
+    {q:"A store advertises a 40% discount on a smartphone priced at $900. What do you pay?",options:["$500","$540","$560","$600"],correctIndex:1},
+    {q:"Decrease 650 by 20%.",options:["500","540","520","510"],correctIndex:2},
+    {q:"Sara has 240 marbles. She gives away 35%. How many does she give?",options:["80","84","76","88"],correctIndex:1},
+    {q:"A town's population is 80,000 and increases by 25%. What is the new population?",options:["100,000","95,000","105,000","110,000"],correctIndex:0},
+    {q:"A container contains 75% of 4 liters. How much water is inside?",options:["2.8 L","3.0 L","3.2 L","3.5 L"],correctIndex:1},
+    {q:"Out of 500 students, 45% passed. How many failed?",options:["225","275","250","265"],correctIndex:1},
+    {q:"A jacket priced at Rs. 9600 is sold with a 15% discount. What is the sold price?",options:["Rs. 8100","Rs. 8200","Rs. 8160","Rs. 8400"],correctIndex:2},
+    {q:"A watch is sold for Rs. 4800 after a 20% discount. What was the original price?",options:["Rs. 5500","Rs. 6000","Rs. 5800","Rs. 6500"],correctIndex:1},
+    {q:"A book of Rs. 3500 is decreased by 40%. What is the new price?",options:["Rs. 2100","Rs. 2250","Rs. 2050","Rs. 1950"],correctIndex:0},
+    {q:"A class has 80 students, 5/8 are girls. How many are boys?",options:["50","30","40","35"],correctIndex:1},
+    {q:"X earns 20% less than Y. What percentage is Y's income more than X's?",options:["20%","25%","33.33%","15%"],correctIndex:1},
+    {q:"A student scores 72% and 88% in two exams. What is the average?",options:["80%","78%","82%","84%"],correctIndex:0},
+    {q:"30% of a number is 27. What is 60% of that number?",options:["45","54","60","72"],correctIndex:1},
+    {q:"Salary increases by 10% then decreases by 10%. What is the net change?",options:["No change","1% increase","1% decrease","2% decrease"],correctIndex:2},
+    {q:"A bicycle is sold for Rs. 8100 after a 10% discount. What was the original price?",options:["Rs. 8500","Rs. 9000","Rs. 9200","Rs. 9500"],correctIndex:1},
+    {q:"45% of a class are girls. Total strength is 60. How many boys?",options:["27","28","33","24"],correctIndex:2},
+    {q:"John's age after 20 years will be three times his age 4 years back. What is his present age?",options:["12","16","14","18"],correctIndex:1},
+    {q:"P is four years older than Q, Q is twice as old as R. The total age of P, Q and R is 34. What is the age of Q?",options:["10","12","14","16"],correctIndex:1},
+    {q:"Eight years ago, A was three times B's age. If the ratio of their present ages is 5:7, what is the sum of their present ages?",options:["42 years","48 years","36 years","54 years"],correctIndex:1},
+    {q:"The sum of the ages of a mother and daughter is 56 years. If the mother is 3 times as old as her daughter, what are their respective ages?",options:["14 and 42","12 and 44","16 and 40","10 and 46"],correctIndex:0},
+    {q:"The ages of X and Y are in the ratio 4:5. Five years later, the ratio of their ages will be 5:6. What are their present ages?",options:["16 and 20","20 and 25","24 and 30","12 and 15"],correctIndex:1},
+    {q:"y is the sum of two quantities: one varies directly as x, other inversely as x. When x=1, y=5; when x=2, y=5.5. Find y when x=4.",options:["7","7.25","8.5","8.75"],correctIndex:3},
+    {q:"If x varies directly as the cube of y and inversely as z, when y is doubled and z is halved, x becomes k times original. What is k?",options:["4","8","16","32"],correctIndex:2},
+    {q:"The cost of pens varies directly with number purchased. If 8 pens cost Rs. 240, how much will 15 pens cost?",options:["Rs. 400","Rs. 450","Rs. 420","Rs. 480"],correctIndex:1},
+    {q:"It takes 6 workers 8 hours to pack a shipment. If workers increased to 12, how many hours will it take?",options:["2 hours","3 hours","4 hours","6 hours"],correctIndex:2},
+    {q:"If a varies jointly as b and c, and a=48 when b=4 and c=3, find the constant of variation k.",options:["3","4","6","8"],correctIndex:1}
+  ]
+};
+
+const TOTAL_MINUTES = 100;
+let timeRemaining = TOTAL_MINUTES * 60;
+let timerInterval = null;
+let candidateName = "";
+let candidateDistrict = "";
+const userAnswers = {};
+let totalQuestions = 0;
+const SUBMIT_LOCK_KEY = "sss_uos_2nd_weekly_submitted";
+const SHEET_WEBHOOK_URL = "";
+
+function sendRecordToSheet(payload){
+  if(!SHEET_WEBHOOK_URL) return;
+  try{
+    fetch(SHEET_WEBHOOK_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify(payload)}).catch(()=>{});
+  }catch(e){}
+}
+
+function escapeHtml(str){const d=document.createElement('div');d.textContent=str;return d.innerHTML;}
+
+function checkAlreadySubmitted(){
+  try{
+    const saved=localStorage.getItem(SUBMIT_LOCK_KEY);
+    if(saved){showAlreadySubmittedScreen(JSON.parse(saved));return true;}
+  }catch(e){}
+  return false;
+}
+
+function lockSubmission(payload){
+  try{localStorage.setItem(SUBMIT_LOCK_KEY,JSON.stringify(payload));}catch(e){}
+}
+
+function showAlreadySubmittedScreen(data){
+  document.getElementById('screen-landing').style.display='none';
+  const d=document.createElement('section');
+  d.className='card';d.style.marginTop='-22px';d.style.padding='34px 24px';d.style.textAlign='center';
+  if(data.invalidated){
+    d.innerHTML=`<div style="font-size:2.4rem;margin-bottom:8px">⏰</div>
+    <div style="font-weight:800;font-size:1.15rem;color:var(--red);margin-bottom:8px">This test session has ended</div>
+    <div style="color:var(--ink-soft);font-size:0.9rem;line-height:1.6;margin-bottom:18px">
+    ${data.name?`<b>${escapeHtml(data.name)}</b>`:''} ${data.district?`from <b>${escapeHtml(data.district)}</b>`:''} ran out of time on this device.<br>The test cannot be retaken here.</div>
+    <div style="font-size:0.8rem;color:var(--ink-soft)">Please contact the test administrator if you have any questions.</div>`;
+  } else {
+    d.innerHTML=`<div style="font-size:2.4rem;margin-bottom:8px">🔒</div>
+    <div style="font-weight:800;font-size:1.15rem;color:var(--red);margin-bottom:8px">You've already submitted this test</div>
+    <div style="color:var(--ink-soft);font-size:0.9rem;line-height:1.6;margin-bottom:18px">
+    ${data.name?`Submitted by <b>${escapeHtml(data.name)}</b>`:''} ${data.district?`from <b>${escapeHtml(data.district)}</b>`:''} on this device.<br>
+    Score: <b>${data.score}/${data.totalQuestions}</b></div>
+    <div style="font-size:0.8rem;color:var(--ink-soft)">Each candidate is allowed only one attempt. Contact the test administrator if this is an error.</div>`;
+  }
+  document.querySelector('.wrap').appendChild(d);
+}
+
+let alreadyLocked=false;
+document.addEventListener('DOMContentLoaded',()=>{alreadyLocked=checkAlreadySubmitted();});
+
+function startTest(){
+  if(alreadyLocked) return;
+  const n=document.getElementById('cand-name');
+  const di=document.getElementById('cand-district');
+  const en=document.getElementById('err-name');
+  const ed=document.getElementById('err-district');
+  let valid=true;en.textContent="";ed.textContent="";
+  if(n.value.trim().length<2){en.textContent="Please enter your full name.";valid=false;}
+  if(di.value.trim().length<2){ed.textContent="Please enter your district.";valid=false;}
+  if(!valid) return;
+  candidateName=n.value.trim();candidateDistrict=di.value.trim();
+  document.getElementById('topbar-name').textContent=candidateName;
+  document.getElementById('topbar-district').textContent=candidateDistrict;
+  sendRecordToSheet({name:candidateName,district:candidateDistrict,score:"Started (in progress)",total:100,submittedAt:new Date().toISOString()});
+  buildTestUI();
+  document.getElementById('screen-landing').style.display='none';
+  document.getElementById('screen-test').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+  startTimer();
+}
+
+function buildTestUI(){
+  const container=document.getElementById('sections-container');container.innerHTML="";totalQuestions=0;
+  Object.keys(TEST_DATA).forEach(subject=>{
+    const questions=TEST_DATA[subject];userAnswers[subject]=new Array(questions.length).fill(null);totalQuestions+=questions.length;
+    const sec=document.createElement('div');sec.className='subject-section';
+    sec.innerHTML=`<div class="subject-header"><span>${subject}</span><span class="subject-count">${questions.length} Questions</span></div>
+    <div class="questions-box" id="qbox-${subject.replace(/\s+/g,'-')}"></div>`;
+    container.appendChild(sec);
+    const qbox=sec.querySelector(`#qbox-${subject.replace(/\s+/g,'-')}`);
+    questions.forEach((qObj,qIndex)=>{
+      const qCard=document.createElement('div');qCard.className='q-card';
+      qCard.style.animationDelay=(Math.min(qIndex,10)*0.04)+'s';
+      qCard.innerHTML=`<div class="q-label"><span class="q-num">Q${qIndex+1}</span><span class="q-text">${qObj.q}</span></div>
+      <div class="options">${qObj.options.map((opt,oi)=>`<div class="option" data-subject="${subject}" data-qindex="${qIndex}" data-optindex="${oi}" onclick="selectOption(this)"><span>${opt}</span></div>`).join("")}</div>`;
+      qbox.appendChild(qCard);
+    });
+  });
+  updateProgress();
+}
+
+function selectOption(el){
+  const subject=el.dataset.subject,qIndex=parseInt(el.dataset.qindex),optIndex=parseInt(el.dataset.optindex);
+  if(userAnswers[subject][qIndex]!==null) return;
+  const correctIndex=TEST_DATA[subject][qIndex].correctIndex;
+  const allOptions=el.parentElement.querySelectorAll('.option');
+  userAnswers[subject][qIndex]=optIndex;
+  allOptions.forEach(opt=>{
+    const oi=parseInt(opt.dataset.optindex);opt.classList.add('locked');
+    if(oi===optIndex){opt.classList.add(oi===correctIndex?'selected-correct':'selected-wrong');}
+    else if(oi===correctIndex&&optIndex!==correctIndex){opt.classList.add('reveal-correct');}
+    else{opt.classList.add('dimmed');}
+  });
+  updateProgress();
+}
+
+function updateProgress(){
+  let answered=0;Object.values(userAnswers).forEach(arr=>{answered+=arr.filter(a=>a!==null).length;});
+  const pct=totalQuestions===0?0:Math.round((answered/totalQuestions)*100);
+  document.getElementById('progress-fill').style.width=pct+'%';
+  document.getElementById('progress-label').textContent=`${answered} / ${totalQuestions} answered`;
+}
+
+function startTimer(){
+  updateTimerDisplay();
+  timerInterval=setInterval(()=>{
+    timeRemaining--;updateTimerDisplay();
+    if(timeRemaining<=0){clearInterval(timerInterval);handleTimeUp();}
+  },1000);
+}
+
+function updateTimerDisplay(){
+  const mins=Math.floor(timeRemaining/60),secs=timeRemaining%60;
+  const display=document.getElementById('timer-display');
+  display.textContent=`${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
+  if(timeRemaining<=300) display.classList.add('low');
+}
+
+function handleTimeUp(){
+  document.getElementById('screen-test').style.display='none';
+  lockSubmission({name:candidateName,district:candidateDistrict,score:null,totalQuestions,invalidated:true,submittedAt:new Date().toISOString()});
+  sendRecordToSheet({name:candidateName,district:candidateDistrict,score:"Time Up - Invalid",total:totalQuestions,submittedAt:new Date().toISOString()});
+  const d=document.createElement('section');d.className='card';d.style.marginTop='-22px';d.style.padding='34px 24px';d.style.textAlign='center';
+  d.innerHTML=`<div style="font-size:2.4rem;margin-bottom:8px">⏰</div>
+  <div style="font-weight:800;font-size:1.15rem;color:var(--red);margin-bottom:8px">Time's up — test ended</div>
+  <div style="color:var(--ink-soft);font-size:0.9rem;line-height:1.6;margin-bottom:18px">
+  The 100-minute time limit has been reached, ${escapeHtml(candidateName)}.<br>This test session is now closed and cannot be retaken on this device.</div>
+  <div style="font-size:0.8rem;color:var(--ink-soft)">Please contact the test administrator if you have any questions.</div>`;
+  document.querySelector('.wrap').appendChild(d);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function submitTest(){
+  clearInterval(timerInterval);
+  let totalCorrect=0;const subjectResults={};
+  Object.keys(TEST_DATA).forEach(subject=>{
+    const questions=TEST_DATA[subject];let correct=0;
+    questions.forEach((qObj,qIndex)=>{if(userAnswers[subject][qIndex]===qObj.correctIndex) correct++;});
+    subjectResults[subject]={correct,total:questions.length};totalCorrect+=correct;
+  });
+  showResult(totalCorrect,totalQuestions,subjectResults);
+}
+
+function showResult(totalCorrect,totalQ,subjectResults){
+  document.getElementById('screen-test').style.display='none';
+  document.getElementById('screen-result').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+  lockSubmission({name:candidateName,district:candidateDistrict,score:totalCorrect,totalQuestions:totalQ,submittedAt:new Date().toISOString()});
+  sendRecordToSheet({name:candidateName,district:candidateDistrict,score:totalCorrect,total:totalQ,
+    subjectBreakdown:Object.keys(subjectResults).map(s=>`${s}: ${subjectResults[s].correct}/${subjectResults[s].total}`).join(" | "),
+    submittedAt:new Date().toISOString()});
+  document.getElementById('result-name').textContent=candidateName;
+  document.getElementById('result-district').textContent=candidateDistrict;
+  const pct=totalQ===0?0:Math.round((totalCorrect/totalQ)*100);
+  document.getElementById('result-score-text').textContent=`${totalCorrect}/${totalQ}`;
+  document.getElementById('score-ring').style.setProperty('--pct',pct);
+  const breakdownList=document.getElementById('breakdown-list');breakdownList.innerHTML="";
+  Object.keys(subjectResults).forEach(subject=>{
+    const{correct,total}=subjectResults[subject];
+    const subPct=total===0?0:Math.round((correct/total)*100);
+    const row=document.createElement('div');row.className='breakdown-row';
+    row.innerHTML=`<div class="breakdown-subject">${subject}</div>
+    <div class="breakdown-bar-track"><div class="breakdown-bar-fill" style="width:0%" data-w="${subPct}"></div></div>
+    <div class="breakdown-score">${correct}/${total}</div>`;
+    breakdownList.appendChild(row);
+  });
+  setTimeout(()=>{document.querySelectorAll('.breakdown-bar-fill').forEach(bar=>{bar.style.width=bar.dataset.w+'%';});},50);
+}
+</script>
+</body>
+</html>
