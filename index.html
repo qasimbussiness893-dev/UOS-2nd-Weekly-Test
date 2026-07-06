@@ -271,10 +271,6 @@
       <div class="breakdown-title">Subject-wise Breakdown</div>
       <div id="breakdown-list"></div>
     </div>
-    <div class="recorded-banner">
-      <span class="recorded-icon">✓</span>
-      <span>Your response has been recorded successfully.<br>This test cannot be retaken on this device.</span>
-    </div>
   </section>
 </div>
 
@@ -399,7 +395,6 @@ let candidateName = "";
 let candidateDistrict = "";
 const userAnswers = {};
 let totalQuestions = 0;
-const SUBMIT_LOCK_KEY = "sss_uos_2nd_weekly_submitted";
 const SHEET_WEBHOOK_URL = "";
 
 function sendRecordToSheet(payload){
@@ -411,44 +406,7 @@ function sendRecordToSheet(payload){
 
 function escapeHtml(str){const d=document.createElement('div');d.textContent=str;return d.innerHTML;}
 
-function checkAlreadySubmitted(){
-  try{
-    const saved=localStorage.getItem(SUBMIT_LOCK_KEY);
-    if(saved){showAlreadySubmittedScreen(JSON.parse(saved));return true;}
-  }catch(e){}
-  return false;
-}
-
-function lockSubmission(payload){
-  try{localStorage.setItem(SUBMIT_LOCK_KEY,JSON.stringify(payload));}catch(e){}
-}
-
-function showAlreadySubmittedScreen(data){
-  document.getElementById('screen-landing').style.display='none';
-  const d=document.createElement('section');
-  d.className='card';d.style.marginTop='-22px';d.style.padding='34px 24px';d.style.textAlign='center';
-  if(data.invalidated){
-    d.innerHTML=`<div style="font-size:2.4rem;margin-bottom:8px">⏰</div>
-    <div style="font-weight:800;font-size:1.15rem;color:var(--red);margin-bottom:8px">This test session has ended</div>
-    <div style="color:var(--ink-soft);font-size:0.9rem;line-height:1.6;margin-bottom:18px">
-    ${data.name?`<b>${escapeHtml(data.name)}</b>`:''} ${data.district?`from <b>${escapeHtml(data.district)}</b>`:''} ran out of time on this device.<br>The test cannot be retaken here.</div>
-    <div style="font-size:0.8rem;color:var(--ink-soft)">Please contact the test administrator if you have any questions.</div>`;
-  } else {
-    d.innerHTML=`<div style="font-size:2.4rem;margin-bottom:8px">🔒</div>
-    <div style="font-weight:800;font-size:1.15rem;color:var(--red);margin-bottom:8px">You've already submitted this test</div>
-    <div style="color:var(--ink-soft);font-size:0.9rem;line-height:1.6;margin-bottom:18px">
-    ${data.name?`Submitted by <b>${escapeHtml(data.name)}</b>`:''} ${data.district?`from <b>${escapeHtml(data.district)}</b>`:''} on this device.<br>
-    Score: <b>${data.score}/${data.totalQuestions}</b></div>
-    <div style="font-size:0.8rem;color:var(--ink-soft)">Each candidate is allowed only one attempt. Contact the test administrator if this is an error.</div>`;
-  }
-  document.querySelector('.wrap').appendChild(d);
-}
-
-let alreadyLocked=false;
-document.addEventListener('DOMContentLoaded',()=>{alreadyLocked=checkAlreadySubmitted();});
-
 function startTest(){
-  if(alreadyLocked) return;
   const n=document.getElementById('cand-name');
   const di=document.getElementById('cand-district');
   const en=document.getElementById('err-name');
@@ -527,13 +485,12 @@ function updateTimerDisplay(){
 
 function handleTimeUp(){
   document.getElementById('screen-test').style.display='none';
-  lockSubmission({name:candidateName,district:candidateDistrict,score:null,totalQuestions,invalidated:true,submittedAt:new Date().toISOString()});
   sendRecordToSheet({name:candidateName,district:candidateDistrict,score:"Time Up - Invalid",total:totalQuestions,submittedAt:new Date().toISOString()});
   const d=document.createElement('section');d.className='card';d.style.marginTop='-22px';d.style.padding='34px 24px';d.style.textAlign='center';
   d.innerHTML=`<div style="font-size:2.4rem;margin-bottom:8px">⏰</div>
   <div style="font-weight:800;font-size:1.15rem;color:var(--red);margin-bottom:8px">Time's up — test ended</div>
   <div style="color:var(--ink-soft);font-size:0.9rem;line-height:1.6;margin-bottom:18px">
-  The 100-minute time limit has been reached, ${escapeHtml(candidateName)}.<br>This test session is now closed and cannot be retaken on this device.</div>
+  The 100-minute time limit has been reached, ${escapeHtml(candidateName)}.<br>This test session is now closed.</div>
   <div style="font-size:0.8rem;color:var(--ink-soft)">Please contact the test administrator if you have any questions.</div>`;
   document.querySelector('.wrap').appendChild(d);
   window.scrollTo({top:0,behavior:'smooth'});
@@ -554,7 +511,6 @@ function showResult(totalCorrect,totalQ,subjectResults){
   document.getElementById('screen-test').style.display='none';
   document.getElementById('screen-result').style.display='block';
   window.scrollTo({top:0,behavior:'smooth'});
-  lockSubmission({name:candidateName,district:candidateDistrict,score:totalCorrect,totalQuestions:totalQ,submittedAt:new Date().toISOString()});
   sendRecordToSheet({name:candidateName,district:candidateDistrict,score:totalCorrect,total:totalQ,
     subjectBreakdown:Object.keys(subjectResults).map(s=>`${s}: ${subjectResults[s].correct}/${subjectResults[s].total}`).join(" | "),
     submittedAt:new Date().toISOString()});
