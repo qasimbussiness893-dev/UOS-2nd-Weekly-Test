@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sindh UNI. 2nd Weekly Test by SSS Org.</title>
+<title>Sindh Superior Services Organisation - Online Test Portal</title>
 <style>
   :root{
     --red:#a3121f;--red-deep:#6e0c15;--red-bright:#e63946;
@@ -155,6 +155,19 @@
     color:#fff;font-weight:800;font-size:1rem;display:flex;align-items:center;justify-content:center;}
   .recorded-banner span:last-child{font-size:0.85rem;font-weight:700;color:var(--green);line-height:1.5;}
   footer{text-align:center;color:var(--ink-soft);font-size:0.76rem;padding:18px;opacity:0.75;}
+  #screen-home{margin-top:-22px;padding:26px 22px 30px;text-align:center;animation:fadeUp 0.6s ease both;}
+  .home-heading{font-weight:800;color:var(--red);font-size:1.15rem;margin-bottom:6px;}
+  .test-choice-list{display:flex;flex-direction:column;gap:16px;margin-top:6px;}
+  .test-choice-card{border:2px solid var(--line);border-radius:14px;padding:20px 18px;text-align:center;
+    background:linear-gradient(135deg,#fff,#fdf4f2);transition:border-color 0.2s,transform 0.15s,box-shadow 0.2s;}
+  .test-choice-card:hover{border-color:var(--red);transform:translateY(-3px);box-shadow:0 10px 22px rgba(163,18,31,0.14);}
+  .test-choice-title{font-weight:800;color:var(--red);font-size:1.08rem;margin-bottom:4px;}
+  .test-choice-sub{color:var(--ink-soft);font-size:0.86rem;margin-bottom:10px;line-height:1.4;}
+  .selected-test-title{font-weight:800;color:var(--red);font-size:1.05rem;margin-bottom:4px;line-height:1.4;}
+  .change-test-link{display:block;text-align:right;font-size:0.78rem;color:var(--ink-soft);
+    text-decoration:underline;cursor:pointer;margin-bottom:8px;background:none;border:none;
+    font-family:inherit;width:100%;padding:0;}
+  .change-test-link:hover{color:var(--red);}
   @media(max-width:480px){
     .logo-row{gap:16px;margin-bottom:10px;}
     .logo-slot{height:54px;width:54px;}
@@ -212,22 +225,45 @@
       <span class="logo-placeholder" style="display:none;">SSS ORG<br>LOGO</span>
     </span>
   </div>
-  <div class="test-name">Sindh UNI. 2nd Weekly Test by SSS Org.</div>
-  <div class="org-title">Sindh Superior Services Organisation</div>
+  <div class="test-name">Sindh Superior Services Organisation</div>
+  <div class="org-title">Online Test Portal — SSS ORG</div>
 </div>
 
 <div class="wrap">
-  <!-- LANDING FORM -->
-  <section id="screen-landing" class="card">
-    <div class="timer-chip">⏱ Duration: 100 Minutes</div>
-    <div class="qcount-badge">100 Questions</div>
-    <div class="meta-row">
-      <span class="pill">English</span>
-      <span class="pill">General Knowledge</span>
-      <span class="pill">General Science</span>
-      <span class="pill">Mathematics</span>
+  <!-- HOME / TEST SELECTION SCREEN -->
+  <section id="screen-home" class="card">
+    <div class="home-heading">Choose Your Test</div>
+    <p class="landing-note" style="margin-top:0;">Select a test below to begin. Each test has its own question set and a separate 100-minute timer.</p>
+    <div class="test-choice-list">
+      <div class="test-choice-card">
+        <div class="test-choice-title">Test 1</div>
+        <div class="test-choice-sub">Sindh UNI. 2nd Weekly Test by SSS Org.</div>
+        <div class="meta-row" style="margin:10px 0 14px;">
+          <span class="pill">100 Questions</span>
+          <span class="pill">100 Minutes</span>
+        </div>
+        <button class="btn-primary" onclick="selectTest(1)">Start Test 1 →</button>
+      </div>
+      <div class="test-choice-card">
+        <div class="test-choice-title">Test 2</div>
+        <div class="test-choice-sub">Sindh University 2k27 Entry Preparation 2nd Test</div>
+        <div class="meta-row" style="margin:10px 0 14px;">
+          <span class="pill">105 Questions</span>
+          <span class="pill">100 Minutes</span>
+        </div>
+        <button class="btn-primary" onclick="selectTest(2)">Start Test 2 →</button>
+      </div>
     </div>
-    <p class="landing-note">Enter your details to begin. Once started, the 100-minute timer cannot be paused. Each question allows only one selection — choose carefully.</p>
+  </section>
+
+  <!-- LANDING FORM -->
+  <section id="screen-landing" class="card" style="display:none;">
+    <button class="change-test-link" onclick="goHome()">← Change Test</button>
+    <div class="selected-test-title" id="landing-test-title"></div>
+    <div class="timer-chip" id="timer-chip-text">⏱ Duration: 100 Minutes</div>
+    <div class="qcount-badge" id="qcount-badge">0 Questions</div>
+    <div class="meta-row" id="meta-row"></div>
+    <p class="landing-note">Enter your details to begin. Once started, the timer cannot be paused. Each question allows only one selection — choose carefully.</p>
     <div class="form-group">
       <label for="cand-name">Full Name</label>
       <input type="text" id="cand-name" placeholder="e.g. Ali Ahmed" autocomplete="off">
@@ -271,13 +307,16 @@
       <div class="breakdown-title">Subject-wise Breakdown</div>
       <div id="breakdown-list"></div>
     </div>
+    <div style="padding:0 22px 26px;text-align:center;">
+      <button class="btn-primary" onclick="goHome()">Take Another Test</button>
+    </div>
   </section>
 </div>
 
 <footer>Reserved by Craftlync Digital Agency &copy; 2026</footer>
 
 <script>
-const TEST_DATA = {
+const TEST_DATA_1 = {
   "English": [
     {q:"She is responsible _____ preparing the final report.",options:["with","for","at","of"],correctIndex:1},
     {q:"The train arrived _____ the station ten minutes late.",options:["in","on","at","by"],correctIndex:2},
@@ -387,8 +426,143 @@ const TEST_DATA = {
     {q:"If a varies jointly as b and c, and a=48 when b=4 and c=3, find the constant of variation k.",options:["3","4","6","8"],correctIndex:1}
   ]
 };
+const TEST_DATA_2 = {
+  "English": [
+    {q:"Choose the correct SYNONYM: ABSCOND",options:["Obscure","Absolve","Rob","Flee"],correctIndex:3},
+    {q:"Choose the correct SYNONYM: INVIDIOUS",options:["Unfair","Independent","Handsome","Unpleasant"],correctIndex:0},
+    {q:"Choose the correct SYNONYM: ADEQUATE",options:["Extra","Poor","Sufficient","Mislaid"],correctIndex:2},
+    {q:"Choose the correct SYNONYM: DEFLECT",options:["Revert","Divert","Depress","Frustrate"],correctIndex:1},
+    {q:"Choose the correct SYNONYM: FORTUITOUS",options:["Planned","Intentional","Unlucky","Accidental"],correctIndex:3},
+    {q:"Choose the correct ANTONYM: TEDIOUS",options:["Engaging","Dull","Monotonous","Boring"],correctIndex:0},
+    {q:"Choose the correct ANTONYM: PRAGMATIC",options:["Rational","Realistic","Idealistic","Sensible"],correctIndex:2},
+    {q:"Choose the correct ANTONYM: PERFUNCTORY",options:["Obligatory","Thoughtful","Reckless","Impersonal"],correctIndex:1},
+    {q:"Choose the correct ANTONYM: EXTOL",options:["Like","Praise","Advise","Criticize"],correctIndex:3},
+    {q:"Choose the correct ANTONYM: HYPOCRISY",options:["Burdensome","Uprightness","Fluent","Doubt"],correctIndex:1},
+    {q:"He is interested _____ history.",options:["about","of","in","on"],correctIndex:2},
+    {q:"She is looking forward _____ the annual examination.",options:["at","to","for","about"],correctIndex:1},
+    {q:"He was accused _____ theft.",options:["from","with","of","for"],correctIndex:2},
+    {q:"They blamed him _____ the accident.",options:["on","for","at","in"],correctIndex:1},
+    {q:"He reached Lahore _____ bus.",options:["with","on","in","by"],correctIndex:3},
+    {q:"He lives _____ an apartment _____ the third floor.",options:["in / on","at / in","over / in","on / at"],correctIndex:0},
+    {q:"Athar drew the picture _____ a colored pencil.",options:["by","in","with","at"],correctIndex:2},
+    {q:"She has been living in London _____ five years.",options:["on","in","at","for"],correctIndex:3},
+    {q:"I have been living here _____ 2001.",options:["for","from","since","by"],correctIndex:2},
+    {q:"Wasim moved here _____ October.",options:["from","at","on","in"],correctIndex:3},
+    {q:"Choose the Correctly Spelled Word.",options:["Bureucrat","Bureaucratt","Enterpreneur","Bureaucrat"],correctIndex:3},
+    {q:"Choose the Correctly Spelled Word.",options:["Leutenant","Lietenant","Leiutenant","Lieutenant"],correctIndex:3},
+    {q:"Choose the Correctly Spelled Word.",options:["Enterprenurship","Enterpreneurship","Enterpreneaurship","Entrepreneurship"],correctIndex:3},
+    {q:"Choose the Correctly Spelled Word.",options:["Scientefic","Scintific","Sceintific","Scientific"],correctIndex:3},
+    {q:"Choose the Correctly Spelled Word.",options:["Lebaratery","Leborotory","Laberotry","Laboratory"],correctIndex:3},
+    {q:"Choose the Correctly Spelled Word.",options:["Adventicious","Adventitous","Adventisious","Adventitious"],correctIndex:3},
+    {q:"Choose the Correctly Spelled Word.",options:["Conscientous","Consciencious","Conscentious","Conscientious"],correctIndex:3},
+    {q:"Choose the Correctly Spelled Word.",options:["Ilegitimate","Illegitemate","Illigitimate","Illegitimate"],correctIndex:3},
+    {q:"Choose the Correctly Spelled Word.",options:["Exadgerate","Exeggrate","Exagerate","Exaggerate"],correctIndex:3},
+    {q:"Choose the Correctly Spelled Word.",options:["Developement","Devolupment","Davolapment","Development"],correctIndex:3},
+    {q:"Choose the Correctly Spelled Word.",options:["Columinist","Collamist","Columist","Columnist"],correctIndex:3},
+    {q:"Choose the Correctly Spelled Word.",options:["Disciplenory","Disiplanory","Desiplenary","Disciplinary"],correctIndex:3},
+    {q:"Choose the Correctly Spelled Word.",options:["Acommodate","Accomodate","Acomodate","Accommodate"],correctIndex:3},
+    {q:"Choose the Correctly Spelled Word.",options:["Indespensabel","Indespesable","Indispensible","Indispensable"],correctIndex:3},
+    {q:"Choose the Correctly Spelled Word.",options:["Superced","Superceed","Superseed","Supersede"],correctIndex:3}
+  ],
+  "General Knowledge": [
+    {q:"How many Surahs are there in the Holy Quran?",options:["115","113","112","114"],correctIndex:3},
+    {q:"How many times did Prophet Muhammad (SAW) perform Hajj?",options:["Four Times","Two Times","One Time","Three Times"],correctIndex:2},
+    {q:"Who was the first Prime Minister of Pakistan?",options:["Muhammad Ali Jinnah","Khawaja Nazimuddin","Liaquat Ali Khan","Ayub Khan"],correctIndex:2},
+    {q:"Allama Iqbal is buried in:",options:["Islamabad","Multan","Lahore","Karachi"],correctIndex:2},
+    {q:"The Lahore Resolution was presented by:",options:["Liaquat Ali Khan","A.K. Fazlul Haq","Sir Syed Ahmed Khan","Muhammad Ali Jinnah"],correctIndex:1},
+    {q:"Pakistan's major export earnings come from:",options:["Wheat","Cotton","Rice","Sports Goods"],correctIndex:1},
+    {q:"Which place is associated with the famous romance of Sasui-Punhun?",options:["Mohenjo-Daro","Hyderabad","Bambhore","Sehwan"],correctIndex:2},
+    {q:"The Indus River falls into the:",options:["Persian Gulf","Red Sea","Arabian Sea","Bay of Bengal"],correctIndex:2},
+    {q:"Currency of Malaysia is:",options:["Dollar","Dinar","Ringgit","Riyal"],correctIndex:2},
+    {q:"Who was the first astronaut to set foot on the Moon?",options:["Buzz Aldrin","Yuri Gagarin","Michael Collins","Neil Armstrong"],correctIndex:3},
+    {q:"The Holy Book Injeel was revealed upon:",options:["Hazrat Dawood (AS)","Hazrat Musa (AS)","Hazrat Essa (AS)","Hazrat Ibrahim (AS)"],correctIndex:2},
+    {q:"The last Mughal Emperor was:",options:["Shah Jahan","Bahadur Shah Zafar","Aurangzeb","Akbar"],correctIndex:1},
+    {q:"Karakoram Pass connects Pakistan with:",options:["India","China","Iran","Afghanistan"],correctIndex:1},
+    {q:"KANUPP stands for:",options:["Karachi National Utility Power Plant","Karachi Nuclear Project Plant","Karachi Nuclear Power Plant","Karachi Atomic Nuclear Unit Power Plant"],correctIndex:2},
+    {q:"The capital city of Egypt is:",options:["Doha","Alexandria","Cairo","Riyadh"],correctIndex:2},
+    {q:"The world's largest island is:",options:["Madagascar","Greenland","Australia","Iceland"],correctIndex:1},
+    {q:"Cave Hira is located in:",options:["Madina","Mount Sinai","Jabal-an-Noor near Makkah","Mount Uhud"],correctIndex:2},
+    {q:"The death anniversary of Quaid-e-Azam is observed on:",options:["23 March","14 August","25 December","11 September"],correctIndex:3},
+    {q:"Which barrage is also known as Ghulam Muhammad Barrage?",options:["Guddu Barrage","Sukkur Barrage","Kotri Barrage","Taunsa Barrage"],correctIndex:2},
+    {q:"Shah Abdul Latif Bhittai invented which musical instrument?",options:["Dholak","Tamburo","Rabab","Sitar"],correctIndex:1}
+  ],
+  "General Science": [
+    {q:"The normal body temperature of a healthy human is approximately:",options:["40°C","39°C","37°C","35°C"],correctIndex:2},
+    {q:"Thermal expansion is the:",options:["Conversion of liquid into gas","Increase in size of a substance when heated","Contraction of a substance on heating","Melting of a solid"],correctIndex:1},
+    {q:"The modern atomic theory was proposed by:",options:["Ernest Rutherford","Niels Bohr","J.J. Thomson","John Dalton"],correctIndex:3},
+    {q:"Which color is the best reflector of heat?",options:["White","Blue","Black","Red"],correctIndex:0},
+    {q:"Which is the hardest substance in the human body?",options:["Nail","Bone","Tooth enamel","Skull"],correctIndex:2},
+    {q:"Which is the coldest planet in our solar system?",options:["Jupiter","Uranus","Saturn","Neptune"],correctIndex:1},
+    {q:"RADAR stands for:",options:["Radio Direction and Reading","Radar Data and Recording","Radio Distance and Relay","Radio Detection and Ranging"],correctIndex:3},
+    {q:"The chemical formula of sodium carbonate is:",options:["NaHCO₃","Na₂CO₃","NaOH","NaCl"],correctIndex:1},
+    {q:"One nanometer (nm) is equal to:",options:["10⁻⁹ m","10⁻⁶ m","10⁻¹² m","10⁻³ m"],correctIndex:0},
+    {q:"Which organ filters blood coming from the digestive tract?",options:["Lungs","Heart","Liver","Kidney"],correctIndex:2},
+    {q:"The SI unit of electrical resistance is:",options:["Watt","Ampere","Volt","Ohm"],correctIndex:3},
+    {q:"Which gas is commonly used as a refrigerant in refrigerators and air conditioners?",options:["Freon","Carbon dioxide","Nitrogen","Oxygen"],correctIndex:0},
+    {q:"Vitamins were first discovered by:",options:["Edward Jenner","Casimir Funk","Alexander Fleming","Louis Pasteur"],correctIndex:1},
+    {q:"The chemical symbol of mercury is:",options:["Hg₂","Mg","Hg","Mn"],correctIndex:2},
+    {q:"The unit of mass in the CGS system is:",options:["Tonne","Gram","Kilogram","Milligram"],correctIndex:1},
+    {q:"Which of the following is not a citrus fruit?",options:["Grapefruit","Lemon","Mango","Orange"],correctIndex:2},
+    {q:"Who is credited with inventing the radio?",options:["Alexander Graham Bell","Thomas Edison","Nikola Tesla","Guglielmo Marconi"],correctIndex:3},
+    {q:"The age of a tree can be determined by counting its:",options:["Rings in the trunk","Branches","Leaves","Roots"],correctIndex:0},
+    {q:"A computer keyboard is an example of:",options:["Firmware","Hardware","Application","Software"],correctIndex:1},
+    {q:"Air is best described as a:",options:["Pure substance","Element","Mixture","Compound"],correctIndex:2}
+  ],
+  "Mathematics & IQ Test": [
+    {q:"84 is 35% of what number?",options:["220","240","260","280"],correctIndex:1},
+    {q:"Increase Rs. 720 by 25%.",options:["860","900","920","880"],correctIndex:1},
+    {q:"A laptop priced at Rs. 24,000 is discounted by 12.5%. What is the sale price?",options:["Rs. 20,000","Rs. 20,500","Rs. 21,000","Rs. 22,000"],correctIndex:2},
+    {q:"96 is what percentage of 640?",options:["12%","15%","18%","20%"],correctIndex:1},
+    {q:"A bicycle costing Rs. 18,000 is sold at a 15% discount. What is the selling price?",options:["Rs. 15,000","Rs. 15,300","Rs. 15,600","Rs. 16,000"],correctIndex:1},
+    {q:"Decrease Rs. 2,400 by 22.5%.",options:["Rs. 1,820","Rs. 1,860","Rs. 1,900","Rs. 1,920"],correctIndex:1},
+    {q:"Ali has 360 books. He donates 35% of them. How many books does he donate?",options:["120","126","130","140"],correctIndex:1},
+    {q:"A city's population is 48,000 and increases by 12.5%. What is the new population?",options:["52,000","54,000","55,000","56,000"],correctIndex:1},
+    {q:"A tank contains 62.5% of its 800-liter capacity. How much water is in the tank?",options:["450 L","500 L","520 L","480 L"],correctIndex:1},
+    {q:"Out of 800 candidates, 62.5% passed. How many failed?",options:["280","300","320","340"],correctIndex:1},
+    {q:"A television priced at Rs. 48,000 is sold with a 17.5% discount. What is the selling price?",options:["Rs. 39,200","Rs. 39,600","Rs. 40,000","Rs. 40,800"],correctIndex:0},
+    {q:"A mobile phone is sold for Rs. 20,400 after a 15% discount. What was its original price?",options:["Rs. 22,000","Rs. 23,500","Rs. 24,000","Rs. 25,000"],correctIndex:2},
+    {q:"A machine worth Rs. 36,000 depreciates by 30%. What is its new value?",options:["Rs. 24,000","Rs. 25,200","Rs. 26,000","Rs. 27,000"],correctIndex:1},
+    {q:"A class has 96 students. If 5/8 are girls, how many boys are there?",options:["32","36","40","42"],correctIndex:1},
+    {q:"A shopkeeper gains 25% on an article sold for Rs. 2,500. What was the cost price?",options:["Rs. 1,900","Rs. 2,000","Rs. 2,100","Rs. 2,200"],correctIndex:1},
+    {q:"A student scores 68% and 92% in two tests. What is the average percentage?",options:["78%","80%","82%","84%"],correctIndex:1},
+    {q:"40% of a number is 72. What is 75% of that number?",options:["120","135","140","150"],correctIndex:1},
+    {q:"A salary increases by 20% and then decreases by 20%. What is the net change?",options:["No change","2% decrease","4% decrease","4% increase"],correctIndex:2},
+    {q:"A refrigerator is sold for Rs. 42,500 after a 15% discount. What was its original price?",options:["Rs. 48,000","Rs. 49,000","Rs. 50,000","Rs. 52,000"],correctIndex:2},
+    {q:"In a class of 80 students, 55% are girls. How many boys are there?",options:["36","32","40","44"],correctIndex:0},
+    {q:"After 12 years, Ahmed's age will be twice his age 6 years ago. What is his present age?",options:["18","24","20","22"],correctIndex:1},
+    {q:"Ali is 6 years older than Bilal. Bilal is twice Hamza's age. The sum of their ages is 42 years. What is Bilal's age?",options:["10","13","14","12"],correctIndex:3},
+    {q:"Five years ago, a father's age was four times his son's age. Their present ages differ by 30 years. What is the son's present age?",options:["12","15","18","20"],correctIndex:1},
+    {q:"The sum of the ages of a mother and daughter is 72 years. If the mother is three times as old as the daughter, what is the daughter's age?",options:["16","18","20","24"],correctIndex:1},
+    {q:"The present ages of A and B are in the ratio 5 : 7. After 6 years, the ratio becomes 11 : 15. Find A's present age.",options:["30","20","25","35"],correctIndex:0},
+    {q:"The ratio of A : B is 5 : 7 and the ratio of B : C is 3 : 4. If C = 84, find A.",options:["40","45","50","60"],correctIndex:1},
+    {q:"The ratio of the ages of Ali and Ahmed is 4 : 7. After 9 years, the ratio becomes 7 : 10. Find Ali's present age.",options:["24","36","40","42"],correctIndex:1},
+    {q:"Rs. 15,600 is divided among A, B and C in the ratio 3 : 5 : 8. How much does C receive?",options:["Rs. 6,800","Rs. 7,200","Rs. 7,800","Rs. 8,000"],correctIndex:2},
+    {q:"The ratio of boys to girls in a school is 7 : 5. If there are 96 more boys than girls, how many students are there altogether?",options:["480","576","600","720"],correctIndex:1},
+    {q:"The ratio of the present ages of a father and son is 9 : 4. Ten years ago, the ratio was 11 : 4. What is the father's present age?",options:["45 years","50 years","60 years","54 years"],correctIndex:3}
+  ]
+};
+const TESTS = {
+  1: {
+    label: "Test 1",
+    title: "Sindh UNI. 2nd Weekly Test by SSS Org.",
+    subjects: ["English","General Knowledge","General Science","Mathematics"],
+    totalQuestions: 100,
+    minutes: 100,
+    data: TEST_DATA_1
+  },
+  2: {
+    label: "Test 2",
+    title: "Sindh University 2k27 Entry Preparation 2nd Test",
+    subjects: ["English","General Knowledge","General Science","Mathematics & IQ"],
+    totalQuestions: 105,
+    minutes: 100,
+    data: TEST_DATA_2
+  }
+};
 
-const TOTAL_MINUTES = 100;
+let currentTest = null;
+let ACTIVE_DATA = {};
+let TOTAL_MINUTES = 100;
 let timeRemaining = TOTAL_MINUTES * 60;
 let timerInterval = null;
 let candidateName = "";
@@ -406,6 +580,39 @@ function sendRecordToSheet(payload){
 
 function escapeHtml(str){const d=document.createElement('div');d.textContent=str;return d.innerHTML;}
 
+function selectTest(key){
+  currentTest = TESTS[key];
+  ACTIVE_DATA = currentTest.data;
+  TOTAL_MINUTES = currentTest.minutes;
+  timeRemaining = TOTAL_MINUTES * 60;
+
+  document.getElementById('landing-test-title').textContent = currentTest.title;
+  document.getElementById('timer-chip-text').textContent = `⏱ Duration: ${TOTAL_MINUTES} Minutes`;
+  document.getElementById('qcount-badge').textContent = `${currentTest.totalQuestions} Questions`;
+  document.getElementById('meta-row').innerHTML = currentTest.subjects.map(s=>`<span class="pill">${s}</span>`).join('');
+  document.getElementById('cand-name').value = "";
+  document.getElementById('cand-district').value = "";
+  document.getElementById('err-name').textContent = "";
+  document.getElementById('err-district').textContent = "";
+
+  document.getElementById('screen-home').style.display = 'none';
+  document.getElementById('screen-landing').style.display = 'block';
+  document.getElementById('screen-test').style.display = 'none';
+  document.getElementById('screen-result').style.display = 'none';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function goHome(){
+  clearInterval(timerInterval);
+  currentTest = null;
+  ACTIVE_DATA = {};
+  document.getElementById('screen-home').style.display = 'block';
+  document.getElementById('screen-landing').style.display = 'none';
+  document.getElementById('screen-test').style.display = 'none';
+  document.getElementById('screen-result').style.display = 'none';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
 function startTest(){
   const n=document.getElementById('cand-name');
   const di=document.getElementById('cand-district');
@@ -418,7 +625,7 @@ function startTest(){
   candidateName=n.value.trim();candidateDistrict=di.value.trim();
   document.getElementById('topbar-name').textContent=candidateName;
   document.getElementById('topbar-district').textContent=candidateDistrict;
-  sendRecordToSheet({name:candidateName,district:candidateDistrict,score:"Started (in progress)",total:100,submittedAt:new Date().toISOString()});
+  sendRecordToSheet({test:currentTest.label,name:candidateName,district:candidateDistrict,score:"Started (in progress)",total:currentTest.totalQuestions,submittedAt:new Date().toISOString()});
   buildTestUI();
   document.getElementById('screen-landing').style.display='none';
   document.getElementById('screen-test').style.display='block';
@@ -428,13 +635,13 @@ function startTest(){
 
 function buildTestUI(){
   const container=document.getElementById('sections-container');container.innerHTML="";totalQuestions=0;
-  Object.keys(TEST_DATA).forEach(subject=>{
-    const questions=TEST_DATA[subject];userAnswers[subject]=new Array(questions.length).fill(null);totalQuestions+=questions.length;
+  Object.keys(ACTIVE_DATA).forEach(subject=>{
+    const questions=ACTIVE_DATA[subject];userAnswers[subject]=new Array(questions.length).fill(null);totalQuestions+=questions.length;
     const sec=document.createElement('div');sec.className='subject-section';
     sec.innerHTML=`<div class="subject-header"><span>${subject}</span><span class="subject-count">${questions.length} Questions</span></div>
-    <div class="questions-box" id="qbox-${subject.replace(/\s+/g,'-')}"></div>`;
+    <div class="questions-box"></div>`;
     container.appendChild(sec);
-    const qbox=sec.querySelector(`#qbox-${subject.replace(/\s+/g,'-')}`);
+    const qbox=sec.querySelector('.questions-box');
     questions.forEach((qObj,qIndex)=>{
       const qCard=document.createElement('div');qCard.className='q-card';
       qCard.style.animationDelay=(Math.min(qIndex,10)*0.04)+'s';
@@ -449,7 +656,7 @@ function buildTestUI(){
 function selectOption(el){
   const subject=el.dataset.subject,qIndex=parseInt(el.dataset.qindex),optIndex=parseInt(el.dataset.optindex);
   if(userAnswers[subject][qIndex]!==null) return;
-  const correctIndex=TEST_DATA[subject][qIndex].correctIndex;
+  const correctIndex=ACTIVE_DATA[subject][qIndex].correctIndex;
   const allOptions=el.parentElement.querySelectorAll('.option');
   userAnswers[subject][qIndex]=optIndex;
   allOptions.forEach(opt=>{
@@ -485,12 +692,12 @@ function updateTimerDisplay(){
 
 function handleTimeUp(){
   document.getElementById('screen-test').style.display='none';
-  sendRecordToSheet({name:candidateName,district:candidateDistrict,score:"Time Up - Invalid",total:totalQuestions,submittedAt:new Date().toISOString()});
+  sendRecordToSheet({test:currentTest.label,name:candidateName,district:candidateDistrict,score:"Time Up - Invalid",total:totalQuestions,submittedAt:new Date().toISOString()});
   const d=document.createElement('section');d.className='card';d.style.marginTop='-22px';d.style.padding='34px 24px';d.style.textAlign='center';
   d.innerHTML=`<div style="font-size:2.4rem;margin-bottom:8px">⏰</div>
   <div style="font-weight:800;font-size:1.15rem;color:var(--red);margin-bottom:8px">Time's up — test ended</div>
   <div style="color:var(--ink-soft);font-size:0.9rem;line-height:1.6;margin-bottom:18px">
-  The 100-minute time limit has been reached, ${escapeHtml(candidateName)}.<br>This test session is now closed.</div>
+  The ${TOTAL_MINUTES}-minute time limit has been reached, ${escapeHtml(candidateName)}.<br>This test session is now closed.</div>
   <div style="font-size:0.8rem;color:var(--ink-soft)">Please contact the test administrator if you have any questions.</div>`;
   document.querySelector('.wrap').appendChild(d);
   window.scrollTo({top:0,behavior:'smooth'});
@@ -499,8 +706,8 @@ function handleTimeUp(){
 function submitTest(){
   clearInterval(timerInterval);
   let totalCorrect=0;const subjectResults={};
-  Object.keys(TEST_DATA).forEach(subject=>{
-    const questions=TEST_DATA[subject];let correct=0;
+  Object.keys(ACTIVE_DATA).forEach(subject=>{
+    const questions=ACTIVE_DATA[subject];let correct=0;
     questions.forEach((qObj,qIndex)=>{if(userAnswers[subject][qIndex]===qObj.correctIndex) correct++;});
     subjectResults[subject]={correct,total:questions.length};totalCorrect+=correct;
   });
@@ -511,7 +718,7 @@ function showResult(totalCorrect,totalQ,subjectResults){
   document.getElementById('screen-test').style.display='none';
   document.getElementById('screen-result').style.display='block';
   window.scrollTo({top:0,behavior:'smooth'});
-  sendRecordToSheet({name:candidateName,district:candidateDistrict,score:totalCorrect,total:totalQ,
+  sendRecordToSheet({test:currentTest.label,name:candidateName,district:candidateDistrict,score:totalCorrect,total:totalQ,
     subjectBreakdown:Object.keys(subjectResults).map(s=>`${s}: ${subjectResults[s].correct}/${subjectResults[s].total}`).join(" | "),
     submittedAt:new Date().toISOString()});
   document.getElementById('result-name').textContent=candidateName;
