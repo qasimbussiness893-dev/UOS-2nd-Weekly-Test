@@ -253,6 +253,15 @@
         </div>
         <button class="btn-primary" onclick="selectTest(2)">Start Test 2 →</button>
       </div>
+      <div class="test-choice-card">
+        <div class="test-choice-title">Test 3</div>
+        <div class="test-choice-sub">Sindh University 2k27 Entry Preparation 3rd Test</div>
+        <div class="meta-row" style="margin:10px 0 14px;">
+          <span class="pill">100 Questions</span>
+          <span class="pill">100 Minutes</span>
+        </div>
+        <button class="btn-primary" onclick="selectTest(3)">Start Test 3 →</button>
+      </div>
     </div>
   </section>
 
@@ -541,6 +550,116 @@ const TEST_DATA_2 = {
     {q:"The ratio of the present ages of a father and son is 9 : 4. Ten years ago, the ratio was 11 : 4. What is the father's present age?",options:["45 years","50 years","60 years","54 years"],correctIndex:3}
   ]
 };
+const TEST_DATA_3 = {
+  "English": [
+    {q:"A synonym is a word that:",options:["Has the opposite meaning of another word","Has the same or nearly the same meaning as another word","Has the same spelling but different pronunciation","Has the same origin as another word"],correctIndex:1},
+    {q:"An antonym is a word that:",options:["Has the same pronunciation as another word","Has an opposite meaning to another word","Has a similar meaning to another word","Has the same spelling as another word"],correctIndex:1},
+    {q:"Choose the synonym of Abhor.",options:["Respect","Loathe","Love","Admire"],correctIndex:1},
+    {q:"Choose the antonym of Adequate.",options:["Insufficient","Enough","Ample","Sufficient"],correctIndex:0},
+    {q:"The word Abolish is closest in meaning to:",options:["Create","Establish","Terminate","Enact"],correctIndex:2},
+    {q:"Choose the antonym of Adaptable.",options:["Flexible","Rigid","Adjustable","Versatile"],correctIndex:1},
+    {q:"Choose the synonym of Accord.",options:["Opposition","Conflict","Agreement","Argument"],correctIndex:2},
+    {q:"The opposite of Accuse is:",options:["Condemn","Blame","Criticize","Exonerate"],correctIndex:3},
+    {q:"Which word is the closest synonym of Amplify?",options:["Reduce","Expand","Limit","Shrink"],correctIndex:1},
+    {q:"Choose the antonym of Allow.",options:["Approve","Permit","Forbid","Encourage"],correctIndex:2},
+    {q:"The word Adverse is nearest in meaning to:",options:["Pleasant","Hostile","Friendly","Favorable"],correctIndex:1},
+    {q:"Choose the antonym of Annihilate.",options:["Eliminate","Destroy","Vanish","Build"],correctIndex:3},
+    {q:"Which word is the closest synonym of Accept?",options:["Refuse","Authorize","Reject","Disapprove"],correctIndex:1},
+    {q:"Choose the antonym of Abbreviate.",options:["Condense","Reduce","Lengthen","Shorten"],correctIndex:3},
+    {q:"Choose the synonym of Annual.",options:["Seasonal","Monthly","Yearly","Daily"],correctIndex:2},
+    {q:"Noun is used for?",options:["Naming","Replacement","Action","None"],correctIndex:0},
+    {q:"Ahmed went to Karachi. Here KARACHI is?",options:["Common Noun","Uncountable Noun","Proper Noun","Pronoun"],correctIndex:2},
+    {q:"The largest population of the world is in Asia continent. Here Asia is?",options:["Common Noun","Proper Noun","Subjective Noun","Pronoun"],correctIndex:1},
+    {q:"The biggest province of Pakistan is Baluchistan. Find out the error in noun.",options:["Province","Pakistan","Baluchistan","None"],correctIndex:1},
+    {q:"There are 50 states in the United States of America. Here the USA is?",options:["Proper Noun","Common Noun","Subject","Pronoun"],correctIndex:0},
+    {q:"Which type of noun can be plural?",options:["Common Noun","Proper Noun","Material Noun","Collective Noun"],correctIndex:0},
+    {q:"Which type of noun can be rarely plural?",options:["Common Noun","Proper Noun","Countable Noun","Collective Noun"],correctIndex:1},
+    {q:"Pronoun is used to _____ a noun.",options:["Replace","Modify","Add Meaning","All of These"],correctIndex:0},
+    {q:"Pronoun that is used to replace a Subjective Noun is called _____ Pronoun.",options:["Relative","Possessive","Objective","Subjective"],correctIndex:3},
+    {q:"Pronoun that is used to replace an Objective Noun is?",options:["Personal","Possessive","Objective","Reflexive"],correctIndex:2},
+    {q:"Adil sings a song with Asif. Replace the Subjective Noun.",options:["He sings a song with Asif.","It sings a song with Asif.","She sings a song with Asif.","They sang a song with Asif."],correctIndex:0},
+    {q:"Zahoor plays a song with Jamil. Replace the Objective Noun.",options:["He plays a song with Jamil.","He plays a song with her.","Zahoor plays a song with him.","It plays a song with him."],correctIndex:2},
+    {q:"Iqra and Atia are classmates. Replace the Subjective Nouns.",options:["We are classmates.","She is classmates.","They are classmates.","N.O.T."],correctIndex:2},
+    {q:"_____ are my books. Select the accurate Demonstrative Pronoun.",options:["This","That","These","What"],correctIndex:2},
+    {q:"Which option is grammatically correct?",options:["You and Amna","We and Amna","Amna and I","I and Amna"],correctIndex:2}
+  ],
+  "Muslim History": [
+    {q:"The founder of the Tughlaq Dynasty was?",options:["Muhammad bin Tughlaq","Ghiyas-ud-Din Tughlaq","Feroz Shah Tughlaq","Timur"],correctIndex:1},
+    {q:"Muhammad bin Tughlaq shifted the capital to?",options:["Delhi","Agra","Daulatabad","Lahore"],correctIndex:2},
+    {q:"Muhammad bin Tughlaq introduced?",options:["Paper Currency","Token Currency","Silver Tax","Jizya"],correctIndex:1},
+    {q:"Who visited India during Muhammad bin Tughlaq's reign?",options:["Al-Biruni","Ibn Battuta","Firdausi","Babur"],correctIndex:1},
+    {q:"Who constructed numerous canals?",options:["Ghiyas-ud-Din","Muhammad bin Tughlaq","Feroz Shah Tughlaq","Bahlul Lodi"],correctIndex:2},
+    {q:"Muhammad bin Tughlaq ruled from?",options:["1320–1325","1325–1351","1351–1388","1398–1414"],correctIndex:1},
+    {q:"Timur invaded India in?",options:["1296","1320","1398","1414"],correctIndex:2},
+    {q:"Timur attacked?",options:["Agra","Lahore","Delhi","Multan"],correctIndex:2},
+    {q:"The Tughlaq Dynasty weakened after?",options:["Mongol attacks","Timur's invasion","Battle of Panipat","Babur's invasion"],correctIndex:1},
+    {q:"The Tughlaq Dynasty ended in?",options:["1398","1414","1451","1526"],correctIndex:1},
+    {q:"The founder of the Sayyid Dynasty was?",options:["Bahlul Lodi","Khizr Khan","Sikandar Lodi","Ibrahim Lodi"],correctIndex:1},
+    {q:"The Sayyid Dynasty ruled from?",options:["1414–1451","1451–1526","1320–1414","1526–1556"],correctIndex:0},
+    {q:"The founder of the Lodi Dynasty was?",options:["Ibrahim Lodi","Sikandar Lodi","Bahlul Lodi","Babur"],correctIndex:2},
+    {q:"Who founded Agra?",options:["Bahlul Lodi","Sikandar Lodi","Ibrahim Lodi","Babur"],correctIndex:1},
+    {q:"The last ruler of the Lodi Dynasty was?",options:["Bahlul Lodi","Sikandar Lodi","Ibrahim Lodi","Khizr Khan"],correctIndex:2},
+    {q:"The First Battle of Panipat was fought in?",options:["1526","1556","1398","1414"],correctIndex:0},
+    {q:"Who defeated Ibrahim Lodi at Panipat?",options:["Akbar","Humayun","Babur","Sher Shah Suri"],correctIndex:2},
+    {q:"The Lodi Dynasty was of?",options:["Turkish origin","Arab origin","Afghan origin","Persian origin"],correctIndex:2},
+    {q:"The First Battle of Panipat established?",options:["Delhi Sultanate","Mughal Rule in India","Tughlaq Rule","Sayyid Rule"],correctIndex:1},
+    {q:"The Delhi Sultanate ended in?",options:["1451","1414","1526","1556"],correctIndex:2}
+  ],
+  "Chemistry": [
+    {q:"The smallest particle of an element that retains its properties is called:",options:["Molecule","Atom","Compound","Ion"],correctIndex:1},
+    {q:"A substance made up of only one type of atom is called:",options:["Compound","Mixture","Element","Solution"],correctIndex:2},
+    {q:"Water (H2O) is an example of a:",options:["Element","Compound","Mixture","Metal"],correctIndex:1},
+    {q:"Which of the following is an element?",options:["Water","Oxygen","Salt","Sugar"],correctIndex:1},
+    {q:"The chemical symbol of sodium is:",options:["So","S","Na","N"],correctIndex:2},
+    {q:"The chemical symbol of iron is:",options:["Ir","Fe","In","I"],correctIndex:1},
+    {q:"The chemical formula of carbon dioxide is:",options:["CO","CO2","C2O","C2O2"],correctIndex:1},
+    {q:"The chemical formula of ammonia is:",options:["NH3","NO2","N2O","NH4"],correctIndex:0},
+    {q:"Which of the following is the formula of sulfuric acid?",options:["HCl","HNO3","H2SO4","H2CO3"],correctIndex:2},
+    {q:"The chemical formula of calcium carbonate is:",options:["CaCO3","CaCl2","CaO","CaSO4"],correctIndex:0},
+    {q:"According to Boyle's law, when pressure increases, the volume of a gas:",options:["Increases","Decreases","Remains constant","Becomes zero"],correctIndex:1},
+    {q:"Boyle's law is valid at constant:",options:["Pressure","Temperature","Volume","Mass"],correctIndex:1},
+    {q:"According to Charles's law, when temperature increases, the volume of a gas:",options:["Decreases","Remains constant","Increases","Becomes zero"],correctIndex:2},
+    {q:"Charles's law is applicable at constant:",options:["Pressure","Volume","Temperature","Mass"],correctIndex:0},
+    {q:"Avogadro's law states that equal volumes of gases at the same temperature and pressure contain equal numbers of:",options:["Molecules","Atoms","Electrons","Protons"],correctIndex:0},
+    {q:"One mole of any substance contains:",options:["6.02 × 10^22 particles","6.02 × 10^23 particles","3.01 × 10^23 particles","10^24 particles"],correctIndex:1},
+    {q:"Which of the following is a compound?",options:["Copper","Nitrogen","Sodium chloride","Helium"],correctIndex:2},
+    {q:"Which element is represented by the symbol K?",options:["Krypton","Potassium","Calcium","Cobalt"],correctIndex:1},
+    {q:"Which of the following is a diatomic element?",options:["Helium","Oxygen","Sodium","Carbon"],correctIndex:1},
+    {q:"The chemical formula of common salt is:",options:["NaOH","NaCl","KCl","CaCl2"],correctIndex:1}
+  ],
+  "Mathematics": [
+    {q:"80 is 40% of what number?",options:["200","180","220","240"],correctIndex:0},
+    {q:"Increase 240 by 25%.",options:["280","320","300","340"],correctIndex:2},
+    {q:"If an item originally priced at Rs. 1,600 is discounted by 20%, what is the discounted price?",options:["Rs. 1,200","Rs. 1,300","Rs. 1,400","Rs. 1,280"],correctIndex:3},
+    {q:"45 is what percentage of 180?",options:["20%","30%","25%","35%"],correctIndex:2},
+    {q:"A laptop costs Rs. 50,000 and is offered at a 15% discount. What is the sale price?",options:["Rs. 40,000","Rs. 43,000","Rs. 44,000","Rs. 42,500"],correctIndex:3},
+    {q:"Decrease 900 by 30%.",options:["630","600","650","700"],correctIndex:0},
+    {q:"Sara has 240 books. She donates 20% of them. How many books does she donate?",options:["42","45","50","48"],correctIndex:3},
+    {q:"A city's population is 80,000 and increases by 25%. What is the new population?",options:["95,000","105,000","100,000","110,000"],correctIndex:2},
+    {q:"A container is filled to 75% of its 8-liter capacity. How much liquid is inside?",options:["5 L","6.5 L","7 L","6 L"],correctIndex:3},
+    {q:"Out of 500 students, 60% passed. How many failed?",options:["200","180","220","240"],correctIndex:0},
+    {q:"A shirt priced at Rs. 3,600 is sold with a 15% discount. What is the sale price?",options:["Rs. 3,000","Rs. 3,020","Rs. 3,120","Rs. 3,060"],correctIndex:3},
+    {q:"A mobile phone is sold for Rs. 5,400 after a 10% discount. What was its original price?",options:["Rs. 5,800","Rs. 6,200","Rs. 6,000","Rs. 6,500"],correctIndex:2},
+    {q:"A table costing Rs. 4,000 is reduced by 35%. What is the new price?",options:["Rs. 2,400","Rs. 2,800","Rs. 3,000","Rs. 2,600"],correctIndex:3},
+    {q:"A class has 50 students. 3/5 are boys. How many are girls?",options:["20","18","25","30"],correctIndex:0},
+    {q:"A's salary is 20% less than B's salary. By what percentage is B's salary more than A's?",options:["20%","30%","25%","40%"],correctIndex:2},
+    {q:"A student scores 70% and 90% in two tests. What is the average score?",options:["75%","82%","85%","80%"],correctIndex:3},
+    {q:"25% of a number is 30. What is 50% of that number?",options:["60","45","75","90"],correctIndex:0},
+    {q:"A salary increases by 25% and then decreases by 20%. What is the net change?",options:["No change","5% increase","5% decrease","No change (0%)"],correctIndex:3},
+    {q:"A washing machine is sold for Rs. 13,500 after a 10% discount. What was the original price?",options:["Rs. 14,000","Rs. 15,500","Rs. 16,000","Rs. 15,000"],correctIndex:3},
+    {q:"35% of a class are girls. The total number of students is 80. How many boys are there?",options:["24","48","56","52"],correctIndex:3},
+    {q:"The cost price of an item is Rs. 800 and the selling price is Rs. 920. What is the profit percentage?",options:["15%","10%","12%","20%"],correctIndex:0},
+    {q:"An article is bought for Rs. 1,200 and sold for Rs. 1,080. What is the loss percentage?",options:["8%","12%","10%","15%"],correctIndex:2},
+    {q:"The cost price of a bicycle is Rs. 15,000. It is sold at a 20% profit. What is the selling price?",options:["Rs. 16,500","Rs. 17,500","Rs. 19,000","Rs. 18,000"],correctIndex:3},
+    {q:"A mobile phone is sold for Rs. 13,500 at a 10% profit. What is its cost price?",options:["Rs. 12,272.73","Rs. 12,000","Rs. 12,500","Rs. 13,000"],correctIndex:0},
+    {q:"A chair costs Rs. 2,500 and is sold for Rs. 2,250. What is the loss percentage?",options:["5%","15%","20%","10%"],correctIndex:3},
+    {q:"A shopkeeper buys a fan for Rs. 4,000 and sells it for Rs. 5,000. What is the profit percentage?",options:["20%","30%","25%","35%"],correctIndex:2},
+    {q:"A television is sold for Rs. 18,000 after a 10% loss. What was its cost price?",options:["Rs. 19,000","Rs. 21,000","Rs. 22,000","Rs. 20,000"],correctIndex:3},
+    {q:"An article is purchased for Rs. 3,600 and sold for Rs. 4,320. What is the profit percentage?",options:["20%","15%","22%","25%"],correctIndex:0},
+    {q:"A table is sold for Rs. 5,600 at a 12% profit. What is its cost price?",options:["Rs. 4,800","Rs. 5,200","Rs. 5,000","Rs. 5,400"],correctIndex:2},
+    {q:"A watch is bought for Rs. 4,500 and sold for Rs. 4,050. What is the loss percentage?",options:["5%","12%","15%","10%"],correctIndex:3}
+  ]
+};
 const TESTS = {
   1: {
     label: "Test 1",
@@ -557,6 +676,14 @@ const TESTS = {
     totalQuestions: 105,
     minutes: 100,
     data: TEST_DATA_2
+  },
+  3: {
+    label: "Test 3",
+    title: "Sindh University 2k27 Entry Preparation 3rd Test",
+    subjects: ["English","Muslim History","Chemistry","Mathematics"],
+    totalQuestions: 100,
+    minutes: 100,
+    data: TEST_DATA_3
   }
 };
 
