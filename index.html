@@ -262,6 +262,15 @@
         </div>
         <button class="btn-primary" onclick="selectTest(3)">Start Test 3 →</button>
       </div>
+      <div class="test-choice-card">
+        <div class="test-choice-title">Test 4</div>
+        <div class="test-choice-sub">Sindh University Entry Test Preparation — 5th Weekly Test by SSS ORG</div>
+        <div class="meta-row" style="margin:10px 0 14px;">
+          <span class="pill">55 Questions</span>
+          <span class="pill">100 Minutes</span>
+        </div>
+        <button class="btn-primary" onclick="selectTest(4)">Start Test 4 →</button>
+      </div>
     </div>
   </section>
 
@@ -660,6 +669,69 @@ const TEST_DATA_3 = {
     {q:"A watch is bought for Rs. 4,500 and sold for Rs. 4,050. What is the loss percentage?",options:["5%","12%","15%","10%"],correctIndex:3}
   ]
 };
+const TEST_DATA_4 = {
+  "English": [
+    {q:"Appraise means:",options:["Ignore","Evaluate","Reject","Destroy"],correctIndex:1},
+    {q:"Ardent means:",options:["Passionate","Indifferent","Ordinary","Artificial"],correctIndex:0},
+    {q:"Barrier means:",options:["Gateway","Obstacle","Purchase","Awareness"],correctIndex:1},
+    {q:"Brilliant means:",options:["Dull","Fading","Bright","Awful"],correctIndex:2},
+    {q:"Authorize means:",options:["Prohibit","Revoke","Empower","Refuse"],correctIndex:2},
+    {q:"The antonym of Artificial is:",options:["Man-made","Natural","Brilliant","Hectic"],correctIndex:1},
+    {q:"The antonym of Attain is:",options:["Achieve","Purchase","Give up","Empower"],correctIndex:2},
+    {q:"The antonym of Busy is:",options:["Engaged","Hectic","Idle","Active"],correctIndex:2},
+    {q:"The antonym of Blooming is:",options:["Flowering","Fading","Brilliant","Pleasant"],correctIndex:1},
+    {q:"The antonym of Approve is:",options:["Accept","Evaluate","Disapprove","Authorize"],correctIndex:2},
+    {q:"Verb is used for? Tick the correct one:",options:["Action","State","Noun","A & B"],correctIndex:3},
+    {q:"Mister John is speaking about education. Here SPEAKING is?",options:["Dynamic Verb","Stative Verb","Modal Verb","None"],correctIndex:0},
+    {q:"Imran is writing a book. Here WRITING is?",options:["Transitive Verb","Intransitive Verb","Auxiliary Verb","Modal Verb"],correctIndex:0},
+    {q:"He sleeps early. Here SLEEPS is?",options:["Transitive Verb","Intransitive Verb","Auxiliary Verb","Modal Verb"],correctIndex:1},
+    {q:"I am giving a test. Here AM is?",options:["Transitive Verb","Intransitive Verb","Auxiliary Verb","Modal Verb"],correctIndex:2},
+    {q:"She is a lady doctor. This tense shows?",options:["Action","State","Possession","Mode"],correctIndex:1},
+    {q:"Jawad has a sports car. This tense shows?",options:["Action","State","Possession","Mode"],correctIndex:2},
+    {q:"May I come in the class? This tense shows?",options:["Mode","State","Possession","A.O.T"],correctIndex:0},
+    {q:"I was an engineer. This tense shows?",options:["Present Time","Past Time","Future Time","N.O.T"],correctIndex:1},
+    {q:"Adjective is used to modify? Tick the correct one:",options:["Noun","Pronoun","Verb","A & B"],correctIndex:3},
+    {q:"Which sentence contains an indefinite adjective?",options:["He bought some apples.","She wore a red dress.","They live in the big house.","The book is on the table."],correctIndex:0},
+    {q:"We learn English from 3 books. Here, 3 is which type of adjective?",options:["Cardinal","Ordinal","Indefinite","A.O.T"],correctIndex:0},
+    {q:"I gave 3 tests, but I got first position in the first test. Select the Ordinal adjective:",options:["First","3","I","Got"],correctIndex:0},
+    {q:"Identify the adjective in the sentence: The sky is blue.",options:["Sky","Blue","Is","The"],correctIndex:1},
+    {q:"Pick the adjective from the sentence: The soup is salty.",options:["Soup","Salty","Is","The"],correctIndex:1},
+    {q:"Baby is looking so cute. Here CUTE is?",options:["Quantitative Adjective","Qualitative Adjective","Both","None"],correctIndex:1},
+    {q:"Sami is a bright aspirant in his class. Here BRIGHT is?",options:["Noun","Pronoun","Verb","Adjective"],correctIndex:3},
+    {q:"I like long books. Here LONG is?",options:["Quantitative Adjective","Qualitative Adjective","Both","None"],correctIndex:1},
+    {q:"Select the accurate sentence:",options:["Sonh is short lady.","Sonh is a small lady.","Sonh is small lady.","Sonh is a short lady."],correctIndex:3},
+    {q:"I went to Paris, and I visited _____ Palace of Versailles. Select the article.",options:["a","an","the","N.O.T"],correctIndex:2},
+    {q:"_____ apple _____ day keeps _____ doctor away. Select Article.",options:["an, a, a","an, the, a","the, a, a","an, a, the"],correctIndex:3},
+    {q:"John is _____ European man. Select Article.",options:["an","a","the","N.O.T"],correctIndex:1},
+    {q:"_____ youth are the backbone of the country.",options:["an","a","the","N.O.T"],correctIndex:2},
+    {q:"Punjab University is _____ oldest university of Pakistan. Select Article.",options:["an","a","the","N.O.T"],correctIndex:2},
+    {q:"_____ technocratic class wants to do surveillance of the world. Select the article.",options:["a","an","the","N.O.T"],correctIndex:2}
+  ],
+  "General Knowledge": {note:"Test Section is omitted due to negligence of teacher. Not Delivered test on Time -- Discuss with teacher into the discussion group: Thanks!"},
+  "General Science": [
+    {q:"A substance with a pH less than 7 is called:",options:["base","acid","salt","neutral"],correctIndex:1},
+    {q:"Blue litmus paper turns _____ in an acid.",options:["blue","green","red","yellow"],correctIndex:2},
+    {q:"Phenolphthalein and methyl orange are:",options:["salts","indicators","catalysts","solvents"],correctIndex:1},
+    {q:"Which separation technique is used to separate an insoluble solid from a liquid?",options:["distillation","filtration","evaporation","chromatography"],correctIndex:1},
+    {q:"Which method is commonly used to obtain salt from seawater?",options:["filtration","chromatography","evaporation","distillation"],correctIndex:2},
+    {q:"Rusting is the reaction of iron with:",options:["oxygen and moisture","nitrogen only","hydrogen only","carbon dioxide only"],correctIndex:0},
+    {q:"Photosynthesis mainly produces:",options:["oxygen and glucose","carbon dioxide and water","nitrogen and oxygen","hydrogen and oxygen"],correctIndex:0},
+    {q:"Which of the following is a natural polymer?",options:["polythene","nylon","cellulose","PVC"],correctIndex:2},
+    {q:"Biodegradable materials can be:",options:["broken down by microorganisms","melted easily","dissolved in water only","burned only"],correctIndex:0},
+    {q:"The ozone layer protects the Earth from:",options:["infrared rays","ultraviolet rays","radio waves","X-rays"],correctIndex:1},
+    {q:"The major greenhouse gas is:",options:["oxygen","nitrogen","carbon dioxide","helium"],correctIndex:2},
+    {q:"A catalyst is a substance that:",options:["slows a reaction","changes colour","speeds up a reaction without being consumed","stops a reaction"],correctIndex:2},
+    {q:"In gases, particles are:",options:["tightly packed","closely packed","very far apart","fixed in position"],correctIndex:2},
+    {q:"The change of a solid directly into a gas is called:",options:["melting","evaporation","sublimation","condensation"],correctIndex:2},
+    {q:"A solution that can still dissolve more solute is called:",options:["saturated solution","supersaturated solution","unsaturated solution","concentrated solution"],correctIndex:2},
+    {q:"The atomic number of oxygen is:",options:["1","2","8","16"],correctIndex:2},
+    {q:"Approximately what percentage of Earth's atmosphere is nitrogen?",options:["21%","50%","78%","90%"],correctIndex:2},
+    {q:"Sodium reacts with water to produce:",options:["oxygen gas","hydrogen gas","nitrogen gas","chlorine gas"],correctIndex:1},
+    {q:"Horizontal rows in the periodic table are called:",options:["groups","periods","blocks","series"],correctIndex:1},
+    {q:"Elements that have properties of both metals and non-metals are called:",options:["transition metals","noble gases","metalloids","alkali metals"],correctIndex:2}
+  ],
+  "Mathematics and IQ": {note:"Test Section is omitted due to negligence of teacher. Not Delivered test on Time -- Discuss with teacher into the discussion group: Thanks!"}
+};
 const TESTS = {
   1: {
     label: "Test 1",
@@ -684,6 +756,14 @@ const TESTS = {
     totalQuestions: 100,
     minutes: 100,
     data: TEST_DATA_3
+  },
+  4: {
+    label: "Test 4",
+    title: "Sindh University Entry Test Preparation 5th Weekly Test by SSS ORG",
+    subjects: ["English","General Knowledge","General Science","Mathematics and IQ"],
+    totalQuestions: 55,
+    minutes: 100,
+    data: TEST_DATA_4
   }
 };
 
@@ -763,8 +843,15 @@ function startTest(){
 function buildTestUI(){
   const container=document.getElementById('sections-container');container.innerHTML="";totalQuestions=0;
   Object.keys(ACTIVE_DATA).forEach(subject=>{
-    const questions=ACTIVE_DATA[subject];userAnswers[subject]=new Array(questions.length).fill(null);totalQuestions+=questions.length;
+    const entry=ACTIVE_DATA[subject];
     const sec=document.createElement('div');sec.className='subject-section';
+    if(!Array.isArray(entry)&&entry&&entry.note){
+      sec.innerHTML=`<div class="subject-header"><span>${subject}</span><span class="subject-count">Not Available</span></div>
+      <div class="questions-box"><div class="q-card" style="text-align:center;color:var(--ink-soft);font-style:italic;padding:26px 20px;line-height:1.6;">${entry.note}</div></div>`;
+      container.appendChild(sec);
+      return;
+    }
+    const questions=entry;userAnswers[subject]=new Array(questions.length).fill(null);totalQuestions+=questions.length;
     sec.innerHTML=`<div class="subject-header"><span>${subject}</span><span class="subject-count">${questions.length} Questions</span></div>
     <div class="questions-box"></div>`;
     container.appendChild(sec);
@@ -834,7 +921,9 @@ function submitTest(){
   clearInterval(timerInterval);
   let totalCorrect=0;const subjectResults={};
   Object.keys(ACTIVE_DATA).forEach(subject=>{
-    const questions=ACTIVE_DATA[subject];let correct=0;
+    const entry=ACTIVE_DATA[subject];
+    if(!Array.isArray(entry)) return;
+    const questions=entry;let correct=0;
     questions.forEach((qObj,qIndex)=>{if(userAnswers[subject][qIndex]===qObj.correctIndex) correct++;});
     subjectResults[subject]={correct,total:questions.length};totalCorrect+=correct;
   });
