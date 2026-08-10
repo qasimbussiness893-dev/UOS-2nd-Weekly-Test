@@ -280,6 +280,15 @@
         </div>
         <button class="btn-primary" onclick="selectTest(5)">Start Test 5 →</button>
       </div>
+      <div class="test-choice-card">
+        <div class="test-choice-title">Test 6</div>
+        <div class="test-choice-sub">Sindh University Entry Test Preparation — 7th Weekly Test by SSS ORG</div>
+        <div class="meta-row" style="margin:10px 0 14px;">
+          <span class="pill">100 Questions</span>
+          <span class="pill">100 Minutes</span>
+        </div>
+        <button class="btn-primary" onclick="selectTest(6)">Start Test 6 →</button>
+      </div>
     </div>
   </section>
 
@@ -851,6 +860,116 @@ const TEST_DATA_5 = {
     {q:"If the fourth proportional to 9, 15, and 30 is x, then x=",options:["55","40","45","50"],correctIndex:3}
   ]
 };
+const TEST_DATA_6 = {
+  "English": [
+    {q:"The synonym of Appraise is:",options:["Ignore","Evaluate","Criticize","Condemn"],correctIndex:1},
+    {q:"The synonym of Amalgamation is:",options:["Separation","Isolation","Combination","Division"],correctIndex:2},
+    {q:"The synonym of Absorptive is:",options:["Impermeable","Dry","Permeable","Solid"],correctIndex:2},
+    {q:"The synonym of Ardent is:",options:["Indifferent","Passive","Careless","Passionate"],correctIndex:3},
+    {q:"The synonym of Adverse is:",options:["Favorable","Hostile","Helpful","Pleasant"],correctIndex:1},
+    {q:"The antonym of Authorize is:",options:["Approve","Permit","Empower","Prohibit"],correctIndex:3},
+    {q:"The antonym of Adequate is:",options:["Sufficient","Enough","Insufficient","Complete"],correctIndex:2},
+    {q:"The antonym of Accuse is:",options:["Blame","Condemn","Exonerate","Complain"],correctIndex:2},
+    {q:"The antonym of Abolish is:",options:["Remove","Eliminate","Enact","Cancel"],correctIndex:2},
+    {q:"The antonym of Awareness is:",options:["Consciousness","Knowledge","Alertness","Ignorance"],correctIndex:3},
+    {q:"_____ enjoys reading books in the evening.",options:["She","Her","Herself","Them"],correctIndex:0},
+    {q:"He completed the work _____ and carefully.",options:["quickly","quick","quicker","quickness"],correctIndex:0},
+    {q:"She likes tea, _____ I prefer coffee.",options:["but","if","although","because"],correctIndex:0},
+    {q:"Select the correct sentence:",options:["Ahmed went to stadium; and he played cricket.","Ahmed went to stadium and he played cricket.","Ahmed went to stadium, he played cricket.","Ahmed went to stadium, and he played cricket."],correctIndex:3},
+    {q:"He was accused _____ cheating in the final examination.",options:["for","with","of","about"],correctIndex:2},
+    {q:"She apologized _____ her teacher _____ her mistake.",options:["to, for","for, to","with, for","to, about"],correctIndex:0},
+    {q:"They applied _____ the scholarship last month.",options:["to","for","in","with"],correctIndex:1},
+    {q:"We depend _____ our mentors for guidance.",options:["over","at","on","in"],correctIndex:2},
+    {q:"This project consists _____ five independent modules.",options:["from","in","with","of"],correctIndex:3},
+    {q:"She is interested _____ artificial intelligence.",options:["on","at","in","for"],correctIndex:2},
+    {q:"He is good _____ solving complex equations.",options:["in","at","on","with"],correctIndex:1},
+    {q:"The students participated _____ the national robotics competition.",options:["at","on","in","with"],correctIndex:2},
+    {q:"She is responsible _____ managing the entire project.",options:["of","for","to","with"],correctIndex:1},
+    {q:"He suffers _____ chronic asthma.",options:["with","of","from","by"],correctIndex:2},
+    {q:"She is capable _____ handling pressure and confident _____ her abilities.",options:["to, in","of, about","of, of","in, of"],correctIndex:2},
+    {q:"He blamed his assistant _____ the delay and refused to apologize _____ the client.",options:["for, to","on, to","for, for","to, for"],correctIndex:0},
+    {q:"The child was afraid _____ the dark but keen _____ exploring new ideas.",options:["from, for","of, on","of, at","about, on"],correctIndex:3},
+    {q:"He agreed _____ the decision, though he was worried _____ its consequences.",options:["to, for","with, about","with, for","to, about"],correctIndex:1},
+    {q:"She is proud _____ her achievements and fond _____ classical literature.",options:["for, for","of, of","about, of","of, about"],correctIndex:1},
+    {q:"The engineer relied _____ his experience while dealing _____ the unexpected system failure.",options:["on, with","upon, with","on, in","in, with"],correctIndex:0}
+  ],
+  "General Knowledge": [
+    {q:"Zulfikar Ali Bhutto founded which political party?",options:["Pakistan Muslim League","Pakistan Peoples Party","Jamaat-e-Islami","Awami League"],correctIndex:1},
+    {q:"Pervez Musharraf served as President of Pakistan from:",options:["1999–2007","2001–2008","2000–2005","1998–2003"],correctIndex:1},
+    {q:"How many times did Nawaz Sharif serve as Prime Minister?",options:["Two","Three","Four","Once"],correctIndex:1},
+    {q:"Imran Khan captained Pakistan to Cricket World Cup victory in:",options:["1996","1992","1999","1987"],correctIndex:1},
+    {q:"Malala Yousafzai became the youngest-ever Nobel Peace Prize recipient in:",options:["2012","2013","2014","2015"],correctIndex:2},
+    {q:"Abdul Sattar Edhi founded:",options:["Aman Foundation","Edhi Foundation","Al-Khidmat Foundation","Saylani Trust"],correctIndex:1},
+    {q:"Who wrote the national anthem of Pakistan?",options:["Faiz Ahmed Faiz","Hafeez Jullundhri","Allama Iqbal","Ahmed Faraz"],correctIndex:1},
+    {q:"Abdul Qadeer Khan is known as the:",options:["Father of Pakistan's Nuclear Program","Father of Pakistan's Space Program","Father of Pakistan Cricket","Father of the Constitution"],correctIndex:0},
+    {q:"Abul A'la Maududi founded Jamaat-e-Islami in:",options:["1935","1941","1947","1950"],correctIndex:1},
+    {q:"Sir Feroz Khan Noon was the last PM before Martial Law was imposed in:",options:["1956","1958","1962","1965"],correctIndex:1},
+    {q:"Arfa Karim became the world's youngest Microsoft Certified Professional at age:",options:["7","9","11","13"],correctIndex:1},
+    {q:"Jahangir Khan won how many World Open squash titles?",options:["Four","Five","Six","Seven"],correctIndex:2},
+    {q:"Sharmeen Obaid-Chinoy is the first Pakistani to win multiple:",options:["Grammy Awards","Academy Awards","Emmy Awards","Golden Globes"],correctIndex:1},
+    {q:"Javed Miandad hit a famous last-ball six against India in:",options:["1986","1992","1996","1983"],correctIndex:0},
+    {q:"Dr. Abdus Salam won the Nobel Prize in Physics in:",options:["1975","1979","1983","1990"],correctIndex:1},
+    {q:"Shoaib Akhtar is known as the:",options:["Boom Boom","Rawalpindi Express","Sultan of Speed","Karachi King"],correctIndex:1},
+    {q:"Wasim Akram is widely regarded as one of the greatest _____ in cricket history.",options:["Batsmen","Fast bowlers","All-rounders","Wicketkeepers"],correctIndex:1},
+    {q:"\"My Life\" is an autobiography written by:",options:["Imran Khan","Benazir Bhutto","Ayub Khan","Fatima Jinnah"],correctIndex:1},
+    {q:"\"In the Line of Fire: A Memoir\" was written by:",options:["Zia-ul-Haq","Pervez Musharraf","Ayub Khan","Yahya Khan"],correctIndex:1},
+    {q:"\"A Case of Exploding Mangoes\" is written by:",options:["Mohsin Hamid","Mohammed Hanif","Tariq Ali","Ayesha Jalal"],correctIndex:1}
+  ],
+  "General Science": [
+    {q:"The SI unit of temperature is:",options:["Celsius","Fahrenheit","Kelvin","Joule"],correctIndex:2},
+    {q:"The SI unit of electric current is:",options:["Volt","Ampere","Ohm","Coulomb"],correctIndex:1},
+    {q:"The SI unit of electric charge is:",options:["Ampere","Coulomb","Volt","Watt"],correctIndex:1},
+    {q:"The SI unit of frequency is:",options:["Hertz","Joule","Pascal","Newton"],correctIndex:0},
+    {q:"The SI unit of length is:",options:["Centimeter","Meter","Kilometer","Inch"],correctIndex:1},
+    {q:"The SI unit of mass is:",options:["Gram","Kilogram","Pound","Tonne"],correctIndex:1},
+    {q:"The SI unit of time is:",options:["Minute","Hour","Second","Day"],correctIndex:2},
+    {q:"The SI unit of velocity is:",options:["m/s","km/h","m²","N"],correctIndex:0},
+    {q:"The SI unit of force is:",options:["Joule","Newton","Watt","Pascal"],correctIndex:1},
+    {q:"The SI unit of pressure is:",options:["Newton","Pascal","Joule","Watt"],correctIndex:1},
+    {q:"Force is defined as:",options:["Mass × Volume","Push or pull acting on a body","Energy stored in a body","Rate of doing work"],correctIndex:1},
+    {q:"Pressure is defined as:",options:["Force × Area","Force per unit area","Work per unit time","Mass per unit volume"],correctIndex:1},
+    {q:"Work is done when:",options:["A force causes displacement","A body is at rest","Temperature increases","Pressure decreases"],correctIndex:0},
+    {q:"The SI unit of work is:",options:["Newton","Joule","Watt","Pascal"],correctIndex:1},
+    {q:"Power is defined as:",options:["Work done per unit time","Force per unit area","Energy stored","Mass × acceleration"],correctIndex:0},
+    {q:"The SI unit of power is:",options:["Joule","Watt","Volt","Newton"],correctIndex:1},
+    {q:"Energy is the ability to:",options:["Increase mass","Do work","Produce pressure","Reduce temperature"],correctIndex:1},
+    {q:"One kilowatt-hour (kWh) is a unit of:",options:["Power","Energy","Current","Voltage"],correctIndex:1},
+    {q:"One watt is equal to:",options:["1 joule/second","1 newton/meter","1 coulomb/second","1 pascal/second"],correctIndex:0},
+    {q:"Which of the following is not an SI unit?",options:["Newton","Joule","Fahrenheit","Kelvin"],correctIndex:2}
+  ],
+  "Mathematics": [
+    {q:"The marked price of a school bag changes from Rs. 400 to Rs. 460. What is the percentage increase?",options:["15%","10%","18%","20%"],correctIndex:0},
+    {q:"A library had 500 books, but 50 books were removed. What is the percentage decrease?",options:["10%","15%","12%","18%"],correctIndex:0},
+    {q:"A student's score rises from 240 to 300. Find the percentage increase in the score.",options:["20%","22%","25%","30%"],correctIndex:2},
+    {q:"The population of a town changes from 20,000 to 25,000. What is the percentage change?",options:["10%","25%","18%","20%"],correctIndex:1},
+    {q:"If 25% of a number is 75, what is the number?",options:["250","275","300","325"],correctIndex:2},
+    {q:"40% of which number is 144?",options:["320","340","350","360"],correctIndex:3},
+    {q:"A jacket priced at Rs. 3,200 is offered at a 20% discount. What amount does the customer pay?",options:["Rs. 2,400","Rs. 2,560","Rs. 2,560","Rs. 2,800"],correctIndex:2},
+    {q:"A student's marks increase by 12% from an original score of 500. What is the new score?",options:["550","560","570","580"],correctIndex:1},
+    {q:"Find 20% of 15% of 800.",options:["24","26","30","32"],correctIndex:0},
+    {q:"In a mixture, the ratio of water to juice is 4 : 1. What percentage of the mixture is juice?",options:["15%","20%","25%","30%"],correctIndex:1},
+    {q:"8 workers earn Rs. 12,800 in 5 days. If 12 workers work for 8 days at the same daily rate per worker, how much will they earn?",options:["Rs. 28,800","Rs. 30,720","Rs. 30,720","Rs. 32,000"],correctIndex:2},
+    {q:"12 workers working 8 hours per day complete a task in 15 days. If 15 workers complete the same task in 12 days, how many hours per day must they work?",options:["8 hours","10 hours","9 hours","12 hours"],correctIndex:0},
+    {q:"A typist types 2,400 words in 4 hours. If another typist works at the same rate, how many hours will be required to type 4,200 words?",options:["7 hours","6 hours","8 hours","9 hours"],correctIndex:0},
+    {q:"If a car covers 240 km in 4 hours, how long will it take to cover 360 km at the same speed?",options:["5 hours","6 hours","7 hours","8 hours"],correctIndex:1},
+    {q:"A train 150 meters long traveling at 54 km/h takes how long to completely cross a 300-meter-long bridge?",options:["20 seconds","25 seconds","30 seconds","35 seconds"],correctIndex:2},
+    {q:"Two cars starting 360 km apart drive toward each other at speeds of 50 km/h and 70 km/h. How long will it take for them to meet?",options:["2 hours","3 hours","4 hours","5 hours"],correctIndex:1},
+    {q:"A train running at 72 km/h crosses a 200-meter-long platform in 22 seconds. What is the length of the train?",options:["200 meters","220 meters","240 meters","260 meters"],correctIndex:2},
+    {q:"A speedboat covers 120 km in 2 hours. How far will it travel in 5 hours maintaining the same speed?",options:["250 km","280 km","300 km","320 km"],correctIndex:2},
+    {q:"If Set A = {1, 2, 3} and Set B = {a, b, c}, what is the relationship between Set A and Set B?",options:["Equal sets","Equivalent sets","Disjoint sets","Subset sets"],correctIndex:1},
+    {q:"If a set S has 4 elements, how many total subsets does set S have?",options:["8","12","16","32"],correctIndex:2},
+    {q:"If A = {2, 4, 6, 8} and B = {4, 8, 12, 16}, what is A ∩ B (intersection of A and B)?",options:["{2, 6}","{4, 8}","{12, 16}","{2, 4, 6, 8, 12, 16}"],correctIndex:1},
+    {q:"Which of the following represents an empty set?",options:["{0}","{x : x is an even prime number greater than 2}","{x : x + 5 = 5}","{x : x is a whole number}"],correctIndex:1},
+    {q:"If A = {1, 2} and B = {1, 2, 3, 4}, which statement is correct?",options:["A is a proper subset of B","B is a subset of A","A and B are equal sets","A and B are disjoint sets"],correctIndex:0},
+    {q:"If A = {1, 2, 3, 4, 5} and B = {3, 4, 5, 6, 7}, what is the set difference A − B?",options:["{1, 2}","{6, 7}","{3, 4, 5}","{1, 2, 6, 7}"],correctIndex:0},
+    {q:"Which pair of sets represents equal sets?",options:["A = {1, 2, 3}, B = {a, b, c}","A = {1, 2, 3}, B = {3, 2, 1}","A = {2, 4, 1}, B = {2, 4, 6}","A = {0}, B = { }"],correctIndex:1},
+    {q:"If the Universal set U = {1, 2, 3, 4, 5, 6} and A = {2, 4, 6}, what is the complement of set A?",options:["{2, 4, 6}","{1, 3, 5}","{1, 2, 3, 4, 5, 6}","{ }"],correctIndex:1},
+    {q:"How many proper subsets does a set containing 3 elements have?",options:["6","7","8","9"],correctIndex:1},
+    {q:"Two finite sets A and B are called equivalent sets if and only if:",options:["They have the exact same elements","They have the same cardinal number","Their intersection is an empty set","One is a subset of the other"],correctIndex:1},
+    {q:"De Morgan's Law for the complement of an intersection states that (A ∩ B)' = _____:",options:["A' ∩ B'","A' ∪ B'","A ∪ B","A − B"],correctIndex:1},
+    {q:"According to the law of double complementation, what is the complement of the complement of set A, denoted as (A')' = ?",options:["A","A'","U","∅"],correctIndex:0}
+  ]
+};
 const TESTS = {
   1: {
     label: "Test 1",
@@ -891,6 +1010,14 @@ const TESTS = {
     totalQuestions: 100,
     minutes: 100,
     data: TEST_DATA_5
+  },
+  6: {
+    label: "Test 6",
+    title: "Sindh University Entry Test Preparation 7th Weekly Test by SSS ORG",
+    subjects: ["English","General Knowledge","General Science","Mathematics"],
+    totalQuestions: 100,
+    minutes: 100,
+    data: TEST_DATA_6
   }
 };
 
