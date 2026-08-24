@@ -289,6 +289,15 @@
         </div>
         <button class="btn-primary" onclick="selectTest(6)">Start Test 6 →</button>
       </div>
+      <div class="test-choice-card">
+        <div class="test-choice-title">Test 7</div>
+        <div class="test-choice-sub">Sindh University Entry Test Preparation — 7th Weekly Test by SSS ORG (Set 2)</div>
+        <div class="meta-row" style="margin:10px 0 14px;">
+          <span class="pill">100 Questions</span>
+          <span class="pill">100 Minutes</span>
+        </div>
+        <button class="btn-primary" onclick="selectTest(7)">Start Test 7 →</button>
+      </div>
     </div>
   </section>
 
@@ -970,6 +979,116 @@ const TEST_DATA_6 = {
     {q:"According to the law of double complementation, what is the complement of the complement of set A, denoted as (A')' = ?",options:["A","A'","U","∅"],correctIndex:0}
   ]
 };
+const TEST_DATA_7 = {
+  "English": [
+    {q:"Capitulate means:",options:["Conquer","Surrender","Resist","Defeat"],correctIndex:1},
+    {q:"Chide means:",options:["Praise","Reward","Scold","Encourage"],correctIndex:2},
+    {q:"Conceal means:",options:["Reveal","Expose","Hide","Disclose"],correctIndex:2},
+    {q:"Complex means:",options:["Simple","Clear","Easy","Complicated"],correctIndex:3},
+    {q:"Credible means:",options:["Doubtful","Believable","False","Improbable"],correctIndex:1},
+    {q:"The antonym of Captive is:",options:["Prisoner","Confined","Restricted","Free"],correctIndex:3},
+    {q:"The antonym of Courage is:",options:["Bravery","Boldness","Fear","Confidence"],correctIndex:2},
+    {q:"The antonym of Cruel is:",options:["Brutal","Merciless","Harsh","Kind"],correctIndex:3},
+    {q:"The antonym of Conceal is:",options:["Hide","Cover","Disclose","Suppress"],correctIndex:2},
+    {q:"The antonym of Certain is:",options:["Sure","Definite","Certain","Dubious"],correctIndex:3},
+    {q:"Choose the correctly spelt word:",options:["Accomodate","Acommodate","Accommadate","Accommodate"],correctIndex:3},
+    {q:"Choose the correctly spelt word:",options:["Acknowladge","Acknowledge","Acknowlege","Acknowlidge"],correctIndex:1},
+    {q:"Choose the correctly spelt word:",options:["Ambiguos","Ambigeous","Ambiguous","Ambiguious"],correctIndex:2},
+    {q:"Choose the correctly spelt word:",options:["Apprehensive","Apprehenssive","Aprehensive","Apprehensiv"],correctIndex:0},
+    {q:"Choose the correctly spelt word:",options:["Auspicious","Auspecious","Auspisious","Auspiciouss"],correctIndex:0},
+    {q:"She is fond _____ music.",options:["of","in","on","with"],correctIndex:0},
+    {q:"They are interested _____ learning English.",options:["on","at","in","for"],correctIndex:2},
+    {q:"He is proud _____ his success.",options:["with","of","on","by"],correctIndex:1},
+    {q:"She is married _____ a doctor.",options:["with","to","by","from"],correctIndex:1},
+    {q:"He apologized _____ his mistake.",options:["with","from","for","at"],correctIndex:2},
+    {q:"They returned _____ Lahore yesterday.",options:["of","from","in","on"],correctIndex:1},
+    {q:"We walked _____ the park in the evening.",options:["by","to","on","in"],correctIndex:1},
+    {q:"She moved _____ Islamabad last year.",options:["over","to","in","on"],correctIndex:1},
+    {q:"He got money _____ his friend.",options:["to","at","on","from"],correctIndex:3},
+    {q:"We sent a gift _____ our teacher.",options:["from","to","in","on"],correctIndex:1},
+    {q:"She is travelling _____ a bus.",options:["in","to","from","on"],correctIndex:3},
+    {q:"They are waiting _____ a taxi.",options:["in","on","from","to"],correctIndex:1},
+    {q:"They are getting _____ the train.",options:["in","to","from","on"],correctIndex:3},
+    {q:"He came to the party _____ his bike.",options:["on","in","from","to"],correctIndex:0},
+    {q:"She went to Karachi _____ a private car.",options:["by","on","from","to"],correctIndex:0}
+  ],
+  "General Knowledge": [
+    {q:"Who is the current Chief Justice of the Supreme Court of Pakistan?",options:["Justice Yahya Afridi","Justice Qazi Faez Isa","Justice Umar Ata Bandial","Justice Saqib Nisar"],correctIndex:0},
+    {q:"Who is the current President of Pakistan?",options:["Shehbaz Sharif","Arif Alvi","Asif Ali Zardari","Mamnoon Hussain"],correctIndex:2},
+    {q:"Who is the current Chief of Army Staff (COAS) of Pakistan?",options:["General Qamar Javed Bajwa","Field Marshal Syed Asim Munir","General Raheel Sharif","General Syed Asim Saleem"],correctIndex:1},
+    {q:"Who is the current Secretary-General of the United Nations (UN)?",options:["António Guterres","Ban Ki-moon","Kofi Annan","Tedros Adhanom Ghebreyesus"],correctIndex:0},
+    {q:"How many member states are currently part of the European Union (EU)?",options:["25","26","28","27"],correctIndex:3},
+    {q:"Who is the current Chief of the Naval Staff of Pakistan?",options:["Admiral Muhammad Amjad Khan Niazi","Admiral Naveed Ashraf","Admiral Zafar Mahmood Abbasi","Admiral Muhammad Asif Sandila"],correctIndex:1},
+    {q:"Who is the current Chief of the Air Staff of Pakistan?",options:["Air Chief Marshal Sohail Aman","Air Chief Marshal Mujahid Anwar Khan","Air Chief Marshal Zaheer Ahmad Baber Sidhu","Air Chief Marshal Tahir Rafique Butt"],correctIndex:2},
+    {q:"Who is the current Chief Minister of Gilgit-Baltistan?",options:["Khalid Khurshid Khan","Hafiz Hafeezur Rehman","Gulbar Khan","Yar Muhammad"],correctIndex:3},
+    {q:"Where is the headquarters of the United Nations (UN) located?",options:["Geneva, Switzerland","Paris, France","New York City, USA","Vienna, Austria"],correctIndex:2},
+    {q:"The North Atlantic Treaty Organization (NATO), a military alliance, was founded in:",options:["1948","1949","1950","1951"],correctIndex:1},
+    {q:"Who is the current Chief Minister (CM) of Khyber Pakhtunkhwa (KPK)?",options:["Ali Amin Gandapur","Pervez Khattak","Mahmood Khan","Muhammad Sohail Afridi"],correctIndex:3},
+    {q:"Who is the current Chief Minister (CM) of Balochistan?",options:["Abdul Quddus Bizenjo","Sarfraz Bugti","Jam Kamal Khan","Mir Abdul Qadir Ali"],correctIndex:1},
+    {q:"How many Member States are currently part of the United Nations (UN)?",options:["193","195","191","196"],correctIndex:0},
+    {q:"How many member countries are currently part of NATO?",options:["30","31","32","34"],correctIndex:2},
+    {q:"Where is the headquarters of NATO located?",options:["Paris, France","Brussels, Belgium","London, United Kingdom","Washington, D.C., USA"],correctIndex:1},
+    {q:"What is the capital of Kenya?",options:["Lagos","Nairobi","Kampala","Addis Ababa"],correctIndex:1},
+    {q:"How many emirates are there in the United Arab Emirates (UAE)?",options:["5","6","7","8"],correctIndex:2},
+    {q:"When did Pakistan join SEATO (Southeast Asia Treaty Organization)?",options:["1954","1955","1956","1957"],correctIndex:0},
+    {q:"When did Pakistan join CENTO (Central Treaty Organization), formerly known as the Baghdad Pact?",options:["1954","1955","1956","1957"],correctIndex:1},
+    {q:"Where was the Tashkent Agreement between Pakistan and India signed after the 1965 war?",options:["Moscow, Russia","Tashkent, Uzbekistan","New Delhi, India","Lahore, Pakistan"],correctIndex:1}
+  ],
+  "General Science": [
+    {q:"The formula for density is:",options:["ρ = V/m","ρ = m/V","ρ = mV","ρ = m + V"],correctIndex:1},
+    {q:"The SI unit of density is:",options:["kg/m³","kg/m²","g/m","N/m²"],correctIndex:0},
+    {q:"The formula for momentum is:",options:["p = ma","p = mv","p = m/v","p = F/t"],correctIndex:1},
+    {q:"The SI unit of momentum is:",options:["N","kg·m/s","J","W"],correctIndex:1},
+    {q:"According to Newton's second law, force is given by:",options:["F = m/v","F = ma","F = mv","F = m/a"],correctIndex:1},
+    {q:"The SI unit of force is:",options:["joule","watt","newton","pascal"],correctIndex:2},
+    {q:"The formula for power is:",options:["P = W/t","P = Wt","P = F/t","P = mV"],correctIndex:0},
+    {q:"The SI unit of power is:",options:["joule","watt","newton","volt"],correctIndex:1},
+    {q:"According to Hooke's law, within the elastic limit:",options:["F ∝ x","F ∝ 1/x","F ∝ x²","F = 0"],correctIndex:0},
+    {q:"Which formula represents Hooke's law?",options:["F = ma","F = -kx","F = mv","F = mg"],correctIndex:1},
+    {q:"According to Newton's second law, acceleration is directly proportional to:",options:["mass","force","volume","density"],correctIndex:1},
+    {q:"Electric current is defined as the rate of flow of:",options:["energy","charge","mass","force"],correctIndex:1},
+    {q:"The SI unit of electric current is:",options:["volt","ohm","ampere","coulomb"],correctIndex:2},
+    {q:"One ampere is equal to:",options:["one coulomb per second","one joule per second","one volt per second","one ohm per second"],correctIndex:0},
+    {q:"Voltage is also called:",options:["electric current","potential difference","resistance","electric charge"],correctIndex:1},
+    {q:"Electrical resistance is the opposition to the flow of:",options:["heat","electric current","light","sound"],correctIndex:1},
+    {q:"Amplitude is the maximum:",options:["frequency of a wave","displacement from the mean position","speed of a wave","wavelength"],correctIndex:1},
+    {q:"Frequency is the number of complete vibrations made in:",options:["one minute","one second","one hour","one metre"],correctIndex:1},
+    {q:"Wavelength is the distance between two successive:",options:["particles","crests or troughs","amplitudes","frequencies"],correctIndex:1},
+    {q:"According to Archimedes' principle, an immersed body experiences an upward force equal to the:",options:["mass of the body","weight of the displaced fluid","volume of the body","density of the body"],correctIndex:1}
+  ],
+  "Maths & IQ": [
+    {q:"The price of a school bag increases from Rs. 600 to Rs. 900. What is the percentage increase?",options:["50%","40%","60%","25%"],correctIndex:0},
+    {q:"A shop had 900 items, out of which 135 were sold. What is the percentage decrease?",options:["10%","20%","15%","12%"],correctIndex:2},
+    {q:"A student's marks increase from 360 to 450. Find the percentage increase.",options:["20%","30%","35%","25%"],correctIndex:3},
+    {q:"The population of a village decreases from 30,000 to 24,000. What is the percentage decrease?",options:["15%","20%","18%","25%"],correctIndex:1},
+    {q:"If 35% of a number is 140, what is the number?",options:["400","350","450","300"],correctIndex:0},
+    {q:"60% of which number is 240?",options:["360","420","400","450"],correctIndex:2},
+    {q:"A jacket marked at Rs. 4,000 is offered at a discount of 25%. What is the selling price?",options:["Rs. 2,800","Rs. 3,200","Rs. 3,500","Rs. 3,000"],correctIndex:3},
+    {q:"A student's score of 450 increases by 20%. What is the new score?",options:["520","540","530","550"],correctIndex:1},
+    {q:"Find 30% of 20% of 500.",options:["30","25","35","20"],correctIndex:0},
+    {q:"In a mixture, the ratio of water to milk is 2 : 3. What percentage of the mixture is milk?",options:["40%","50%","60%","70%"],correctIndex:2},
+    {q:"8 workers earn Rs. 16,000 in 5 days. How much will 12 workers earn in 8 days at the same rate?",options:["Rs. 32,000","Rs. 40,000","Rs. 35,200","Rs. 38,400"],correctIndex:3},
+    {q:"12 workers working 6 hours per day complete a task in 10 days. If 15 workers complete the same task in 8 days, how many hours per day must they work?",options:["5 hours","6 hours","7 hours","8 hours"],correctIndex:1},
+    {q:"A typist types 3,600 words in 6 hours. At the same rate, how many hours are required to type 5,400 words?",options:["9 hours","7 hours","10 hours","8 hours"],correctIndex:0},
+    {q:"A car covers 280 km in 4 hours. How long will it take to cover 490 km at the same speed?",options:["6 hours","8 hours","9 hours","7 hours"],correctIndex:3},
+    {q:"A train 200 meters long is traveling at 72 km/h. How much time will it take to cross a 300-meter-long bridge completely?",options:["25 seconds","20 seconds","30 seconds","35 seconds"],correctIndex:0},
+    {q:"Two cars are 420 km apart and move toward each other at speeds of 60 km/h and 80 km/h. How long will they take to meet?",options:["2 hours","4 hours","3 hours","5 hours"],correctIndex:2},
+    {q:"A train moving at 54 km/h crosses a 180-meter-long platform in 24 seconds. What is the length of the train?",options:["160 meters","200 meters","220 meters","180 meters"],correctIndex:3},
+    {q:"A bus travels 210 km in 3 hours. How far will it travel in 8 hours at the same speed?",options:["480 km","560 km","520 km","600 km"],correctIndex:1},
+    {q:"Which of the following best defines a square?",options:["A quadrilateral with four equal sides and four right angles","A quadrilateral with only opposite sides equal","A quadrilateral with three equal sides","A quadrilateral with no equal sides"],correctIndex:0},
+    {q:"The perimeter of a square is 48 cm. What is the length of one side of the square?",options:["14 cm","16 cm","12 cm","19 cm"],correctIndex:2},
+    {q:"Which statement correctly defines a rectangle?",options:["A quadrilateral with four equal sides","A quadrilateral with three right angles","A quadrilateral with all sides unequal","A quadrilateral with four right angles and opposite sides equal"],correctIndex:3},
+    {q:"The length of a rectangle is 20 cm and its width is 8 cm. What is its perimeter?",options:["48 cm","56 cm","52 cm","64 cm"],correctIndex:1},
+    {q:"A circle has a radius of 7 cm. Find its area. Take π = 22/7.",options:["154 cm²","144 cm²","164 cm²","176 cm²"],correctIndex:0},
+    {q:"A circle has a diameter of 14 cm. Find its circumference. Take π = 22/7.",options:["22 cm","66 cm","44 cm","88 cm"],correctIndex:2},
+    {q:"The area of a rectangle is 240 cm². If its length is 15 cm, what is its width?",options:["12 cm","14 cm","18 cm","16 cm"],correctIndex:3},
+    {q:"A square and a rectangle have the same perimeter. The square has a side of 10 cm, while the rectangle has a length of 12 cm. What is the width of the rectangle?",options:["6 cm","8 cm","10 cm","12 cm"],correctIndex:1},
+    {q:"If the radius of a circle is doubled, its area becomes:",options:["4 times","2 times","3 times","8 times"],correctIndex:0},
+    {q:"If A = {2, 4, 6, 8} and B = {4, 8, 12, 16}, find A ∩ B.",options:["{2, 6}","{12, 16}","{4, 8}","{2, 4, 6, 8}"],correctIndex:2},
+    {q:"A set contains 4 elements. How many total subsets does it have?",options:["8","12","20","16"],correctIndex:3},
+    {q:"If U = {1, 2, 3, 4, 5, 6} and A = {2, 4, 6}, what is A'?",options:["{1, 3, 5}","{2, 4, 6}","{1, 2, 3}","{4, 5, 6}"],correctIndex:0}
+  ]
+};
 const TESTS = {
   1: {
     label: "Test 1",
@@ -1018,6 +1137,14 @@ const TESTS = {
     totalQuestions: 100,
     minutes: 100,
     data: TEST_DATA_6
+  },
+  7: {
+    label: "Test 7",
+    title: "Sindh University Entry Test Preparation 7th Weekly Test by SSS ORG (Set 2)",
+    subjects: ["English","General Knowledge","General Science","Maths & IQ"],
+    totalQuestions: 100,
+    minutes: 100,
+    data: TEST_DATA_7
   }
 };
 
