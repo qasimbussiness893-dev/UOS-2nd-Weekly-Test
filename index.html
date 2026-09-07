@@ -298,6 +298,15 @@
         </div>
         <button class="btn-primary" onclick="selectTest(7)">Start Test 7 →</button>
       </div>
+      <div class="test-choice-card">
+        <div class="test-choice-title">Test 8</div>
+        <div class="test-choice-sub">Sindh University Entry Test Preparation — 8th Weekly Test by SSS ORG</div>
+        <div class="meta-row" style="margin:10px 0 14px;">
+          <span class="pill">100 Questions</span>
+          <span class="pill">100 Minutes</span>
+        </div>
+        <button class="btn-primary" onclick="selectTest(8)">Start Test 8 →</button>
+      </div>
     </div>
   </section>
 
@@ -1089,6 +1098,116 @@ const TEST_DATA_7 = {
     {q:"If U = {1, 2, 3, 4, 5, 6} and A = {2, 4, 6}, what is A'?",options:["{1, 3, 5}","{2, 4, 6}","{1, 2, 3}","{4, 5, 6}"],correctIndex:0}
   ]
 };
+const TEST_DATA_8 = {
+  "English": [
+    {q:"Abhor means:",options:["admire","loathe","accept","support"],correctIndex:1},
+    {q:"Brilliant means:",options:["dull","weak","bright","dark"],correctIndex:2},
+    {q:"Capitulate means:",options:["attack","conquer","surrender","resist"],correctIndex:2},
+    {q:"Diligent means:",options:["careless","lazy","hardworking","idle"],correctIndex:2},
+    {q:"Eccentric means:",options:["ordinary","abnormal","normal","typical"],correctIndex:1},
+    {q:"Adverse is opposite in meaning to:",options:["hostile","unfavorable","favorable","harmful"],correctIndex:2},
+    {q:"Conceal is opposite in meaning to:",options:["hide","cover","suppress","disclose"],correctIndex:3},
+    {q:"Fragile is opposite in meaning to:",options:["delicate","breakable","weak","tough"],correctIndex:3},
+    {q:"Garrulous is opposite in meaning to:",options:["talkative","verbose","silent","communicative"],correctIndex:2},
+    {q:"Enhance is opposite in meaning to:",options:["improve","increase","strengthen","degrade"],correctIndex:3},
+    {q:"Choose the correctly spelt word:",options:["Accomodation","Acommodation","Accommodation","Accommadation"],correctIndex:2},
+    {q:"Choose the correctly spelt word:",options:["Acknowlege","Acknowladge","Acknowlidge","Acknowledge"],correctIndex:3},
+    {q:"Choose the correctly spelt word:",options:["Bureacratic","Bureaucrat","Bureaucrate","Bureucrat"],correctIndex:1},
+    {q:"Choose the correctly spelt word:",options:["Conscienceness","Consciousnes","Consciousness","Conscienciousness"],correctIndex:2},
+    {q:"Choose the correctly spelt word:",options:["Cambrige","Cambredge","Cambrigde","Cambridge"],correctIndex:3},
+    {q:"He is capable _____ accommodating different opinions.",options:["in","at","of","for"],correctIndex:2},
+    {q:"She is aware _____ the importance of acknowledging the facts.",options:["for","of","at","with"],correctIndex:1},
+    {q:"The officer is responsible _____ maintaining bureaucratic procedures.",options:["to","with","for","at"],correctIndex:2},
+    {q:"He was conscious _____ his responsibilities during the examination.",options:["with","in","at","of"],correctIndex:3},
+    {q:"The students were familiar _____ the history of Cambridge University.",options:["to","at","with","for"],correctIndex:2},
+    {q:"The students walked _____ the tunnel to reach the other side.",options:["across","over","through","above"],correctIndex:2},
+    {q:"The athlete ran _____ the field to reach the finish line.",options:["through","across","above","over"],correctIndex:1},
+    {q:"The airplane flew _____ the clouds at a great height.",options:["through","across","above","into"],correctIndex:2},
+    {q:"The bird flew _____ the river and landed on the other side.",options:["through","across","in","at"],correctIndex:1},
+    {q:"The helicopter hovered _____ the building for several minutes.",options:["through","across","into","over"],correctIndex:3},
+    {q:"The weather is usually pleasant _____ spring.",options:["at","on","in","by"],correctIndex:2},
+    {q:"The examination will begin _____ 9:00 a.m.",options:["in","at","on","by"],correctIndex:1},
+    {q:"The admission test will be held _____ Monday, 14 September.",options:["at","in","on","by"],correctIndex:2},
+    {q:"She usually studies _____ the evening.",options:["at","on","in","by"],correctIndex:2},
+    {q:"We usually have dinner _____ 8:00 p.m.",options:["in","on","at","by"],correctIndex:2}
+  ],
+  "General Knowledge": [
+    {q:"Who defeated Raja Dahir at the Battle of Aror?",options:["Mahmud of Ghazni","Muhammad Bin Qasim","Muhammad Ghori","Timur"],correctIndex:1},
+    {q:"Who was the founder of the Mughal Empire?",options:["Akbar","Humayun","Babur","Shah Jahan"],correctIndex:2},
+    {q:"Bahadur Shah Zafar was exiled to which city?",options:["Kabul","Rangoon (Yangon)","Mecca","London"],correctIndex:1},
+    {q:"The Indian National Congress came into existence in which year?",options:["1857","1885","1905","1947"],correctIndex:1},
+    {q:"The Partition of Bengal took place in which year?",options:["1885","1900","1905","1911"],correctIndex:2},
+    {q:"What is the height of K2?",options:["8,586 meters","8,611 meters","8,848 meters","7,900 meters"],correctIndex:1},
+    {q:"What is the tallest building in Pakistan?",options:["Ocean Tower","Bahria Icon Tower, Karachi","MCB Tower","Habib Bank Plaza"],correctIndex:1},
+    {q:"Which day is observed as Teacher's Day?",options:["5th September","5th October","15th October","1st November"],correctIndex:1},
+    {q:"Kathmandu is the capital of which country?",options:["Bhutan","Nepal","Tibet","Sri Lanka"],correctIndex:1},
+    {q:"What is the national animal of Australia?",options:["Koala","Red Kangaroo","Wombat","Emu"],correctIndex:1},
+    {q:"What is the capital of Saudi Arabia?",options:["Jeddah","Riyadh","Mecca","Madina"],correctIndex:1},
+    {q:"The headquarters of the International Monetary Fund (IMF) is located in:",options:["New York","Geneva","Washington, D.C.","Paris"],correctIndex:2},
+    {q:"In which year was the International Atomic Energy Agency (IAEA) formed?",options:["1955","1957","1961","1965"],correctIndex:1},
+    {q:"What does UNICEF stand for?",options:["United Nations Children's Fund","United Nations Cultural Emergency Fund","United Nations Industrial Fund","United Nations Educational Fund"],correctIndex:0},
+    {q:"What is the currency of Spain?",options:["Peseta","Euro","Franc","Dollar"],correctIndex:1},
+    {q:"What was the first Ghazwa (military expedition) of Islam?",options:["Badr","Uhud","Ghazwa-e-Abwa (Waddan)","Khandaq"],correctIndex:2},
+    {q:"Who was the first person to accept Islam?",options:["Hazrat Abu Bakr (R.A.)","Hazrat Ali (R.A.)","Hazrat Khadija (R.A.)","Hazrat Umar (R.A.)"],correctIndex:2},
+    {q:"What does Qiyas mean in Islamic jurisprudence?",options:["Consensus of scholars","Legal reasoning by analogy","Interpretation of Quran","Command of Allah"],correctIndex:1},
+    {q:"Who was the first martyr (Shaheed) of Islam?",options:["Hazrat Hamza (R.A.)","Hazrat Sumayyah (R.A.)","Hazrat Bilal (R.A.)","Hazrat Ammar (R.A.)"],correctIndex:1},
+    {q:"What is Sidrat-ul-Muntaha?",options:["A mosque in Madina","The Lote tree at the utmost boundary of the heavens","A well in Makkah","A mountain near Makkah"],correctIndex:1}
+  ],
+  "General Science": [
+    {q:"Which particle has a negative charge?",options:["proton","neutron","electron","nucleus"],correctIndex:2},
+    {q:"The functional unit of the kidney is:",options:["neuron","nephron","alveolus","villus"],correctIndex:1},
+    {q:"The SI unit of force is:",options:["joule","watt","newton","pascal"],correctIndex:2},
+    {q:"Which planet is known as the Red Planet?",options:["Venus","Mars","Jupiter","Mercury"],correctIndex:1},
+    {q:"Which of the following is an example of computer hardware?",options:["Windows","Microsoft Word","Keyboard","Antivirus"],correctIndex:2},
+    {q:"A solution that cannot dissolve any more solute at a given temperature is called:",options:["unsaturated solution","saturated solution","dilute solution","supersaturated solution"],correctIndex:1},
+    {q:"The gas released during photosynthesis is:",options:["nitrogen","carbon dioxide","oxygen","hydrogen"],correctIndex:2},
+    {q:"The SI unit of electric current is:",options:["volt","ampere","ohm","coulomb"],correctIndex:1},
+    {q:"Which blood cells help the body fight diseases?",options:["red blood cells","white blood cells","platelets","plasma"],correctIndex:1},
+    {q:"The chemical symbol of potassium is:",options:["P","Pt","K","Po"],correctIndex:2},
+    {q:"According to Boyle's law, if the pressure of a gas increases at constant temperature, its volume:",options:["increases","decreases","remains constant","becomes zero"],correctIndex:1},
+    {q:"Which organ is mainly responsible for pumping blood throughout the body?",options:["lungs","liver","heart","kidney"],correctIndex:2},
+    {q:"Which of the following is a renewable source of energy?",options:["coal","petroleum","solar energy","natural gas"],correctIndex:2},
+    {q:"The largest planet in our solar system is:",options:["Earth","Saturn","Jupiter","Neptune"],correctIndex:2},
+    {q:"RAM is mainly used for:",options:["permanent storage","temporary storage","printing","scanning"],correctIndex:1},
+    {q:"A substance having a pH greater than 7 is:",options:["acidic","neutral","basic","metallic"],correctIndex:2},
+    {q:"The gas present in the largest percentage in Earth's atmosphere is:",options:["oxygen","nitrogen","carbon dioxide","hydrogen"],correctIndex:1},
+    {q:"The SI unit of frequency is:",options:["watt","hertz","joule","volt"],correctIndex:1},
+    {q:"The process by which a liquid changes into a gas from its surface is called:",options:["freezing","melting","evaporation","condensation"],correctIndex:2},
+    {q:"LAN stands for:",options:["Large Area Network","Local Area Network","Long Access Network","Local Application Network"],correctIndex:1}
+  ],
+  "Maths & IQ": [
+    {q:"The cost of a school bag rises from Rs. 900 to Rs. 1,080. What is the percentage increase?",options:["15%","18%","20%","25%"],correctIndex:2},
+    {q:"Which one of the following fractions has the greatest value?",options:["9/16","5/9","7/12","3/5"],correctIndex:3},
+    {q:"A student improves his marks from 320 to 400. By what percentage have his marks increased?",options:["20%","25%","30%","15%"],correctIndex:1},
+    {q:"The number of students in a college falls from 8,000 to 7,200. What is the percentage decrease?",options:["8%","12%","15%","10%"],correctIndex:3},
+    {q:"If 35% of a certain number is 210, find the number.",options:["500","550","600","650"],correctIndex:2},
+    {q:"72% of which number is equal to 288?",options:["350","400","450","480"],correctIndex:1},
+    {q:"A pair of shoes has a marked price of Rs. 6,000. If a discount of 15% is given, what will be the sale price?",options:["Rs. 5,000","Rs. 5,200","Rs. 5,100","Rs. 5,400"],correctIndex:2},
+    {q:"A student's previous score was 360. If it increases by 20%, what will be his new score?",options:["420","432","450","400"],correctIndex:1},
+    {q:"Calculate 30% of 20% of 900.",options:["45","50","54","60"],correctIndex:2},
+    {q:"A solution contains water and milk in the ratio 2 : 3. What percentage of the solution is milk?",options:["40%","50%","60%","75%"],correctIndex:2},
+    {q:"5 workers earn Rs. 15,000 in 4 days. At the same daily rate, how much will 8 workers earn in 6 days?",options:["Rs. 30,000","Rs. 32,000","Rs. 36,000","Rs. 40,000"],correctIndex:2},
+    {q:"A job is completed by 8 workers working 6 hours daily for 15 days. If 12 workers are employed to finish the same job in 10 days, how many hours must they work each day?",options:["5 hours","6 hours","7 hours","8 hours"],correctIndex:1},
+    {q:"16 workers can complete a project by working 5 hours per day for 9 days. If only 12 workers are available, how many hours per day will they need to work to finish it in 10 days?",options:["5 hours","6 hours","7 hours","8 hours"],correctIndex:1},
+    {q:"A typist completes 3,600 words in 6 hours. How long will it take to type 5,400 words at the same speed?",options:["8 hours","10 hours","9 hours","12 hours"],correctIndex:2},
+    {q:"Find the value of 15% of 20% of 2,000.",options:["60","50","80","70"],correctIndex:0},
+    {q:"If 4/7 of a number is 32, what is the number?",options:["48","52","56","64"],correctIndex:2},
+    {q:"Let A = {3, 5, 7, 9} and B = {5, 7, 9, 11}. What is A ∪ B?",options:["{3, 5, 7, 9, 11}","{3, 5}","{9, 11}","{11}"],correctIndex:0},
+    {q:"Using the letters P, Q, R, S and T, how many different 4-letter arrangements can be formed without repeating any letter?",options:["20","60","100","120"],correctIndex:3},
+    {q:"In how many ways can the letters of the word CHAIR be arranged?",options:["60","100","120","240"],correctIndex:2},
+    {q:"What is the total of the first 30 natural numbers?",options:["435","450","465","480"],correctIndex:2},
+    {q:"At a gathering, 14 persons are present. If every person shakes hands with each of the others once, how many handshakes will take place?",options:["84","96","91","105"],correctIndex:2},
+    {q:"Bilal travels 12 km towards the East. He then turns left and walks 7 km, turns left again and walks 12 km, and finally turns right and walks 5 km. Where is he located relative to his starting point?",options:["East","West","North","South"],correctIndex:2},
+    {q:"A person is initially facing South-East. He turns 90° anticlockwise, then 180° clockwise, and finally 90° anticlockwise. Which direction is he facing now?",options:["North-West","South-East","North-East","South-West"],correctIndex:1},
+    {q:"A is the father of B. B is the sister of C. C is the father of D. What is A's relationship with D?",options:["Uncle","Father","Grandfather","Brother"],correctIndex:2},
+    {q:"Find the next number in the series: 3, 8, 15, 24, 35, ___",options:["46","48","50","52"],correctIndex:1},
+    {q:"Find the next number in the series: 2, 6, 12, 20, 30, ___",options:["40","42","44","46"],correctIndex:1},
+    {q:"Find the next term in the series: ZYX, WVU, TSR, ___",options:["QPO","QPO","RQP","ONM"],correctIndex:1},
+    {q:"Find the missing term in the series: ACE, BDF, CEG, ___, EGI",options:["DFH","DFH","DFG","EGI"],correctIndex:1},
+    {q:"Bird : Nest :: Lion : ?",options:["Forest","Den","Cage","Tree"],correctIndex:1},
+    {q:"Find the odd one out:",options:["8","27","64","81"],correctIndex:3}
+  ]
+};
 const TESTS = {
   1: {
     label: "Test 1",
@@ -1145,6 +1264,14 @@ const TESTS = {
     totalQuestions: 100,
     minutes: 100,
     data: TEST_DATA_7
+  },
+  8: {
+    label: "Test 8",
+    title: "Sindh University Entry Test Preparation 8th Weekly Test by SSS ORG",
+    subjects: ["English","General Knowledge","General Science","Maths & IQ"],
+    totalQuestions: 100,
+    minutes: 100,
+    data: TEST_DATA_8
   }
 };
 
