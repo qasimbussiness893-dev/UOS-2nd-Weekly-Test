@@ -307,6 +307,15 @@
         </div>
         <button class="btn-primary" onclick="selectTest(8)">Start Test 8 →</button>
       </div>
+      <div class="test-choice-card">
+        <div class="test-choice-title">Test 9</div>
+        <div class="test-choice-sub">Sindh University Entry Test Preparation — 9th Weekly Test by SSS ORG</div>
+        <div class="meta-row" style="margin:10px 0 14px;">
+          <span class="pill">100 Questions</span>
+          <span class="pill">100 Minutes</span>
+        </div>
+        <button class="btn-primary" onclick="selectTest(9)">Start Test 9 →</button>
+      </div>
     </div>
   </section>
 
@@ -1208,6 +1217,116 @@ const TEST_DATA_8 = {
     {q:"Find the odd one out:",options:["8","27","64","81"],correctIndex:3}
   ]
 };
+const TEST_DATA_9 = {
+  "English": [
+    {q:"Professor said, \"I am on the way.\" (Indirect speech)",options:["Professor said that I was on the way.","Professor said that he was on the way.","Professor said that he is on the way.","Professor says that he was on the way."],correctIndex:1},
+    {q:"John said to Maria, \"I live in Washington, DC.\" (Indirect speech)",options:["John told Maria that I lived in Washington, DC.","John said Maria that he lived in Washington, DC.","John told Maria that he lived in Washington, DC.","John told Maria that he lives in Washington, DC."],correctIndex:2},
+    {q:"Romeo said to Juliet, \"You are working very hard these days.\" (Indirect speech)",options:["Romeo told Juliet that she was working very hard those days.","Romeo said Juliet that she was working very hard these days.","Romeo told Juliet that you were working very hard those days.","Romeo told Juliet that she is working very hard these days."],correctIndex:0},
+    {q:"Students said to the teacher, \"We arrived at the academy on time today.\" (Indirect speech)",options:["Students told the teacher that they had arrived at the academy on time that day.","Students told the teacher that we arrived at the academy on time today.","Students said the teacher that they had arrived at the academy on time today.","Students told the teacher that they have arrived at the academy on time that day."],correctIndex:0},
+    {q:"Jack said to his friends, \"I had visited Florence; then I visited Milan.\" (Indirect speech)",options:["Jack told his friends that he had visited Florence; then he had visited Milan.","Jack told his friends that he visited Florence; then he visited Milan.","Jack said his friends that he had visited Florence; then he visited Milan.","Jack told his friends that he had visited Florence; then he visited Milan."],correctIndex:0},
+    {q:"Mubeen said to Sir, \"I had been working on a project last month.\" (Indirect speech)",options:["Mubeen told Sir that he was working on a project last month.","Mubeen said Sir that he had been working on a project the previous month.","Mubeen told Sir that he had been working on a project the previous month.","Mubeen told Sir that I had been working on a project the previous month."],correctIndex:2},
+    {q:"Shoban said to Sabeen, \"I will not attend the party the next week.\" (Indirect speech)",options:["Shoban told Sabeen that he would not attend the party the following week.","Shoban told Sabeen that I would not attend the party the next week.","Shoban said Sabeen that he will not attend the party the following week.","Shoban told Sabeen that he would not attend the party next week."],correctIndex:0},
+    {q:"Saif said to Unsa, \"I am a lecturer, and I have good friends.\" (Indirect speech)",options:["Saif told Unsa that I was a lecturer and that I had good friends.","Saif said Unsa that he was a lecturer and that he has good friends.","Saif told Unsa that he was a lecturer and that he had good friends.","Saif told Unsa that he is a lecturer and that he has good friends."],correctIndex:2},
+    {q:"Saba said, \"Sofia was my friend in childhood, and she had a beautiful dress at that time.\" (Indirect speech)",options:["Saba said that Sofia was her friend in childhood and that she had a beautiful dress at that time.","Saba said that Sofia had been her friend in childhood and that she had had a beautiful dress at that time.","Saba said that Sofia had been my friend in childhood and that she had had a beautiful dress at that time.","Saba said that Sofia has been her friend in childhood and that she had a beautiful dress at that time."],correctIndex:1},
+    {q:"Ambreen said to Umar, \"I may not apply in MUET, but I will apply in NED and NUST this year.\" (Indirect speech)",options:["Ambreen told Umar that she might not apply in MUET, but she would apply in NED and NUST that year.","Ambreen told Umar that I might not apply in MUET, but I would apply in NED and NUST this year.","Ambreen said Umar that she might not apply in MUET, but she will apply in NED and NUST that year.","Ambreen told Umar that she may not apply in MUET, but she would apply in NED and NUST that year."],correctIndex:0},
+    {q:"Sumaiya said to Fizza, \"You could have assisted my friend.\" (Indirect speech)",options:["Sumaiya told Fizza that you could have assisted my friend.","Sumaiya said Fizza that she could assist her friend.","Sumaiya told Fizza that she could have assisted my friend.","Sumaiya told Fizza that she could have assisted her friend."],correctIndex:3},
+    {q:"Ali Murtaza said to Pareesa, \"Dead men tell no tales.\" (Indirect speech)",options:["Ali Murtaza told Pareesa that dead men told no tales.","Ali Murtaza told Pareesa that dead men tell no tales.","Ali Murtaza said Pareesa that dead men told no tales.","Ali Murtaza told Pareesa that dead men had told no tales."],correctIndex:1},
+    {q:"Aisha told her classmates, \"Everyone wants to be in heaven, but nobody wants to die first.\" (Indirect speech)",options:["Aisha told her classmates that everyone wanted to be in heaven, but nobody wanted to die first.","Aisha said her classmates that everyone wanted to be in heaven, but nobody wanted to die first.","Aisha told her classmates that everyone had wanted to be in heaven, but nobody had wanted to die first.","Aisha told her classmates that everyone wants to be in heaven, but nobody wants to die first."],correctIndex:0},
+    {q:"Sir said, \"The universe is made of matter, energy and space.\" (Indirect speech)",options:["Sir said that the universe was made of matter, energy and space.","Sir said that the universe is made of matter, energy and space.","Sir told that the universe was made of matter, energy and space.","Sir said that the universe had been made of matter, energy and space."],correctIndex:1},
+    {q:"Moiz said, \"Hurrah! Pakistan has won the match.\" (Indirect speech)",options:["Moiz exclaimed with joy that Pakistan had won the match.","Moiz exclaimed with sorrow that Pakistan had won the match.","Moiz said with joy that Pakistan has won the match.","Moiz exclaimed that Pakistan wins the match."],correctIndex:0},
+    {q:"Nida said to Sadia, \"Ufff! I feel exhausted, lazy and weak these days!\" (Indirect speech)",options:["Nida exclaimed with sorrow that I felt exhausted, lazy and weak those days.","Nida told Sadia that she had felt exhausted, lazy and weak these days.","Nida exclaimed with disgust that she felt exhausted, lazy and weak those days.","Nida exclaimed with joy that she felt exhausted, lazy and weak those days."],correctIndex:2},
+    {q:"Abdul Ahad said to Ruksana, \"Are you watching this drama these days?\" (Indirect speech)",options:["Abdul Ahad asked Ruksana that was she watching that drama those days.","Abdul Ahad asked Ruksana if she was watching that drama those days.","Abdul Ahad told Ruksana if she was watching this drama these days.","Abdul Ahad asked Ruksana whether you were watching that drama those days."],correctIndex:1},
+    {q:"Hamid said to Ismail, \"Have you not brought your bike today?\" (Indirect speech)",options:["Hamid asked Ismail had he not brought his bike that day.","Hamid told Ismail if he had not brought his bike today.","Hamid asked Ismail whether you had not brought your bike that day.","Hamid asked Ismail if he had not brought his bike that day."],correctIndex:3},
+    {q:"Rizwana said to Aamir, \"Why were you absent on the presentation day?\" (Indirect speech)",options:["Rizwana asked Aamir why he had been absent on the presentation day.","Rizwana asked Aamir why was he absent on the presentation day.","Rizwana told Aamir why he had been absent on the presentation day.","Rizwana asked Aamir why he was absent on the presentation day."],correctIndex:0},
+    {q:"Shahzaib said to Shaista, \"How long have you not been studying?\" (Indirect speech)",options:["Shahzaib asked Shaista how long had she not been studying.","Shahzaib told Shaista how long she had not been studying.","Shahzaib asked Shaista how long she has not been studying.","Shahzaib asked Shaista how long she had not been studying."],correctIndex:3},
+    {q:"Shujat says to Sajid, \"We are giving a presentation the next week.\" (Indirect speech)",options:["Shujat told Sajid that they were giving a presentation the following week.","Shujat tells Sajid that they are giving a presentation the following week.","Shujat says Sajid that they are giving a presentation the next week.","Shujat tells Sajid that we are giving a presentation the following week."],correctIndex:1},
+    {q:"Sir Sagar said to the students, \"Focus on communication skills.\" (Indirect speech)",options:["Sir Sagar advised the students to focus on communication skills.","Sir Sagar advised the students that focus on communication skills.","Sir Sagar told the students that focus on communication skills.","Sir Sagar said the students to focus on communication skills."],correctIndex:0},
+    {q:"The beggar said to the students, \"Please give me cash.\" (Indirect speech)",options:["The beggar requested the students that they gave him cash.","The beggar told the students please give me cash.","The beggar begged the students to give him cash.","The beggar said the students to give him cash."],correctIndex:2},
+    {q:"My friend said to me, \"Do not order fast food today.\" (Indirect speech)",options:["My friend suggested me not to order fast food that day.","My friend requested me do not order fast food that day.","My friend advised me to not ordered fast food today.","My friend told me that I did not order fast food that day."],correctIndex:0},
+    {q:"The doctor said to the patient, \"Do not smoke.\" (Indirect speech)",options:["The doctor advised the patient to not smoked.","The doctor suggests the patient do not smoke.","The doctor prescribed that the patient did not smoke.","The doctor forbade the patient to smoke."],correctIndex:3},
+    {q:"Choose the synonym of \"Eager.\"",options:["Reluctant","Keen","Indifferent","Unwilling"],correctIndex:1},
+    {q:"Choose the antonym of \"Eccentric.\"",options:["Abnormal","Peculiar","Normal","Unusual"],correctIndex:2},
+    {q:"Choose the synonym of \"Elaborate.\"",options:["Brief","Simple","Detailed","Concise"],correctIndex:2},
+    {q:"Choose the antonym of \"Enhance.\"",options:["Improve","Increase","Strengthen","Degrade"],correctIndex:3},
+    {q:"Choose the synonym of \"Extol.\"",options:["Criticize","Condemn","Praise","Denounce"],correctIndex:2}
+  ],
+  "General Knowledge": [
+    {q:"A battle in which the Prophet (PBUH) did not personally participate is called:",options:["Ghazwah","Sariyyah","Hijrah","Bay'ah"],correctIndex:1},
+    {q:"When was the Battle of Badr fought?",options:["10th Ramadan","17th Ramadan","21st Ramadan","27th Ramadan"],correctIndex:1},
+    {q:"What is Uhud?",options:["River","Hill","Desert","Valley"],correctIndex:1},
+    {q:"The Battle of Khandaq is also known as:",options:["Battle of Badr","Battle of Uhud","Battle of Ahzab","Battle of Hunain"],correctIndex:2},
+    {q:"How many times did the Prophet (PBUH) perform Hajj?",options:["Once","Twice","Three times","Four times"],correctIndex:0},
+    {q:"The headquarters of the UNO is in:",options:["Geneva","London","Paris","New York"],correctIndex:3},
+    {q:"In which year was the SCO (Shanghai Cooperation Organisation) formed?",options:["1996","2001","2005","2010"],correctIndex:1},
+    {q:"The organization for South Asian countries is:",options:["ASEAN","SAARC","OIC","SCO"],correctIndex:1},
+    {q:"What is the full form of IMF?",options:["International Monetary Fund","International Money Foundation","Internal Monetary Fund","International Mutual Fund"],correctIndex:0},
+    {q:"The currency of Portugal is:",options:["Pound","Franc","Euro","Peseta"],correctIndex:2},
+    {q:"Warsaw is the capital of:",options:["Poland","Portugal","Hungary","Austria"],correctIndex:0},
+    {q:"World Labour Day is observed on:",options:["1st May","1st June","1st March","1st July"],correctIndex:0},
+    {q:"9th October is celebrated as:",options:["World Health Day","World Post Day","World Teachers' Day","World Food Day"],correctIndex:1},
+    {q:"The largest animal in the world is:",options:["African Elephant","Blue Whale","Giraffe","Great White Shark"],correctIndex:1},
+    {q:"The largest country by area in the world is:",options:["Canada","China","United States","Russia"],correctIndex:3},
+    {q:"The fastest bird in the world is:",options:["Eagle","Peregrine Falcon","Ostrich","Hummingbird"],correctIndex:1},
+    {q:"The largest ocean in the world is:",options:["Atlantic Ocean","Indian Ocean","Pacific Ocean","Arctic Ocean"],correctIndex:2},
+    {q:"The smallest country in Asia (by area) is:",options:["Bahrain","Singapore","Maldives","Bhutan"],correctIndex:2},
+    {q:"\"Pakistan: A Personal History\" was written by:",options:["Benazir Bhutto","Imran Khan","Nawaz Sharif","Pervez Musharraf"],correctIndex:1},
+    {q:"How many times did Benazir Bhutto become Prime Minister of Pakistan?",options:["Once","Twice","Three times","Four times"],correctIndex:1}
+  ],
+  "General Science": [
+    {q:"Who is generally known as the Father of Chemistry?",options:["Robert Boyle","Jabir Ibn-e-Haiyan","Antoine Lavoisier","John Dalton"],correctIndex:1},
+    {q:"Who discovered the electron in 1897?",options:["Ernest Rutherford","J.J. Thomson","James Chadwick","Niels Bohr"],correctIndex:1},
+    {q:"Which of the following particles has no electrical charge?",options:["Proton","Electron","Neutron","Nucleus"],correctIndex:2},
+    {q:"What is the atomic number of an element equal to?",options:["Number of neutrons","Number of protons","Number of shells","Number of molecules"],correctIndex:1},
+    {q:"Which of the following is the chemical formula of ammonia?",options:["HCl","NH₃","CH₄","H₂O"],correctIndex:1},
+    {q:"What is the chemical symbol for gold?",options:["Gd","Go","Au","Ag"],correctIndex:2},
+    {q:"Which gas makes up approximately 78% of Earth's atmosphere?",options:["Oxygen","Carbon dioxide","Nitrogen","Hydrogen"],correctIndex:2},
+    {q:"Where is the ozone layer mainly found?",options:["Troposphere","Stratosphere","Mesosphere","Thermosphere"],correctIndex:1},
+    {q:"What is the value of Avogadro's number?",options:["6.02 × 10²³","3.14 × 10⁸","9.8 × 10²","1.6 × 10⁻¹⁹"],correctIndex:0},
+    {q:"Which method is used to separate an insoluble solid from a liquid?",options:["Distillation","Filtration","Chromatography","Evaporation"],correctIndex:1},
+    {q:"What is the basic unit of life?",options:["Tissue","Organ","Cell","Nucleus"],correctIndex:2},
+    {q:"Who first discovered the cell in 1665?",options:["Robert Hooke","Louis Pasteur","Charles Darwin","Gregor Mendel"],correctIndex:0},
+    {q:"Which organelle is primarily responsible for producing energy in the form of ATP?",options:["Ribosome","Nucleus","Mitochondrion","Golgi apparatus"],correctIndex:2},
+    {q:"Which organelle carries out photosynthesis in plant cells?",options:["Chloroplast","Mitochondrion","Lysosome","Ribosome"],correctIndex:0},
+    {q:"What is the green pigment responsible for absorbing light energy during photosynthesis?",options:["Hemoglobin","Chlorophyll","Melanin","Keratin"],correctIndex:1},
+    {q:"Which tissue transports water and minerals from the roots to other parts of a plant?",options:["Phloem","Xylem","Cortex","Epidermis"],correctIndex:1},
+    {q:"Which blood cells contain hemoglobin and transport oxygen?",options:["White blood cells","Platelets","Red blood cells","Plasma cells"],correctIndex:2},
+    {q:"Where does the exchange of oxygen and carbon dioxide occur in the lungs?",options:["Trachea","Bronchi","Alveoli","Diaphragm"],correctIndex:2},
+    {q:"Which organ is primarily responsible for filtering waste products from the blood and producing urine?",options:["Liver","Heart","Kidney","Lungs"],correctIndex:2},
+    {q:"Which vitamin is essential for calcium absorption and healthy bones?",options:["Vitamin A","Vitamin B","Vitamin C","Vitamin D"],correctIndex:3}
+  ],
+  "Maths & IQ": [
+    {q:"Which of the following numbers in the thousands is divisible by 2, 3, 4, and 5?",options:["1,250","1,350","1,200","1,150"],correctIndex:2},
+    {q:"Which of the following fractions represents the greatest value?",options:["3/5","7/12","9/16","4/5"],correctIndex:3},
+    {q:"A student's marks increase from 360 to 450. What percentage increase does this represent?",options:["20%","22.5%","25%","30%"],correctIndex:2},
+    {q:"The enrollment of a college decreases from 6,000 students to 4,500 students. Find the percentage decrease.",options:["20%","30%","20%","25%"],correctIndex:3},
+    {q:"If 40% of a number equals 240, determine the original number.",options:["600","500","550","650"],correctIndex:0},
+    {q:"75% of which number gives a result of 300?",options:["350","360","450","400"],correctIndex:3},
+    {q:"A jacket is marked at Rs. 6,000. If the shopkeeper offers a 15% discount, what amount will the customer pay?",options:["Rs. 5,100","Rs. 5,200","Rs. 5,400","Rs. 5,100"],correctIndex:3},
+    {q:"A student's score is 600. After an increase of 20%, what is the new score?",options:["680","700","710","720"],correctIndex:3},
+    {q:"What is the result when 25% of 20% of 1,600 is calculated?",options:["80","60","100","120"],correctIndex:0},
+    {q:"A rectangular room is 18 m long and 10 m wide. How many square meters of flooring are required to cover the entire floor?",options:["160 m²","180 m²","200 m²","220 m²"],correctIndex:1},
+    {q:"The side of a square measures 11 cm. Calculate its area.",options:["121 cm²","132 cm²","144 cm²","154 cm²"],correctIndex:0},
+    {q:"Twelve workers complete a task by working 6 hours a day for 12 days. If 18 workers are assigned to complete the same task in 6 days, how many hours should they work each day?",options:["6 hours","8 hours","7 hours","8 hours"],correctIndex:3},
+    {q:"The cost of 1 pen and 4 pencils is Rs. 12, while the cost of 2 pens and 5 pencils is Rs. 20. What is the cost of 5 pencils?",options:["Rs. 8","Rs. 10","Rs. 12","Rs. 15"],correctIndex:2},
+    {q:"A typist types 6,000 words in 10 hours. At the same rate, how much time will be needed to type 9,000 words?",options:["12 hours","14 hours","16 hours","15 hours"],correctIndex:3},
+    {q:"Find 20% of 35% of 2,000.",options:["140","120","140","180"],correctIndex:2},
+    {q:"If five-eighths of a number is 35, what is the number?",options:["48","54","64","56"],correctIndex:3},
+    {q:"The angles of a triangle are in the ratio 1 : 4 : 5. What is the measure of the largest angle?",options:["90°","60°","30°","120°"],correctIndex:0},
+    {q:"A box contains 6 red, 5 blue, and 4 green balls. If one ball is selected randomly, what is the probability that it is not blue?",options:["1/3","2/5","3/5","2/3"],correctIndex:3},
+    {q:"What is the sum of the interior angles of a quadrilateral?",options:["90°","180°","270°","360°"],correctIndex:3},
+    {q:"Find the sum of all natural numbers from 1 to 62.",options:["1,890","1,920","1,950","1,953"],correctIndex:3},
+    {q:"A number is multiplied by 2 and then 3 is added to it. If the final result is 19, what is the number?",options:["8","7","9","10"],correctIndex:0},
+    {q:"Ahmed moves 8 km north, then turns right and travels 5 km. He turns right again and walks 8 km, then turns left and walks 3 km. Where is he in relation to his starting point?",options:["8 km East","5 km North","8 km South","8 km East"],correctIndex:3},
+    {q:"In a certain coding system, the word APPLE is represented by 52234, while PEAR is represented by 2458. How will the word PAPER be represented using the same code?",options:["52782","57284","24228","52748"],correctIndex:2},
+    {q:"Arrange the following stages in the correct order: 1. Interview 2. Application 3. Appointment 4. Selection 5. Written Test",options:["2, 1, 5, 4, 3","5, 2, 1, 3, 4","2, 5, 1, 4, 3","2, 5, 1, 4, 3"],correctIndex:3},
+    {q:"If 15 August 2022 was Monday, what day of the week was 15 August 2025?",options:["Friday","Thursday","Saturday","Sunday"],correctIndex:0},
+    {q:"If today is Monday, which day will occur after 45 days?",options:["Wednesday","Sunday","Tuesday","Thursday"],correctIndex:3},
+    {q:"The day before yesterday was Tuesday. What day will it be three days from today?",options:["Sunday","Monday","Tuesday","Saturday"],correctIndex:0},
+    {q:"If 10 April 2010 was Saturday, what day of the week was 20 June 2010?",options:["Monday","Sunday","Saturday","Friday"],correctIndex:1},
+    {q:"Find the missing group in the following letter pattern: BDZ, EGA, HJY, KMB, ______",options:["NOX","NOX","NOP","NPX"],correctIndex:3},
+    {q:"A sequence follows a regular pattern: 2, 6, 12, 20, 30, ______ What is the next number?",options:["36","40","42","44"],correctIndex:2}
+  ]
+};
 const TESTS = {
   1: {
     label: "Test 1",
@@ -1272,6 +1391,14 @@ const TESTS = {
     totalQuestions: 100,
     minutes: 100,
     data: TEST_DATA_8
+  },
+  9: {
+    label: "Test 9",
+    title: "Sindh University Entry Test Preparation 9th Weekly Test by SSS ORG",
+    subjects: ["English","General Knowledge","General Science","Maths & IQ"],
+    totalQuestions: 100,
+    minutes: 100,
+    data: TEST_DATA_9
   }
 };
 
