@@ -159,6 +159,23 @@
   footer{text-align:center;color:var(--ink-soft);font-size:0.76rem;padding:18px;opacity:0.75;}
   #screen-home{margin-top:-22px;padding:26px 22px 30px;text-align:center;animation:fadeUp 0.6s ease both;}
   .home-heading{font-weight:800;color:var(--red);font-size:1.15rem;margin-bottom:6px;}
+  .promo-card{margin-top:18px;border-radius:16px;padding:22px 20px;text-align:center;
+    background:linear-gradient(135deg,var(--red-deep),var(--red) 55%,#8a1119);
+    box-shadow:0 12px 28px rgba(110,12,21,0.35);position:relative;overflow:hidden;
+    animation:fadeUp 0.6s ease both;}
+  .promo-card::before{content:"";position:absolute;inset:0;
+    background-image:radial-gradient(circle,rgba(255,255,255,0.08) 1px,transparent 1px);
+    background-size:16px 16px;opacity:0.6;pointer-events:none;}
+  .promo-icon{font-size:1.8rem;margin-bottom:6px;position:relative;}
+  .promo-title{color:var(--gold-light);font-weight:800;font-size:1.05rem;margin-bottom:6px;
+    position:relative;letter-spacing:0.2px;}
+  .promo-text{color:#fdeceb;font-size:0.85rem;line-height:1.55;margin-bottom:16px;
+    position:relative;max-width:420px;margin-left:auto;margin-right:auto;}
+  .promo-btn{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#0b3d20;
+    font-weight:800;font-size:0.92rem;padding:12px 22px;border-radius:999px;text-decoration:none;
+    box-shadow:0 8px 18px rgba(0,0,0,0.25);transition:transform 0.15s,box-shadow 0.15s;position:relative;}
+  .promo-btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,0.3);}
+  footer a{color:inherit;text-decoration:underline;}
   .test-choice-list{display:flex;flex-direction:column;gap:16px;margin-top:6px;}
   .test-choice-card{border:2px solid var(--line);border-radius:14px;padding:20px 18px;text-align:center;
     background:linear-gradient(135deg,#fff,#fdf4f2);transition:border-color 0.2s,transform 0.15s,box-shadow 0.2s;}
@@ -319,6 +336,14 @@
         <button class="btn-primary" onclick="selectTest(9)">Start Test 9 →</button>
       </div>
     </div>
+    <div class="promo-card">
+      <div class="promo-icon">💻🚀</div>
+      <div class="promo-title">Want a website or AI-powered tool like this one?</div>
+      <div class="promo-text">This entire test portal was custom-built with AI-powered development. If you or your institute need a website, app, or smart automation tool — let's talk.</div>
+      <a class="promo-btn" href="https://wa.me/923128246512" target="_blank" rel="noopener">
+        <span>💬</span> Chat on WhatsApp — 0312-8246512
+      </a>
+    </div>
   </section>
 
   <!-- LANDING FORM -->
@@ -378,7 +403,7 @@
   </section>
 </div>
 
-<footer>Reserved by Craftlync Digital Agency &copy; 2026</footer>
+<footer>Website &amp; AI Solutions — WhatsApp: <a href="https://wa.me/923128246512" target="_blank" rel="noopener">0312-8246512</a> &nbsp;|&nbsp; Reserved by Craftlync Digital Agency &copy; 2026</footer>
 
 <script>
 const TEST_DATA_1 = {
