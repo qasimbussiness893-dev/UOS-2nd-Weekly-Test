@@ -335,6 +335,15 @@
         </div>
         <button class="btn-primary" onclick="selectTest(9)">Start Test 9 →</button>
       </div>
+      <div class="test-choice-card">
+        <div class="test-choice-title">Test 10</div>
+        <div class="test-choice-sub">Sindh University Entry Test Preparation — 10th Weekly Test by SSS ORG</div>
+        <div class="meta-row" style="margin:10px 0 14px;">
+          <span class="pill">98 Questions</span>
+          <span class="pill">100 Minutes</span>
+        </div>
+        <button class="btn-primary" onclick="selectTest(10)">Start Test 10 →</button>
+      </div>
     </div>
     <div class="promo-card">
       <div class="promo-icon">💻🚀</div>
@@ -1354,6 +1363,114 @@ const TEST_DATA_9 = {
     {q:"A sequence follows a regular pattern: 2, 6, 12, 20, 30, ______ What is the next number?",options:["36","40","42","44"],correctIndex:2}
   ]
 };
+const TEST_DATA_10 = {
+  "English": [
+    {q:"I play music. Convert into Passive Voice.",options:["Music is played by me.","Music was played by me.","Music has been played by me.","Music is being played by me."],correctIndex:0},
+    {q:"Ahmed purchased a book for Arsalan. Convert into Passive Voice.",options:["A book is purchased by Ahmed for Arsalan.","A book was purchased by Ahmed for Arsalan.","A book has been purchased by Ahmed for Arsalan.","A book had been purchased by Ahmed for Arsalan."],correctIndex:1},
+    {q:"She is preparing food. Convert into Passive Voice.",options:["Food was prepared by her.","Food is prepared by her.","Food is being prepared by her.","Food has been prepared by her."],correctIndex:2},
+    {q:"She dances beautifully. Convert into Passive Voice.",options:["Beautifully is danced by her.","She is beautifully danced.","A beautiful dance is danced by her.","No passive voice is possible."],correctIndex:3},
+    {q:"Ahmed was not giving food to the beggars. Convert into Passive Voice.",options:["Food was not being given to the beggars by Ahmed.","Food is not being given to the beggars by Ahmed.","Food had not been given to the beggars by Ahmed.","Food was not given to the beggars by Ahmed."],correctIndex:0},
+    {q:"Sohana has been buying new products since 2020. Convert into Passive Voice.",options:["New products have been bought by Sohana since 2020.","New products have been being bought by Sohana since 2020.","New products had been bought by Sohana since 2020.","New products are being bought by Sohana since 2020."],correctIndex:1},
+    {q:"They had given the exam. Convert into Passive Voice.",options:["The exam has been given by them.","The exam was given by them.","The exam had been given by them.","The exam had given by them."],correctIndex:2},
+    {q:"Safia will have completed the course before 10th October. Convert into Passive Voice.",options:["The course will have been completed by Safia before 10th October.","The course has been completed by Safia before 10th October.","The course will be completed by Safia before 10th October.","The course had been completed by Safia before 10th October."],correctIndex:0},
+    {q:"I may attend the party. Convert into Passive Voice.",options:["The party may be attended by me.","The party might be attended by me.","The party may have been attended by me.","The party is being attended by me."],correctIndex:0},
+    {q:"We could have missed the train. Convert into Passive Voice.",options:["The train could be missed by us.","The train could have been missed by us.","The train has been missed by us.","The train had been missed by us."],correctIndex:1},
+    {q:"Arsalan could have been working on a project. Convert into Passive Voice.",options:["A project could have been worked on by Arsalan.","A project could have been being worked on by Arsalan.","A project could be worked on by Arsalan.","A project had been worked on by Arsalan."],correctIndex:1},
+    {q:"I am a candidate of Entry Test. Convert into Passive Voice.",options:["A candidate of Entry Test is being me.","A candidate of Entry Test is had by me.","No passive voice is possible.","A candidate of Entry Test is been by me."],correctIndex:2},
+    {q:"We had a good book during summer. Convert into Passive Voice.",options:["A good book was had by us during summer.","A good book had been had by us during summer.","A good book is had by us during summer.","No passive voice is possible."],correctIndex:3},
+    {q:"The Sun gives light to the Earth. Convert into Passive Voice.",options:["Light is given to the Earth by the Sun.","Light was given to the Earth by the Sun.","Light has been given to the Earth by the Sun.","Light is being given to the Earth by the Sun."],correctIndex:0},
+    {q:"Do you watch movies? Convert into Passive Voice.",options:["Are movies watched by you?","Were movies watched by you?","Have movies been watched by you?","Are movies being watched by you?"],correctIndex:0},
+    {q:"Did you not eat lunch yesterday? Convert into Passive Voice.",options:["Was lunch not eaten by you yesterday?","Is lunch not eaten by you yesterday?","Had lunch not been eaten by you yesterday?","Was lunch not being eaten by you yesterday?"],correctIndex:0},
+    {q:"When did you call me? Convert into Passive Voice.",options:["When was I called by you?","When am I called by you?","When have I been called by you?","When had I been called by you?"],correctIndex:0},
+    {q:"Why were you not inviting me to your birthday? Convert into Passive Voice.",options:["Why was I not being invited to your birthday by you?","Why was I not invited to your birthday by you?","Why am I not being invited to your birthday by you?","Why had I not been invited to your birthday by you?"],correctIndex:0},
+    {q:"Why cannot we join the match? Convert into Passive Voice.",options:["Why cannot the match be joined by us?","Why could the match not be joined by us?","Why can the match not be joined by us?","Why is the match not joined by us?"],correctIndex:2},
+    {q:"Arsalan was not being invited to the party by Ahmed. Convert into Active Voice.",options:["Ahmed did not invite Arsalan to the party.","Ahmed was not inviting Arsalan to the party.","Ahmed had not invited Arsalan to the party.","Ahmed does not invite Arsalan to the party."],correctIndex:1},
+    {q:"Is Arsalan being called by Ahmed? Convert into Active Voice.",options:["Does Ahmed call Arsalan?","Is Ahmed calling Arsalan?","Was Ahmed calling Arsalan?","Has Ahmed called Arsalan?"],correctIndex:1},
+    {q:"Why has the car been washed by you? Convert into Active Voice.",options:["Why did you wash the car?","Why have you washed the car?","Why are you washing the car?","Why had you washed the car?"],correctIndex:1},
+    {q:"Who has given orders to you? Convert into Passive Voice.",options:["By whom have orders been given to you?","By whom were orders given to you?","By whom are orders given to you?","By whom had orders been given to you?"],correctIndex:0},
+    {q:"Play music. Convert into Passive Voice.",options:["Let music be played.","Let music is played.","Music is played.","Music was played."],correctIndex:0},
+    {q:"Do not make noise. Convert into Passive Voice.",options:["Let noise not be made.","Let noise not made.","Let noise is not made.","Noise should not made."],correctIndex:0},
+    {q:"Choose the synonym of Extravagant:",options:["Lavish","Frugal","Stingy","Stable"],correctIndex:0},
+    {q:"Choose the synonym of Garrulous:",options:["Silent","Talkative","Hostile","Dull"],correctIndex:1},
+    {q:"Choose the antonym of Favorable:",options:["Friendly","Stable","Hostile","Brave"],correctIndex:2},
+    {q:"Choose the antonym of Fragile:",options:["Breakable","Tough","Difficult","Showy"],correctIndex:1},
+    {q:"Choose the antonym of Grab:",options:["Seize","Release","Hide","Show Off"],correctIndex:1}
+  ],
+  "General Knowledge": [
+    {q:"Who was the second President of Pakistan?",options:["Iskander Mirza","Ayub Khan","Yahya Khan","Fazal Ilahi Chaudhry"],correctIndex:1},
+    {q:"Who was the second Governor-General of Pakistan?",options:["Muhammad Ali Jinnah","Khawaja Nazimuddin","Ghulam Muhammad","Malik Ghulam Farid"],correctIndex:1},
+    {q:"Who became the first female Prime Minister in the world?",options:["Indira Gandhi","Benazir Bhutto","Margaret Thatcher","Sirimavo Bandaranaike"],correctIndex:3},
+    {q:"Who is known as the \"Daughter of the East\"?",options:["Fatima Jinnah","Benazir Bhutto","Begum Rana Liaquat Ali Khan","Nusrat Bhutto"],correctIndex:1},
+    {q:"Who is known as the \"Mother of Pakistan\"?",options:["Benazir Bhutto","Begum Rana Liaquat Ali Khan","Fatima Jinnah","Nusrat Bhutto"],correctIndex:2},
+    {q:"Pakistan's first satellite, Badr-B, was launched in which year?",options:["1990","2001","2004","2002"],correctIndex:1},
+    {q:"The National Accountability Bureau (NAB) was established in which year?",options:["1999","1998","1997","2000"],correctIndex:0},
+    {q:"In 1977, who imposed the Third Martial Law in Pakistan?",options:["Ayub Khan","Yahya Khan","Zia-ul-Haq","Pervez Musharraf"],correctIndex:2},
+    {q:"Which is the largest mosque in Pakistan by capacity?",options:["Badshahi Mosque","Faisal Mosque","Shah Jahan Mosque","Wazir Khan Mosque"],correctIndex:1},
+    {q:"Who was the second Prime Minister of Pakistan?",options:["Liaquat Ali Khan","Khawaja Nazimuddin","Muhammad Ali Bogra","Chaudhry Muhammad Ali"],correctIndex:1},
+    {q:"International Day of Peace is observed every year on which date?",options:["18 September","19 September","20 September","21 September"],correctIndex:3},
+    {q:"Which country has the third-largest population in the world?",options:["United States","India","China","Indonesia"],correctIndex:0},
+    {q:"In which year did the Constitution of Pakistan declare Urdu as the national language?",options:["1956","1962","1977","1973"],correctIndex:0},
+    {q:"In which city and country is the headquarters of the Organization of Islamic Cooperation (OIC) located?",options:["Cairo, Egypt","Jeddah, Saudi Arabia","Riyadh, Saudi Arabia","Islamabad, Pakistan"],correctIndex:1},
+    {q:"What does PARCO stand for?",options:["Pakistan Arab Refinery Company","Pakistan Arabian Refinery Company","Pakistan Oil Refinery Company","Pakistan Petroleum Refinery Company"],correctIndex:1},
+    {q:"The Line of Control (LoC) between Pakistan and India is approximately how long?",options:["740 km","680 km","780 km","850 km"],correctIndex:0},
+    {q:"Nanga Parbat is located in which mountain range?",options:["Hindu Kush","Himalayas","Karakoram","Suleiman Range"],correctIndex:1},
+    {q:"In which year was the Objectives Resolution passed in Pakistan?",options:["1947","1948","1949","1956"],correctIndex:2},
+    {q:"In which year did the Conquest of Makkah take place?",options:["6 AH","7 AH","8 AH","10 AH"],correctIndex:2},
+    {q:"In which year did the Tragedy of Karbala take place?",options:["60 AH","61 AH","62 AH","63 AH"],correctIndex:1}
+  ],
+  "General Science": [
+    {q:"What is a computer?",options:["An electronic device that processes data","A mechanical device only","A communication cable","A storage disk"],correctIndex:0},
+    {q:"Raw facts and figures are called:",options:["Information","Data","Software","Instructions"],correctIndex:1},
+    {q:"Processed and meaningful data is called:",options:["Hardware","Data","Information","Storage"],correctIndex:2},
+    {q:"Which of the following is NOT one of the four basic operations of a computer?",options:["Input","Processing","Output","Communication"],correctIndex:3},
+    {q:"Which of the following refers to the physical components of a computer?",options:["Software","Hardware","Information","Data"],correctIndex:1},
+    {q:"Which of the following is an example of system software?",options:["Microsoft Word","Microsoft Excel","Windows","PowerPoint"],correctIndex:2},
+    {q:"CPU stands for:",options:["Central Processing Unit","Computer Processing Utility","Central Program Unit","Computer Programming Unit"],correctIndex:0},
+    {q:"The CPU is commonly known as the:",options:["Memory of the computer","Brain of the computer","Eye of the computer","Storage of the computer"],correctIndex:1},
+    {q:"Which unit of the CPU performs arithmetic and logical operations?",options:["Control Unit","Register","ALU","RAM"],correctIndex:2},
+    {q:"CU stands for:",options:["Computer Unit","Central Unit","Control Unit","Computing Utility"],correctIndex:2},
+    {q:"RAM stands for:",options:["Random Access Memory","Read Access Memory","Rapid Access Module","Random Application Memory"],correctIndex:0},
+    {q:"RAM is generally:",options:["Non-volatile memory","Volatile memory","Secondary storage","Permanent memory"],correctIndex:1},
+    {q:"Which memory normally loses its data when the power is turned off?",options:["ROM","SSD","RAM","HDD"],correctIndex:2},
+    {q:"ROM stands for:",options:["Random Only Memory","Read-Only Memory","Rapid Output Memory","Readable Operating Memory"],correctIndex:1},
+    {q:"Which of the following is a secondary storage device?",options:["RAM","ROM","HDD","Cache"],correctIndex:2},
+    {q:"What is the smallest unit of digital information?",options:["Byte","Bit","Nibble","Kilobyte"],correctIndex:1},
+    {q:"How many bits are equal to one byte?",options:["4","8","16","32"],correctIndex:1},
+    {q:"Which of the following is an input device?",options:["Monitor","Printer","Keyboard","Speaker"],correctIndex:2},
+    {q:"Which device can function as both an input and an output device?",options:["Keyboard","Printer","Touchscreen","Speaker"],correctIndex:2},
+    {q:"Which keyboard shortcut is used for Copy?",options:["Ctrl + V","Ctrl + X","Ctrl + C","Ctrl + Z"],correctIndex:2}
+  ],
+  "Maths & IQ": [
+    {q:"The cost of a school bag rises from Rs. 1,400 to Rs. 1,680. What is the percentage increase?",options:["20%","15%","25%","30%"],correctIndex:0},
+    {q:"Which one of the following fractions has the greatest value?",options:["5/8","7/10","4/5","3/4"],correctIndex:2},
+    {q:"A student improves his marks from 360 to 450. By what percentage have his marks increased?",options:["20%","25%","22.5%","30%"],correctIndex:1},
+    {q:"The number of students in a college falls from 6,000 to 4,500. What is the percentage decrease?",options:["20%","15%","30%","25%"],correctIndex:3},
+    {q:"If 40% of a certain number is 240, find the number.",options:["600","550","500","650"],correctIndex:0},
+    {q:"75% of which number is equal to 300?",options:["350","360","400","450"],correctIndex:2},
+    {q:"A pair of shoes has a marked price of Rs. 6,000. If a discount of 15% is given, what will be the sale price?",options:["Rs. 5,000","Rs. 5,100","Rs. 5,200","Rs. 5,400"],correctIndex:1},
+    {q:"A student's previous score was 600. If it increases by 20%, what will be his new score?",options:["680","700","710","720"],correctIndex:3},
+    {q:"Calculate 25% of 20% of 1,600.",options:["80","60","100","120"],correctIndex:0},
+    {q:"A solution contains water and milk in the ratio 7 : 3. What percentage of the solution is milk?",options:["70%","60%","30%","25%"],correctIndex:2},
+    {q:"A square has a side length of 11 cm. What is its area?",options:["144 cm²","121 cm²","132 cm²","154 cm²"],correctIndex:1},
+    {q:"A job is completed by 12 workers working 6 hours daily for 12 days. If 18 workers are employed to finish the same job in 6 days, how many hours must they work each day?",options:["6 hours","7 hours","9 hours","8 hours"],correctIndex:3},
+    {q:"Ten workers can complete a project by working 8 hours per day for 12 days. If only 16 workers are available, how many hours per day will they need to work to finish it in 7.5 days?",options:["8 hours","9 hours","10 hours","12 hours"],correctIndex:0},
+    {q:"A typist completes 6,000 words in 10 hours. How long will it take to type 9,000 words at the same speed?",options:["12 hours","14 hours","15 hours","16 hours"],correctIndex:2},
+    {q:"Find the value of 20% of 35% of 2,000.",options:["120","140","160","180"],correctIndex:1},
+    {q:"If 5/8 of a number is 35, what is the number?",options:["48","54","64","56"],correctIndex:3},
+    {q:"If the ratio of the angles of a triangle is 1 : 4 : 5, find the largest angle of the triangle.",options:["60°","90°","30°","120°"],correctIndex:1},
+    {q:"A bag contains 6 red, 5 blue, and 4 green balls. If one ball is drawn at random, what is the probability that it is not blue?",options:["1/3","2/5","2/3","3/5"],correctIndex:2},
+    {q:"The sum of the interior angles of a triangle is:",options:["90°","180°","270°","360°"],correctIndex:1},
+    {q:"What is the total of the first 62 natural numbers?",options:["1,890","1,920","1,950","1,953"],correctIndex:3},
+    {q:"When 3 is added to twice a number, the result is 19. What is the number?",options:["8","7","9","10"],correctIndex:0},
+    {q:"Ahmed walks 8 km towards the North. He then turns right and walks 5 km. After that, he turns right again and walks 8 km. Finally, he turns left and walks 3 km. In which direction is he from his starting point?",options:["8 km East","2 km West","5 km North","8 km South"],correctIndex:0},
+    {q:"In a certain code, MANGO is written as 51387, while GATE is written as 8460. How will MAGNET be represented in the same code?",options:["513860","510846","518306","531046"],correctIndex:2},
+    {q:"In a special naming system, a pen is called a book, a book is called a paper, and a paper is called a pencil. What would you use to write with?",options:["Pencil","Book","Paper","Pen"],correctIndex:1},
+    {q:"If 15 August 2022 was a Monday, what day of the week was 15 August 2025?",options:["Friday","Thursday","Saturday","Sunday"],correctIndex:0},
+    {q:"If the day before yesterday was Tuesday, what day will it be three days from today?",options:["Sunday","Monday","Tuesday","Saturday"],correctIndex:0},
+    {q:"If 10 April 2010 was a Friday, what day of the week was 20 June 2010?",options:["Thursday","Friday","Saturday","Sunday"],correctIndex:2},
+    {q:"Identify the next term in the following letter series: BDZ, EGX, HJV, KMT, ______",options:["NOP","NOQ","MOP","NPR"],correctIndex:3}
+  ]
+};
 const TESTS = {
   1: {
     label: "Test 1",
@@ -1426,6 +1543,14 @@ const TESTS = {
     totalQuestions: 100,
     minutes: 100,
     data: TEST_DATA_9
+  },
+  10: {
+    label: "Test 10",
+    title: "Sindh University Entry Test Preparation 10th Weekly Test by SSS ORG",
+    subjects: ["English","General Knowledge","General Science","Maths & IQ"],
+    totalQuestions: 98,
+    minutes: 100,
+    data: TEST_DATA_10
   }
 };
 
