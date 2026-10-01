@@ -177,6 +177,20 @@
   .promo-btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,0.3);}
   footer a{color:inherit;text-decoration:underline;}
   .test-choice-list{display:flex;flex-direction:column;gap:16px;margin-top:6px;}
+  .mega-card{position:relative;border:2px solid var(--gold);
+    background:linear-gradient(135deg,#fff8e8,#fdeccb);
+    box-shadow:0 10px 26px rgba(242,193,78,0.35);animation:fadeUp 0.6s ease both,megaGlow 2.4s ease-in-out infinite;}
+  @keyframes megaGlow{0%,100%{box-shadow:0 10px 26px rgba(242,193,78,0.35);}50%{box-shadow:0 10px 34px rgba(242,193,78,0.65);}}
+  .mega-badge{display:inline-block;background:linear-gradient(135deg,var(--red),var(--red-deep));
+    color:#fff;font-weight:800;font-size:0.72rem;letter-spacing:0.5px;padding:5px 14px;
+    border-radius:999px;margin-bottom:10px;}
+  .mega-pill{background:#fff3d6;border-color:var(--gold);color:var(--red-deep);font-weight:700;}
+  .mega-btn{background:linear-gradient(135deg,var(--gold),#e0a92a);color:var(--red-deep);
+    box-shadow:0 8px 18px rgba(224,169,42,0.4);}
+  .mega-btn:hover{filter:brightness(1.05);}
+  #screen-password{text-align:center;}
+  .password-icon{font-size:2.2rem;margin-bottom:8px;}
+  #password-error{color:var(--red);font-size:0.82rem;margin-top:8px;min-height:1.1em;font-weight:600;}
   .org-poster{width:100%;max-width:520px;display:block;margin:18px auto 0;border-radius:14px;
     box-shadow:0 10px 24px rgba(110,12,21,0.25);}
   .promo-email{display:block;margin-top:10px;color:#fdeceb;font-size:0.8rem;position:relative;}
@@ -259,6 +273,17 @@
     <div class="home-heading">Choose Your Test</div>
     <p class="landing-note" style="margin-top:0;">Select a test below to begin. Each test has its own question set and a separate 100-minute timer.</p>
     <div class="test-choice-list">
+      <div class="test-choice-card mega-card">
+        <div class="mega-badge">🔥 MEGA MOCK TEST</div>
+        <div class="test-choice-title">Sindh Uni. 2k26-27 Pre Entry Test</div>
+        <div class="test-choice-sub">Full-length Pre Entry Test by SSS Org. — Complete Syllabus Coverage</div>
+        <div class="meta-row" style="margin:10px 0 14px;">
+          <span class="pill mega-pill">200 Questions</span>
+          <span class="pill mega-pill">180 Minutes</span>
+          <span class="pill mega-pill">🔒 Password Required</span>
+        </div>
+        <button class="btn-primary mega-btn" onclick="selectTest('mock')">Start Mega Mock Test →</button>
+      </div>
       <div class="test-choice-card">
         <div class="test-choice-title">Test 1</div>
         <div class="test-choice-sub">Sindh UNI. 2nd Weekly Test by SSS Org.</div>
@@ -360,6 +385,20 @@
       </a>
       <span class="promo-email">✉️ <a href="mailto:sssorgsindhsuperiorservicesorg@gmail.com">sssorgsindhsuperiorservicesorg@gmail.com</a></span>
     </div>
+  </section>
+
+  <!-- PASSWORD GATE -->
+  <section id="screen-password" class="card" style="display:none;">
+    <button class="change-test-link" onclick="goHome()">← Change Test</button>
+    <div class="password-icon">🔒</div>
+    <div class="selected-test-title" id="password-test-title"></div>
+    <p class="landing-note">This is a password-protected mega mock test. Please enter the access code provided by SSS ORG to continue.</p>
+    <div class="form-group">
+      <label for="password-input">Access Code</label>
+      <input type="password" id="password-input" placeholder="Enter access code" autocomplete="off" onkeydown="if(event.key==='Enter')submitPassword();">
+      <div id="password-error"></div>
+    </div>
+    <button class="btn-primary" onclick="submitPassword()">Unlock Test →</button>
   </section>
 
   <!-- LANDING FORM -->
@@ -1478,6 +1517,218 @@ const TEST_DATA_10 = {
     {q:"Identify the next term in the following letter series: BDZ, EGX, HJV, KMT, ______",options:["NOP","NOQ","MOP","NPR"],correctIndex:3}
   ]
 };
+const TEST_DATA_MOCK = {
+  "English": [
+    {q:"Choose the Synonym of Abbreviate:",options:["Outfit","Lengthen","Applaud","Shorten"],correctIndex:3},
+    {q:"Choose the similar word of Accord:",options:["Difference","Agreement","Dispute","Pressure"],correctIndex:1},
+    {q:"Select the nearest word of Accuse:",options:["Praise","Reward","Blame","Ignore"],correctIndex:2},
+    {q:"Choose the correct Synonym of Abolish:",options:["Begin","Eliminate","Expand","Accept"],correctIndex:1},
+    {q:"Choose the accurate Synonym of Able:",options:["Weak","Lazy","Ignorant","Competent"],correctIndex:3},
+    {q:"Select the word similar to Absorptive:",options:["Unproductive","Permeable","Weak","Dry"],correctIndex:1},
+    {q:"Meaning of Acute:",options:["Not Serious","Chronic","Obtuse","Severe"],correctIndex:3},
+    {q:"What is the Synonym of Ardent:",options:["Passionate","Indifferent","Ordinary","Reluctant"],correctIndex:0},
+    {q:"Choose the correct meaning of Candid:",options:["Deceptive","Honest","Hostile","Uncertain"],correctIndex:1},
+    {q:"What is the similar word of Diligent:",options:["Careless","Lazy","Hardworking","Negligent"],correctIndex:2},
+    {q:"Choose the correct antonym of Abandon:",options:["Claim","Abuse","Continue","Waste"],correctIndex:2},
+    {q:"What is the opposite word of Abhor:",options:["Love","Likeness","Attract","Loathe"],correctIndex:0},
+    {q:"Choose the correct opposite of Accept:",options:["Approve","Confirm","Refuse","Intent"],correctIndex:2},
+    {q:"What is the Antonym of Adverse:",options:["Favorable","Harsh","Hostile","Dangerous"],correctIndex:0},
+    {q:"Opposite Meaning of Amalgamation:",options:["Complex","Heterogenous","Mixture","Separation"],correctIndex:3},
+    {q:"Select the word opposite to Brilliant:",options:["Bright","Dull","Vibrant","Luminous"],correctIndex:1},
+    {q:"Choose the correct Antonym of Complex:",options:["Complicated","Difficult","Simple","Elaborate"],correctIndex:2},
+    {q:"Choose the contradict word of Conceal:",options:["Hide","Cover","Disclose","Protect"],correctIndex:2},
+    {q:"Choose the Antonym of Fragile:",options:["Breakable","Delicate","Weak","Tough"],correctIndex:3},
+    {q:"Select the opposite word of Generous:",options:["Kind","Charitable","Stingy","Liberal"],correctIndex:2},
+    {q:"Choose the correctly spelled word:",options:["Anonimous","Anonymous","Anonymus","Anonamous"],correctIndex:1},
+    {q:"Choose the correctly spelled word:",options:["Bureaucrasy","Bureaucracey","Bureacracy","Bureaucracy"],correctIndex:3},
+    {q:"Choose the correctly spelled word:",options:["Conciousness","Consciousnes","Consciousness","Conscienciousness"],correctIndex:2},
+    {q:"Choose the correctly spelled word:",options:["Detergant","Deterjent","Detergent","Detergentt"],correctIndex:2},
+    {q:"Choose the correctly spelled word:",options:["Embroidary","Embrodery","Embrodary","Embroidery"],correctIndex:3},
+    {q:"Choose the correctly spelled word:",options:["Holocaust","Holocost","Holocoust","Holocoste"],correctIndex:0},
+    {q:"Choose the correctly spelled word:",options:["Superstitous","Superstetious","Supersticious","Superstitious"],correctIndex:3},
+    {q:"Choose the correctly spelled word:",options:["Unanimously","Unanimusly","Unanimously","Unanimosly"],correctIndex:2},
+    {q:"Choose the correctly spelled word:",options:["Heterogenious","Heterogeneous","Heterogenous","Heterogeneus"],correctIndex:1},
+    {q:"Choose the correctly spelled word:",options:["Determination","Determenation","Determinacion","Determination"],correctIndex:3},
+    {q:"The students were getting _____ the bus when the teacher arrived.",options:["in","into","on","onto"],correctIndex:2},
+    {q:"The cat suddenly jumped _____ the table and knocked over the vase.",options:["in","onto","on","into"],correctIndex:1},
+    {q:"The researchers walked _____ the tunnel to reach the other side of the mountain.",options:["across","over","along","through"],correctIndex:3},
+    {q:"The disagreement _____ the two departments continued for several weeks.",options:["among","between","beside","opposite"],correctIndex:1},
+    {q:"The plane flew _____ the city without landing.",options:["through","along","over","into"],correctIndex:2},
+    {q:"The committee objected _____ the proposal because it violated the existing rules.",options:["against","with","for","to"],correctIndex:3},
+    {q:"The entire project depends _____ the timely approval of the administration.",options:["with","at","on","from"],correctIndex:2},
+    {q:"The company provided the newly appointed officers _____ all the necessary equipment.",options:["by","to","with","for"],correctIndex:2},
+    {q:"The research team has been working on the project _____ Monday.",options:["for","at","since","in"],correctIndex:2},
+    {q:"The examination will begin _____ 9:30 a.m. sharp.",options:["in","on","since","at"],correctIndex:3},
+    {q:"Ahmed said, \"I have completed my assignment.\" (Indirect speech)",options:["Ahmed said that he had completed his assignment.","Ahmed said that he has completed his assignment.","Ahmed said that he was completing his assignment.","Ahmed said that he had been completing his assignment."],correctIndex:0},
+    {q:"Ma'am Humera said, \"Students can start the paper.\" (Indirect speech)",options:["Ma'am Humera said that students should start the paper.","Ma'am Humera said that students could start the paper.","Ma'am Humera said that students had to start the paper.","Ma'am Humera said that students would start the paper."],correctIndex:1},
+    {q:"Sir Sagar said, \"I am teaching Narration here tomorrow.\" (Indirect speech)",options:["Sir Sagar said that he was teaching Narration here the next day.","Sir Sagar said that he had been teaching Narration there the next day.","Sir Sagar said that he was teaching Narration there the next day.","Sir Sagar said that he had taught Narration there the following day."],correctIndex:2},
+    {q:"Ahmed said to Tania, \"You are intelligent.\" (Indirect speech)",options:["Ahmed told Tania that she was intelligent.","Ahmed told Tania that I was intelligent.","Ahmed told Tania that she is intelligent.","Ahmed told Tania that they were intelligent."],correctIndex:0},
+    {q:"Sir Aftab said, \"The Earth rotates around the Sun.\" (Indirect speech)",options:["Sir Aftab said that the Earth had rotated around the Sun.","Sir Aftab said that the Earth was rotating around the Sun.","Sir Aftab said that the Earth rotated around the Sun.","Sir Aftab said that the Earth rotates around the Sun."],correctIndex:3},
+    {q:"The boys said, \"Bravo! Pakistan won the match.\" (Indirect speech)",options:["The boys exclaimed with sorrow that Pakistan had won the match.","The boys exclaimed with joy that Pakistan had won the match.","The boys exclaimed with surprise that Pakistan had won the match.","The boys exclaimed with regret that Pakistan had won the match."],correctIndex:1},
+    {q:"Asad said to me, \"Are you not observing fast today?\" (Indirect speech)",options:["Asad asked me whether I was not observing fast that day.","Asad asked me whether I had not observed fast that day.","Asad asked me that I was not observing fast that day.","Asad asked me whether I was not observing fast today."],correctIndex:0},
+    {q:"Ahmed said to Anwar, \"Why have you been living in Jamshoro since 2012?\" (Indirect speech)",options:["Ahmed asked Anwar why had he been living in Jamshoro since 2012.","Ahmed asked Anwar why he had been living in Jamshoro since 2012.","Ahmed asked Anwar why he has been living in Jamshoro since 2012.","Ahmed asked Anwar whether he had been living in Jamshoro since 2012."],correctIndex:1},
+    {q:"Sir Sagar said to the students, \"Work hard for your exams.\" (Indirect speech)",options:["Sir Sagar advised the students that they should worked hard for their exams.","Sir Sagar suggested the students to work hard for their exams.","Sir Sagar advised the students to work hard for their exams.","Sir Sagar told the students that they worked hard for their exams."],correctIndex:2},
+    {q:"Sohail said to the beggar, \"Do not beg.\" (Indirect speech)",options:["Sohail forbade the beggar from begging.","Sohail forbade the beggar to beg.","Sohail advised the beggar not to begging.","Sohail told the beggar that he did not beg."],correctIndex:1},
+    {q:"\"I live in Tokyo.\" (Passive voice)",options:["Tokyo is lived in by me.","Tokyo was lived in by me.","Tokyo is being lived in by me.","This sentence cannot be changed into Passive Voice."],correctIndex:3},
+    {q:"\"The teacher gave the students notes after the lecture.\" (Passive voice)",options:["The students were given notes by the teacher after the lecture.","Notes were given to the students by the teacher after the lecture.","The students had been given notes by the teacher after the lecture.","Notes were being given the students by the teacher after the lecture."],correctIndex:1},
+    {q:"\"The principal will not give the candidates certificates tomorrow.\" (Passive voice)",options:["Certificates will not be given to the candidates by the principal tomorrow.","Certificates will not have been given to the candidates by the principal tomorrow.","The candidates will not be given certificates by the principal yesterday.","Certificates will not be being given to the candidates by the principal tomorrow."],correctIndex:0},
+    {q:"\"The workers are renovating the house this week.\" (Passive voice)",options:["The house is renovated by the workers this week.","The house has been renovated by the workers this week.","The house is being renovated by the workers this week.","The house was being renovated by the workers this week."],correctIndex:2},
+    {q:"\"Did the manager approve your application?\" (Passive voice)",options:["Was your application approved by the manager?","Did your application be approved by the manager?","Has your application been approved by the manager?","Was your application being approved by the manager?"],correctIndex:0},
+    {q:"\"Were the players not practicing cricket in the ground?\" (Passive voice)",options:["Was cricket not practiced by the players in the ground?","Was cricket not being practiced by the players in the ground?","Had cricket not been practiced by the players in the ground?","Was not cricket being practiced by the players in the ground?"],correctIndex:1},
+    {q:"\"Why did the committee not accept the proposal?\" (Passive voice)",options:["Why was the proposal not accepted by the committee?","Why did the proposal not be accepted by the committee?","Why had the proposal not been accepted by the committee?","Why was the proposal not being accepted by the committee?"],correctIndex:0},
+    {q:"\"Why are the students using mobile phones in the classroom?\" (Passive voice)",options:["Why are mobile phones used by the students in the classroom?","Why have mobile phones been used by the students in the classroom?","Why are mobile phones being used by the students in the classroom?","Why were mobile phones being used by the students in the classroom?"],correctIndex:2},
+    {q:"\"Complete the application before Monday.\" (Passive voice)",options:["Let the application be completed before Monday.","Let the application being completed before Monday.","Let the application have been completed before Monday.","Let the application is completed before Monday."],correctIndex:0},
+    {q:"\"Do not use mobile phones during the examination.\" (Passive voice)",options:["Let mobile phones not be used during the examination.","Let mobile phones not being used during the examination.","Let mobile phones be not used during the examination.","Mobile phones should not used during the examination."],correctIndex:0}
+  ],
+  "General Science": [
+    {q:"Which of the following is the smallest particle of an element that retains its chemical properties?",options:["Molecule","Atom","Ion","Nucleus"],correctIndex:1},
+    {q:"The pH of a neutral solution at 25°C is:",options:["0","5","7","14"],correctIndex:2},
+    {q:"Which gas is produced when an acid reacts with a metal?",options:["Oxygen","Nitrogen","Carbon dioxide","Hydrogen"],correctIndex:3},
+    {q:"Which of the following is a physical change?",options:["Burning of wood","Rusting of iron","Melting of ice","Digestion of food"],correctIndex:2},
+    {q:"The chemical formula of sodium carbonate is:",options:["Na₂CO₃","NaHCO₃","NaOH","Na₂O"],correctIndex:0},
+    {q:"Which of the following is a noble gas?",options:["Chlorine","Oxygen","Neon","Hydrogen"],correctIndex:2},
+    {q:"The process of conversion of a liquid into vapor at its surface is called:",options:["Condensation","Evaporation","Freezing","Sublimation"],correctIndex:1},
+    {q:"Which type of bond is present in sodium chloride (NaCl)?",options:["Covalent bond","Metallic bond","Hydrogen bond","Ionic bond"],correctIndex:3},
+    {q:"Which of the following is a natural polymer?",options:["PVC","Nylon","Cellulose","Teflon"],correctIndex:2},
+    {q:"The oxidation number of oxygen in most compounds is:",options:["+2","−2","0","−1"],correctIndex:1},
+    {q:"Which organelle is known as the powerhouse of the cell?",options:["Nucleus","Ribosome","Mitochondrion","Golgi apparatus"],correctIndex:2},
+    {q:"Which part of the plant cell contains chlorophyll?",options:["Nucleus","Chloroplast","Vacuole","Cell wall"],correctIndex:1},
+    {q:"The main function of red blood cells is to transport:",options:["Oxygen","Hormones","Digestive enzymes","Antibodies"],correctIndex:0},
+    {q:"Which organ removes urea and other nitrogenous wastes from the blood?",options:["Heart","Lungs","Liver","Kidneys"],correctIndex:3},
+    {q:"The basic unit of the nervous system is:",options:["Nephron","Neuron","Alveolus","Platelet"],correctIndex:1},
+    {q:"Which organ is mainly responsible for pumping blood throughout the body?",options:["Liver","Kidney","Heart","Lung"],correctIndex:2},
+    {q:"The tiny air sacs present in the lungs are called:",options:["Bronchi","Nephrons","Alveoli","Villi"],correctIndex:2},
+    {q:"Which vitamin deficiency causes scurvy?",options:["Vitamin A","Vitamin B","Vitamin D","Vitamin C"],correctIndex:3},
+    {q:"Fertilization in humans normally takes place in the:",options:["Uterus","Ovary","Fallopian tube","Cervix"],correctIndex:2},
+    {q:"Which blood cells help protect the body against infections?",options:["White blood cells","Red blood cells","Platelets","Plasma"],correctIndex:0},
+    {q:"What is the SI unit of pressure?",options:["Newton","Joule","Pascal","Watt"],correctIndex:2},
+    {q:"If the velocity of an object increases, its kinetic energy:",options:["Decreases","Increases","Remains zero","Remains unchanged"],correctIndex:1},
+    {q:"Which quantity is defined as mass per unit volume?",options:["Density","Pressure","Force","Momentum"],correctIndex:0},
+    {q:"The rate of doing work is called:",options:["Energy","Force","Power","Momentum"],correctIndex:2},
+    {q:"A force of 10 Newton is equal to how many pascals (per unit area of 1 m²)?",options:["1","10","100","1000"],correctIndex:1},
+    {q:"Which instrument is used to measure electric current?",options:["Voltmeter","Barometer","Ammeter","Thermometer"],correctIndex:2},
+    {q:"The unit of electrical resistance is:",options:["Volt","Ampere","Coulomb","Ohm"],correctIndex:3},
+    {q:"When an object is moving in a circular path at constant speed, its velocity:",options:["Remains constant","Changes continuously","Becomes zero","Always increases"],correctIndex:1},
+    {q:"According to Newton's second law of motion:",options:["F = ma","F = m/a","F = a/m","F = mv"],correctIndex:0},
+    {q:"Which phenomenon explains the production of an induced current by a changing magnetic field?",options:["Reflection","Refraction","Electromagnetic induction","Dispersion"],correctIndex:2},
+    {q:"Which of the following is an example of system software?",options:["Microsoft Word","Windows","Google Chrome","Photoshop"],correctIndex:1},
+    {q:"Which memory is volatile and loses its data when the computer is switched off?",options:["ROM","Hard disk","RAM","CD-ROM"],correctIndex:2},
+    {q:"Which device is primarily used to enter text into a computer?",options:["Monitor","Printer","Speaker","Keyboard"],correctIndex:3},
+    {q:"A network that connects computers over a large geographical area is called:",options:["LAN","WAN","PAN","USB"],correctIndex:1},
+    {q:"Which of the following is an example of Artificial Intelligence?",options:["Voice assistant","Keyboard","Calculator","Printer"],correctIndex:0},
+    {q:"Which planet is closest to the Sun?",options:["Venus","Earth","Mercury","Mars"],correctIndex:2},
+    {q:"How long does sunlight take to reach the Earth?",options:["6 minutes 20 seconds","7 minutes 20 seconds","8 minutes 20 seconds","9 minutes 20 seconds"],correctIndex:2},
+    {q:"Which planet is the largest planet in the solar system?",options:["Saturn","Earth","Neptune","Jupiter"],correctIndex:3},
+    {q:"The Moon shines because it:",options:["Produces its own light","Reflects sunlight","Produces heat","Contains burning gases"],correctIndex:1},
+    {q:"Our solar system is located in the:",options:["Andromeda Galaxy","Whirlpool Galaxy","Milky Way Galaxy","Sombrero Galaxy"],correctIndex:2}
+  ],
+  "General Knowledge": [
+    {q:"In which year was the 18th Amendment passed in Pakistan?",options:["2008","2010","2009","2012"],correctIndex:1},
+    {q:"In which year did Pakistan join CENTO?",options:["1950","1960","1965","1955"],correctIndex:3},
+    {q:"Which day is observed to mark Pakistan's nuclear tests of 1998?",options:["Defence Day","Iqbal Day","Youm-e-Takbeer","Republic Day"],correctIndex:2},
+    {q:"Which is the largest seaport of Pakistan?",options:["Karachi Port","Gwadar Port","Port Qasim","Pasni Port"],correctIndex:0},
+    {q:"K2, the second-highest peak in the world, is located in which mountain range?",options:["Himalayas","Karakoram Range","Hindu Kush","Pamir Range"],correctIndex:1},
+    {q:"Which is the largest district of Pakistan by area and the site of the Ras Koh Hills, where Pakistan conducted its first nuclear tests in 1998?",options:["Chagai","Khuzdar","Kharan","Gwadar"],correctIndex:0},
+    {q:"The Indus River originates from which region?",options:["Karakoram Range","Hindu Kush","Pamir Plateau","Near Lake Mansarovar, Tibet"],correctIndex:3},
+    {q:"Pakistan's border with China lies in which direction of the country?",options:["Southwest","Southeast","Northeast","Northwest"],correctIndex:2},
+    {q:"In which year did Allama Iqbal pass away?",options:["1938","1936","1940","1947"],correctIndex:0},
+    {q:"In which year did Zulfikar Ali Bhutto give Pakistan its Constitution?",options:["1970","1971","1972","1973"],correctIndex:3},
+    {q:"Who is the author of \"Daughter of the East\"?",options:["Benazir Bhutto","Fatima Bhutto","Nusrat Bhutto","Sanam Bhutto"],correctIndex:0},
+    {q:"Who is the author of \"In the Line of Fire\"?",options:["Ayub Khan","Yahya Khan","Zia-ul-Haq","Pervez Musharraf"],correctIndex:3},
+    {q:"In which year did General Zia-ul-Haq die in a plane crash?",options:["1985","1986","1988","1990"],correctIndex:2},
+    {q:"How many member countries does the Organization of Islamic Cooperation (OIC) have?",options:["56","57","58","59"],correctIndex:1},
+    {q:"Where is the headquarters of SAARC located?",options:["New Delhi","Kathmandu","Islamabad","Dhaka"],correctIndex:1},
+    {q:"In which year was SAARC formed?",options:["1985","1980","1983","1990"],correctIndex:0},
+    {q:"When did Pakistan join SEATO?",options:["1954","1955","1956","1957"],correctIndex:3},
+    {q:"When was the 46th meeting of the SCO Regional Anti-Terrorist Structure (RATS) held in Pakistan?",options:["12 September 2026","14 September 2026","16 September 2026","18 September 2026"],correctIndex:1},
+    {q:"Where is the headquarters of the Arab League located?",options:["Cairo, Egypt","Riyadh","Amman","Baghdad"],correctIndex:0},
+    {q:"In which year was the Arab League formed?",options:["1942","1948","1945","1950"],correctIndex:2},
+    {q:"What is the full form of GCC, which was founded in 1981?",options:["Gulf Cooperation Council","Gulf Corporation Council","Gulf Countries Confederation","Global Cooperation Council"],correctIndex:0},
+    {q:"How many member countries are there in OPEC (Organization of the Petroleum Exporting Countries)?",options:["11","12","13","14"],correctIndex:1},
+    {q:"UN Day is observed on which date every year?",options:["24 October","10 December","8 March","1 January"],correctIndex:0},
+    {q:"Who was the last emperor of the Mughal Empire?",options:["Akbar","Aurangzeb","Bahadur Shah Zafar","Shah Jahan"],correctIndex:2},
+    {q:"Who is the current Chief of Army Staff (COAS) of Pakistan?",options:["General Qamar Javed Bajwa","General Raheel Sharif","General Nadeem Raza","Field Marshal Syed Asim Munir"],correctIndex:3},
+    {q:"Who is the current Governor of Sindh?",options:["Kamran Tessori","Imran Ismail","Syed Muhammad Nehal Hashmi","Muhammad Zubair"],correctIndex:2},
+    {q:"Who is the current Deputy Prime Minister and Foreign Minister of Pakistan?",options:["Bilawal Bhutto Zardari","Khawaja Asif","Ishaq Dar","Shah Mahmood Qureshi"],correctIndex:0},
+    {q:"Who is the current Speaker of the Sindh Assembly?",options:["Agha Siraj Durrani","Nisar Ahmed Khuhro","Imtiaz Sheikh","Syed Awais Qadir Shah"],correctIndex:3},
+    {q:"On which date is International Women's Day observed?",options:["8 March","8 April","1 May","21 September"],correctIndex:0},
+    {q:"UN Day is observed on which date every year?",options:["10 December","24 October","8 March","1 January"],correctIndex:1},
+    {q:"Who currently serves as the Deputy Prime Minister and Foreign Minister of Pakistan?",options:["Khawaja Asif","Bilawal Bhutto Zardari","Ishaq Dar","Shah Mahmood Qureshi"],correctIndex:2},
+    {q:"Who currently serves as the Speaker of the Provincial Assembly of Sindh?",options:["Agha Siraj Durrani","Anthony Naveed","Nisar Ahmed Khuhro","Imtiaz Sheikh"],correctIndex:0},
+    {q:"Who is the current Governor of Sindh?",options:["Kamran Tessori","Syed Muhammad Nehal Hashmi","Imran Ismail","Muhammad Zubair"],correctIndex:1},
+    {q:"Who is the current Chief of Army Staff and Chief of Defence Forces of Pakistan?",options:["General Qamar Javed Bajwa","General Nadeem Raza","General Raheel Sharif","Field Marshal Syed Asim Munir"],correctIndex:3},
+    {q:"Which international day is observed on 8 March every year?",options:["International Women's Day","World Health Day","Human Rights Day","International Literacy Day"],correctIndex:0},
+    {q:"How many pillars of Islam are there?",options:["5","4","6","7"],correctIndex:0},
+    {q:"Which is the first pillar of Islam?",options:["Salat","Shahadah (Kalima)","Zakat","Hajj"],correctIndex:1},
+    {q:"Fasting in the month of Ramadan is called?",options:["Zakat","Hajj","Sawm","Salat"],correctIndex:2},
+    {q:"The minimum amount of wealth on which Zakat becomes obligatory is called?",options:["Sadaqah","Khums","Ushr","Nisab"],correctIndex:3},
+    {q:"What is the standard rate of Zakat on qualifying wealth in Islam?",options:["1.5%","2.5%","5%","10%"],correctIndex:1}
+  ],
+  "Mathematics": [
+    {q:"Which of the following numbers is divisible by 2, 3, 4, and 5?",options:["1,320","1,440","1,260","1,410"],correctIndex:0},
+    {q:"Which of the following fractions represents the greatest value?",options:["5/8","7/10","11/16","4/5"],correctIndex:3},
+    {q:"A student's marks increase from 280 to 350. What is the percentage increase?",options:["20%","22%","25%","30%"],correctIndex:2},
+    {q:"The population of a town decreases from 8,000 to 6,400. Find the percentage decrease.",options:["15%","20%","22%","25%"],correctIndex:1},
+    {q:"If 30% of a number is 180, what is the original number?",options:["600","540","720","450"],correctIndex:0},
+    {q:"80% of which number is equal to 360?",options:["420","480","400","450"],correctIndex:3},
+    {q:"A shirt is marked at Rs. 4,800. If a discount of 20% is offered, what amount will the customer pay?",options:["Rs. 3,800","Rs. 3,850","Rs. 3,840","Rs. 4,400"],correctIndex:2},
+    {q:"A student's score is 750. If the score increases by 16%, what is the new score?",options:["840","870","880","890"],correctIndex:1},
+    {q:"If f(x) = 2x² − 2x + 4, find f(2).",options:["12","8","-4","-8"],correctIndex:1},
+    {q:"A rectangular field is 24 m long and 15 m wide. What is its area?",options:["320 m²","340 m²","350 m²","360 m²"],correctIndex:3},
+    {q:"The perimeter of a square is 54 cm. Find its area.",options:["196 cm²","184 cm²","204 cm²","216 cm²"],correctIndex:0},
+    {q:"Fifteen workers complete a job by working 8 hours a day for 12 days. If 20 workers are to complete the same job in 9 days, how many hours should they work each day?",options:["6 hours","8 hours","9 hours","10 hours"],correctIndex:1},
+    {q:"The cost of 2 notebooks and 3 pens is Rs. 46, while the cost of 4 notebooks and 3 pens is Rs. 70. What is the cost of 3 pens?",options:["Rs. 18","Rs. 20","Rs. 21","Rs. 24"],correctIndex:0},
+    {q:"A machine produces 7,200 items in 12 hours. At the same rate, how many hours are required to produce 10,800 items?",options:["15 hours","18 hours","20 hours","16 hours"],correctIndex:1},
+    {q:"Find 10% of 20% of 30% of 3,000.",options:["18","16","20","1.8"],correctIndex:0},
+    {q:"If seven-ninths of a number is 42, what is the number?",options:["48","54","56","63"],correctIndex:1},
+    {q:"The angles of a triangle are in the ratio 2 : 3 : 4. What is the largest angle?",options:["80°","60°","90°","70°"],correctIndex:0},
+    {q:"A box contains 8 red, 7 blue, and 5 green balls. If one ball is selected randomly, what is the probability that it is blue?",options:["7/20","13/20","3/5","2/5"],correctIndex:0},
+    {q:"What is the sum of the interior angles of a pentagon?",options:["540°","360°","450°","720°"],correctIndex:0},
+    {q:"Find the sum of 1 + 2 + 3 + 4 + ... + 70.",options:["2,450","2,460","2,475","2,485"],correctIndex:3},
+    {q:"If x + y = 12 and x − y = 4, then 2x + y = ?",options:["12","14","16","18"],correctIndex:1},
+    {q:"If 2ˣ = 16ʸ, then x : y = ?",options:["1 : 4","4 : 1","4 : 2","2 : 4"],correctIndex:1},
+    {q:"If log₂16 = y, find the value of y.",options:["4","-2","2","8"],correctIndex:0},
+    {q:"((2³)²)³ is equal to:",options:["2⁸","2⁹","2¹⁸","None of these"],correctIndex:2},
+    {q:"If |2x − 2| = 20, then the value(s) of x = ?",options:["{11, -9}","{11, 10}","{11, -8}","{-9, 10}"],correctIndex:0},
+    {q:"The HCF of 12, 16, and 10 is:",options:["1","2","4","8"],correctIndex:1},
+    {q:"If A = {1, 2, 3, 4, 5} and B = {3, 4, 5, 6, 7}, then A − B = ?",options:["{3, 4, 5}","{6, 7}","{1, 2}","{1, 2, 6, 7}"],correctIndex:2},
+    {q:"If U = {1, 2, 3, 4, 5, 6, 7} and A = {2, 4, 6}, then A′ = ?",options:["{2, 4, 6}","{1, 2, 3, 5, 7}","{1, 3, 5, 7}","{3, 5, 7}"],correctIndex:2},
+    {q:"If A = {1, 2, 3, 4}, which of the following is a subset of A?",options:["{2, 5}","{1, 3}","{4, 6}","{2, 3, 5}"],correctIndex:1},
+    {q:"If A = {a, b, c}, then set A has how many subsets?",options:["3","6","8","9"],correctIndex:2},
+    {q:"How many different words can be arranged using all the letters of the word SAEED?",options:["20","60","100","120"],correctIndex:1},
+    {q:"A fair die is rolled once. What is the probability of getting an even number?",options:["1/3","½","2/3","1/6"],correctIndex:1},
+    {q:"Two fair coins are tossed simultaneously. What is the probability of getting exactly one head?",options:["½","1/5","3/4","1/3"],correctIndex:0},
+    {q:"If A can complete a piece of work in 20 days and B can complete the same work in 30 days, in how many days will they complete the work together?",options:["10 days","12 days","15 days","25 days"],correctIndex:1},
+    {q:"√(22 + √(6 + √9)) = ?",options:["3","2","6","5"],correctIndex:3},
+    {q:"A profit of Rs. 7,000 is distributed among A, B, and C in the ratio 1 : 2 : 4. What is the share of B?",options:["Rs. 1,000","Rs. 2,000","Rs. 3,000","Rs. 4,000"],correctIndex:1},
+    {q:"The present ages of A and B are in the ratio 3 : 5. If their total age is 48 years, what is the age of B?",options:["18 years","24 years","30 years","36 years"],correctIndex:2},
+    {q:"The number of real root(s) of x³ − 8 = 0 is/are:",options:["1","2","3","None"],correctIndex:0},
+    {q:"The Least Common Multiple of 6, 12 and 9 is:",options:["20","24","36","40"],correctIndex:2},
+    {q:"Two sets A and B are disjoint when:",options:["A = B","A ∪ B = ∅","A ∩ B = ∅","A − B = ∅"],correctIndex:2}
+  ],
+  "IQ": [
+    {q:"A number is multiplied by 3 and then 5 is subtracted from it. If the final result is 28, what is the number?",options:["9","10","11","12"],correctIndex:2},
+    {q:"Bilal walks 7 km north, then turns right and walks 4 km. He turns right again and walks 7 km, then turns left and walks 2 km. Where is he in relation to his starting point?",options:["6 km East","2 km West","4 km South","6 km East"],correctIndex:3},
+    {q:"In a certain coding system, if CAT is coded as 3120, how will BAT be coded?",options:["1220","2120","1320","2210"],correctIndex:1},
+    {q:"Arrange the following in a meaningful sequence: 1. Training 2. Job 3. Written Test 4. Interview 5. Selection 6. Joining",options:["3, 4, 5, 1, 6, 2","3, 5, 4, 1, 6, 2","4, 3, 5, 1, 6, 2","3, 4, 1, 5, 6, 2"],correctIndex:0},
+    {q:"If 12 March 2023 was Sunday, what day of the week was 12 March 2026?",options:["Monday","Thursday","Friday","Saturday"],correctIndex:1},
+    {q:"If today is Wednesday, which day will occur after 52 days?",options:["Saturday","Tuesday","Friday","Sunday"],correctIndex:0},
+    {q:"The day before yesterday was Thursday. What day will it be four days from today?",options:["Tuesday","Wednesday","Monday","Sunday"],correctIndex:1},
+    {q:"At a meeting, 10 people shake hands with each other exactly once. What is the total number of handshakes?",options:["40","45","45","50"],correctIndex:2},
+    {q:"Find the missing group in the following letter pattern: CFX, FIZ, ILV, LNY, ______",options:["OQA","OQB","OPB","PQB"],correctIndex:1},
+    {q:"Complete the sequence: 3, 8, 15, 24, 35, ______",options:["46","47","48","50"],correctIndex:2},
+    {q:"Find the odd one out:",options:["January","March","May","June"],correctIndex:3},
+    {q:"Eye : See :: Ear : ?",options:["Speak","Hear","Touch","Smell"],correctIndex:1},
+    {q:"3 : 9 :: 7 : ?",options:["14","21","49","56"],correctIndex:2},
+    {q:"Find the odd one out:",options:["Mercury","Venus","Earth","Moon"],correctIndex:3},
+    {q:"If the word MANGO is placed in front of a vertical mirror, what will be the order of letters in the mirror image?",options:["MANGO","OGNAM","OGNAM","GNAMO"],correctIndex:2},
+    {q:"In a group of chickens and goats, there are 12 heads and 32 legs in total. How many goats are there?",options:["3","4","6","8"],correctIndex:1},
+    {q:"What is the smaller angle between the hour and minute hands at 4:30?",options:["30°","45°","60°","75°"],correctIndex:1},
+    {q:"Sarah is 15th from the top in a class of 32 students. What is her position from the bottom?",options:["16th","17th","18th","19th"],correctIndex:2},
+    {q:"If A is the brother of B, B is the daughter of C, and C is the wife of D, how is A related to D?",options:["Brother","Son","Nephew","Father"],correctIndex:1},
+    {q:"Find the value of K in this pattern: 100, 96, 87, K, 46, 10",options:["69","71","72","77"],correctIndex:1}
+  ]
+};
 const TESTS = {
   1: {
     label: "Test 1",
@@ -1558,10 +1809,20 @@ const TESTS = {
     totalQuestions: 98,
     minutes: 100,
     data: TEST_DATA_10
+  },
+  mock: {
+    label: "Mega Mock Test",
+    title: "Sindh Uni. 2k26-27 Pre Entry Test by SSS Org.",
+    subjects: ["English","General Science","General Knowledge","Mathematics","IQ"],
+    totalQuestions: 200,
+    minutes: 180,
+    password: "SSSORG",
+    data: TEST_DATA_MOCK
   }
 };
 
 let currentTest = null;
+let pendingTestKey = null;
 let ACTIVE_DATA = {};
 let TOTAL_MINUTES = 100;
 let timeRemaining = TOTAL_MINUTES * 60;
@@ -1582,6 +1843,38 @@ function sendRecordToSheet(payload){
 function escapeHtml(str){const d=document.createElement('div');d.textContent=str;return d.innerHTML;}
 
 function selectTest(key){
+  const test = TESTS[key];
+  if(test.password){
+    pendingTestKey = key;
+    document.getElementById('password-test-title').textContent = test.title;
+    document.getElementById('password-input').value = "";
+    document.getElementById('password-error').textContent = "";
+    document.getElementById('screen-home').style.display = 'none';
+    document.getElementById('screen-password').style.display = 'block';
+    document.getElementById('screen-landing').style.display = 'none';
+    document.getElementById('screen-test').style.display = 'none';
+    document.getElementById('screen-result').style.display = 'none';
+    window.scrollTo({top:0,behavior:'smooth'});
+    return;
+  }
+  openLandingForTest(key);
+}
+
+function submitPassword(){
+  const input = document.getElementById('password-input');
+  const test = TESTS[pendingTestKey];
+  const err = document.getElementById('password-error');
+  if(input.value.trim().toUpperCase() === String(test.password).toUpperCase()){
+    err.textContent = "";
+    openLandingForTest(pendingTestKey);
+  }else{
+    err.textContent = "Incorrect password. Please contact SSS ORG for the access code.";
+    input.value = "";
+    input.focus();
+  }
+}
+
+function openLandingForTest(key){
   currentTest = TESTS[key];
   ACTIVE_DATA = currentTest.data;
   TOTAL_MINUTES = currentTest.minutes;
@@ -1597,6 +1890,7 @@ function selectTest(key){
   document.getElementById('err-district').textContent = "";
 
   document.getElementById('screen-home').style.display = 'none';
+  document.getElementById('screen-password').style.display = 'none';
   document.getElementById('screen-landing').style.display = 'block';
   document.getElementById('screen-test').style.display = 'none';
   document.getElementById('screen-result').style.display = 'none';
@@ -1606,8 +1900,10 @@ function selectTest(key){
 function goHome(){
   clearInterval(timerInterval);
   currentTest = null;
+  pendingTestKey = null;
   ACTIVE_DATA = {};
   document.getElementById('screen-home').style.display = 'block';
+  document.getElementById('screen-password').style.display = 'none';
   document.getElementById('screen-landing').style.display = 'none';
   document.getElementById('screen-test').style.display = 'none';
   document.getElementById('screen-result').style.display = 'none';
